@@ -27,8 +27,9 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
-.header{position:sticky;top:0;z-index:100;background:var(--navy)}
-.header-bar{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#1a1a2e;position:sticky;top:0;z-index:100}
+.header-logo{display:flex;align-items:center;gap:10px}
+.header-logo img{height:40px;width:auto}
 .logo{display:flex;align-items:center;gap:10px;color:var(--white)}
 .logo-mark{font-size:22px;width:38px;height:38px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center}
 .logo-name{font-family:var(--font-h);font-weight:700;font-size:16px;line-height:1.2}
@@ -38,12 +39,12 @@ ul{list-style:none}
 .nav-link:hover,.nav-link.open{color:#fff;background:rgba(255,255,255,0.08)}
 .nav-link .arrow{font-size:10px;transition:transform 0.2s}
 .nav-link.open .arrow{transform:rotate(180deg)}
+.call-btn{display:inline-flex;align-items:center;gap:6px;background:#6b21a8;color:white;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;border:none;cursor:pointer;transition:0.15s}
+.call-btn:hover{background:#5a2d8c}
+.call-btn svg{width:14px;height:14px}
 .hdr-right{display:flex;align-items:center;gap:14px}
 .hdr-phone{color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
 .hdr-phone svg{width:15px;height:15px}
-.btn-call{background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:var(--radius);display:flex;align-items:center;gap:6px;transition:0.15s;border:none;cursor:pointer}
-.btn-call:hover{background:var(--accent-hover)}
-.btn-call svg{width:14px;height:14px}
 
 .dropdown-wrap{position:relative}
 .mega{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:24px 28px;min-width:520px;opacity:0;visibility:hidden;transition:opacity 0.15s,visibility 0.15s;z-index:200}
@@ -194,19 +195,9 @@ textarea{resize:vertical;min-height:80px}
 .footer-bottom a:hover{color:rgba(255,255,255,0.6)}
 .footer-disc{font-size:11px;color:rgba(255,255,255,0.25);margin-top:12px;line-height:1.6;max-width:800px}
 
-.mob-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:6px}
-.mob-toggle svg{width:22px;height:22px}
-.mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:300;padding:20px;overflow-y:auto}
-.mob-nav.show{display:block}
-.mob-nav-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.mob-close{background:none;border:none;color:#fff;cursor:pointer;padding:6px}
-.mob-close svg{width:22px;height:22px}
-.mob-nav a{display:block;padding:14px 0;font-size:17px;font-weight:600;color:#fff;border-bottom:1px solid rgba(255,255,255,0.06)}
-.mob-nav .mob-services a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.65);padding:9px 0;border:none}
 
 @media(max-width:900px){
-  .nav,.hdr-phone{display:none}
-  .mob-toggle{display:block}
+  .nav{display:none}
   .mega{display:none!important}
   .svc-grid{grid-template-columns:1fr 1fr}
   .about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
@@ -217,12 +208,17 @@ textarea{resize:vertical;min-height:80px}
   .hero h1{font-size:28px}
   .section{padding:32px 20px}
   .phone-fab{display:flex}
+  .call-btn{display:inline-flex}
 }
 @media(max-width:600px){
   .svc-grid,.reviews-grid{grid-template-columns:1fr}
   .areas-grid{grid-template-columns:1fr 1fr}
   .trust-bar-inner{flex-direction:column;align-items:flex-start;gap:6px}
   .about-stats{grid-template-columns:1fr 1fr}
+  .call-btn{padding:6px 12px;font-size:12px}
+  .call-btn svg{width:12px;height:12px}
+  .hdr-right{gap:8px}
+  .hdr-phone{display:none}
 }
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
@@ -232,17 +228,18 @@ textarea{resize:vertical;min-height:80px}
 <body>
 
 <header class="header">
-  <div class="header-bar">
+  <div class="header-logo">
     <a href="index.html" class="logo">
       <div class="logo-mark">💧</div>
       <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
-    <nav class="nav">
-      <div class="dropdown-wrap" id="ddWrap">
-        <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
-        <div class="mega" id="ddMenu">
-          <h4>Our Services</h4>
-          <div class="mega-grid"><a href="emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+  </div>
+  <nav class="nav">
+    <div class="dropdown-wrap" id="ddWrap">
+      <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
+      <div class="mega" id="ddMenu">
+        <h4>Our Services</h4>
+        <div class="mega-grid"><a href="emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="blocked-drains.html" class="mega-link">Blocked Drains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="boiler-repairs.html" class="mega-link">Boiler Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="tap-toilet-repairs.html" class="mega-link">Tap &amp; Toilet Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
@@ -251,18 +248,13 @@ textarea{resize:vertical;min-height:80px}
 <a href="general-plumbing.html" class="mega-link">General Plumbing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="services.html" class="mega-link" style="color:var(--accent);font-weight:600;margin-top:4px">View all services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
-        </div>
       </div>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="areas.html" class="nav-link">Areas</a>
-      <a href="index.html#contact" class="nav-link">Contact</a>
-    </nav>
-    <div class="hdr-right">
-      <a href="tel:01143034567" class="hdr-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us on 0114 303 4567</a>
-      <a href="tel:01143034567" class="btn-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us</a>
     </div>
-    <button class="mob-toggle" onclick="document.getElementById('mobNav').classList.add('show');document.body.style.overflow='hidden'" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
-  </div>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="areas.html" class="nav-link">Areas</a>
+    <a href="index.html#contact" class="nav-link">Contact</a>
+  </nav>
+  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
 </header>
 
 <div class="trust-bar">
@@ -368,36 +360,36 @@ textarea{resize:vertical;min-height:80px}
     <h2 class="section-title">Got questions? Here&#x27;s the quick answers.</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">How much does an emergency plumber cost in Nottingham?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-q">How much does an emergency plumber cost in Sheffield?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
         <div class="faq-a"><div class="faq-a-inner">Emergency call-outs in Sheffield typically range from £80-£150, plus the repair work itself. No call-out fee. Our visit includes the first hour&#x27;s labour when you book with us. Most emergency jobs like burst pipes or severe leaks cost £150-£400 including parts.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How long does it take for an emergency plumber to arrive in Nottingham?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-q">How long does it take for an emergency plumber to arrive in Sheffield?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
         <div class="faq-a"><div class="faq-a-inner">For genuine emergencies like burst pipes or no heating in winter, we aim to have an engineer with you within 2 hours when you call during our business hours (Mon-Thurs 8:30am-6pm, Fri 9am-4pm). If you need us outside these hours, call during opening hours to book and we&#x27;ll dispatch someone. Across Sheffield, West Bridgford, Beeston, and surrounding areas. If we&#x27;re genuinely busy, we&#x27;ll be honest about wait times. Most emergency jobs get sorted within the first hour of arrival once we&#x27;re there.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How quickly can you get to me in Nottingham?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-q">How quickly can you get to me in Sheffield?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
         <div class="faq-a"><div class="faq-a-inner">We aim to have an engineer with you within 2 hours for genuine emergencies when you call during our business hours (Mon-Thurs 8:30am-6pm, Fri 9am-4pm). Our engineers are based locally in Arnold, West Bridgford, and Beeston, so we&#x27;re rarely more than 20 minutes from any NG postcode. If you&#x27;ve got a burst pipe or no water, call us now, we&#x27;ll prioritise you.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">What counts as a plumbing emergency?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">A burst pipe, severe leak causing flooding, no hot water in winter, frozen pipes at risk of bursting, boiler breakdown with no heating, or a completely blocked toilet (if it&#x27;s your only one). If it&#x27;s causing damage, health risks, or you can&#x27;t live normally, it&#x27;s an emergency. A dripping tap can wait till morning We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">A burst pipe, severe leak causing flooding, no hot water in winter, frozen pipes at risk of bursting, boiler breakdown with no heating, or a completely blocked toilet (if it&#x27;s your only one). If it&#x27;s causing damage, health risks, or you can&#x27;t live normally, it&#x27;s an emergency. A dripping tap can wait till morning.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can I turn my water off myself before you arrive?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, and you should if you&#x27;ve got an active leak. Your main stopcock is usually under the kitchen sink or where the water pipe enters your house. Turn it clockwise until it&#x27;s fully closed. If you can&#x27;t find it or it&#x27;s seized, we&#x27;ll sort it when we arrive. In the meantime, turn off your boiler and move valuables away from the leak We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, and you should if you&#x27;ve got an active leak. Your main stopcock is usually under the kitchen sink or where the water pipe enters your house. Turn it clockwise until it&#x27;s fully closed. If you can&#x27;t find it or it&#x27;s seized, we&#x27;ll sort it when we arrive. In the meantime, turn off your boiler and move valuables away from the leak.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">What if I have an emergency outside your opening hours?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Our phone lines are open Mon-Thurs 8:30am-6pm, Fri 9am-4pm. If you have a genuine emergency outside these hours, call during opening hours to book and we can dispatch an engineer. We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Our phone lines are open Mon-Thurs 8:30am-6pm, Fri 9am-4pm. If you have a genuine emergency outside these hours, call during opening hours to book and we can dispatch an engineer.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">What if the problem comes back after you fix it?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Our 12-month guarantee is included with our membership plan. Members also get £50 off all our services (appliance, plumbing, drainage, boiler, and electrical repairs and installations), discounts on parts, £80 off our appliance store, and priority service. If the same fault recurs within a year, we&#x27;ll come back and fix it at no extra charge. We keep detailed records of every job. We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Our 12-month guarantee is included with our membership plan. Members also get £50 off all our services (appliance, plumbing, drainage, boiler, and electrical repairs and installations), discounts on parts, £80 off our appliance store, and priority service. If the same fault recurs within a year, we&#x27;ll come back and fix it at no extra charge. We keep detailed records of every job.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Will you make a mess fixing it?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">We&#x27;ll do what&#x27;s necessary to fix the problem safely. If we need to lift floorboards or cut into walls, we&#x27;ll show you first and explain why. We&#x27;ll always use dustsheets and clean up after ourselves. For concealed pipework, sometimes there&#x27;s no way around making an access hole, but we&#x27;ll keep it as small as possible We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We&#x27;ll do what&#x27;s necessary to fix the problem safely. If we need to lift floorboards or cut into walls, we&#x27;ll show you first and explain why. We&#x27;ll always use dustsheets and clean up after ourselves. For concealed pipework, sometimes there&#x27;s no way around making an access hole, but we&#x27;ll keep it as small as possible.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can you fix frozen pipes in winter?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -474,22 +466,6 @@ textarea{resize:vertical;min-height:80px}
     <p class="footer-disc">Sheffield Plumbers is part of a national home services network. Tradespeople who visit your property will be employed or vetted subcontractors within your area.</p>
   </div>
 </footer>
-
-<div class="mob-nav" id="mobNav">
-  <div class="mob-nav-top">
-    <div class="logo"><div class="logo-mark">💧</div><div class="logo-name" style="color:#fff">Sheffield Plumbers</div></div>
-    <button class="mob-close" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-  </div>
-  <a href="index.html#services" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">Services</a>
-  <div class="mob-services"><a href="emergency-plumbing.html">Emergency Plumber</a><a href="blocked-drains.html">Blocked Drains</a><a href="boiler-repairs.html">Boiler Repairs</a><a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="leak-detection.html">Leak Detection</a><a href="radiators-heating.html">Radiators &amp; Heating</a><a href="general-plumbing.html">General Plumbing</a>
-    <a href="services.html" style="color:var(--accent);font-weight:600;margin-top:4px">View all services</a>
-  </div>
-  <a href="about.html" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">About</a>
-  <a href="areas.html" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">Areas</a>
-  <a href="blog.html" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">Blog</a>
-  <a href="index.html#contact" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">Contact</a>
-  <a href="tel:01143034567" style="color:#6c3fa0;margin-top:12px">Call 0114 303 4567</a>
-</div>
 <a href="tel:01143034567" class="phone-fab" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
 
 <script type="application/ld+json">
@@ -516,7 +492,7 @@ textarea{resize:vertical;min-height:80px}
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does an emergency plumber cost in Nottingham?","acceptedAnswer":{"@type":"Answer","text":"Emergency call-outs in Sheffield typically range from £80-£150, plus the repair work itself. No call-out fee. Our visit includes the first hour&#x27;s labour when you book with us. Most emergency jobs like burst pipes or severe leaks cost £150-£400 including parts."}},{"@type":"Question","name":"How long does it take for an emergency plumber to arrive in Nottingham?","acceptedAnswer":{"@type":"Answer","text":"For genuine emergencies like burst pipes or no heating in winter, we aim to have an engineer with you within 2 hours when you call during our business hours (Mon-Thurs 8:30am-6pm, Fri 9am-4pm). If you need us outside these hours, call during opening hours to book and we&#x27;ll dispatch someone. Across Sheffield, West Bridgford, Beeston, and surrounding areas. If we&#x27;re genuinely busy, we&#x27;ll be honest about wait times. Most emergency jobs get sorted within the first hour of arrival once we&#x27;re there."}},{"@type":"Question","name":"How quickly can you get to me in Nottingham?","acceptedAnswer":{"@type":"Answer","text":"We aim to have an engineer with you within 2 hours for genuine emergencies when you call during our business hours (Mon-Thurs 8:30am-6pm, Fri 9am-4pm). Our engineers are based locally in Arnold, West Bridgford, and Beeston, so we&#x27;re rarely more than 20 minutes from any NG postcode. If you&#x27;ve got a burst pipe or no water, call us now, we&#x27;ll prioritise you."}},{"@type":"Question","name":"What counts as a plumbing emergency?","acceptedAnswer":{"@type":"Answer","text":"A burst pipe, severe leak causing flooding, no hot water in winter, frozen pipes at risk of bursting, boiler breakdown with no heating, or a completely blocked toilet (if it&#x27;s your only one). If it&#x27;s causing damage, health risks, or you can&#x27;t live normally, it&#x27;s an emergency. A dripping tap can wait till morning We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Can I turn my water off myself before you arrive?","acceptedAnswer":{"@type":"Answer","text":"Yes, and you should if you&#x27;ve got an active leak. Your main stopcock is usually under the kitchen sink or where the water pipe enters your house. Turn it clockwise until it&#x27;s fully closed. If you can&#x27;t find it or it&#x27;s seized, we&#x27;ll sort it when we arrive. In the meantime, turn off your boiler and move valuables away from the leak We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"What if I have an emergency outside your opening hours?","acceptedAnswer":{"@type":"Answer","text":"Our phone lines are open Mon-Thurs 8:30am-6pm, Fri 9am-4pm. If you have a genuine emergency outside these hours, call during opening hours to book and we can dispatch an engineer. We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"What if the problem comes back after you fix it?","acceptedAnswer":{"@type":"Answer","text":"Our 12-month guarantee is included with our membership plan. Members also get £50 off all our services (appliance, plumbing, drainage, boiler, and electrical repairs and installations), discounts on parts, £80 off our appliance store, and priority service. If the same fault recurs within a year, we&#x27;ll come back and fix it at no extra charge. We keep detailed records of every job. We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Will you make a mess fixing it?","acceptedAnswer":{"@type":"Answer","text":"We&#x27;ll do what&#x27;s necessary to fix the problem safely. If we need to lift floorboards or cut into walls, we&#x27;ll show you first and explain why. We&#x27;ll always use dustsheets and clean up after ourselves. For concealed pipework, sometimes there&#x27;s no way around making an access hole, but we&#x27;ll keep it as small as possible We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Can you fix frozen pipes in winter?","acceptedAnswer":{"@type":"Answer","text":"Yes, we deal with dozens of frozen pipe call-outs every winter in Sheffield. We&#x27;ll carefully thaw the pipe using specialist equipment, never a blowtorch, which can cause bursts. If the pipe has already split from the ice, we&#x27;ll replace the damaged section. Most frozen pipe jobs take within 2 hours and cost £150-£300 depending on access."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does an emergency plumber cost in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Emergency call-outs in Sheffield typically range from £80-£150, plus the repair work itself. No call-out fee. Our visit includes the first hour&#x27;s labour when you book with us. Most emergency jobs like burst pipes or severe leaks cost £150-£400 including parts."}},{"@type":"Question","name":"How long does it take for an emergency plumber to arrive in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"For genuine emergencies like burst pipes or no heating in winter, we aim to have an engineer with you within 2 hours when you call during our business hours (Mon-Thurs 8:30am-6pm, Fri 9am-4pm). If you need us outside these hours, call during opening hours to book and we&#x27;ll dispatch someone. Across Sheffield, West Bridgford, Beeston, and surrounding areas. If we&#x27;re genuinely busy, we&#x27;ll be honest about wait times. Most emergency jobs get sorted within the first hour of arrival once we&#x27;re there."}},{"@type":"Question","name":"How quickly can you get to me in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"We aim to have an engineer with you within 2 hours for genuine emergencies when you call during our business hours (Mon-Thurs 8:30am-6pm, Fri 9am-4pm). Our engineers are based locally in Arnold, West Bridgford, and Beeston, so we&#x27;re rarely more than 20 minutes from any NG postcode. If you&#x27;ve got a burst pipe or no water, call us now, we&#x27;ll prioritise you."}},{"@type":"Question","name":"What counts as a plumbing emergency?","acceptedAnswer":{"@type":"Answer","text":"A burst pipe, severe leak causing flooding, no hot water in winter, frozen pipes at risk of bursting, boiler breakdown with no heating, or a completely blocked toilet (if it&#x27;s your only one). If it&#x27;s causing damage, health risks, or you can&#x27;t live normally, it&#x27;s an emergency. A dripping tap can wait till morning."}},{"@type":"Question","name":"Can I turn my water off myself before you arrive?","acceptedAnswer":{"@type":"Answer","text":"Yes, and you should if you&#x27;ve got an active leak. Your main stopcock is usually under the kitchen sink or where the water pipe enters your house. Turn it clockwise until it&#x27;s fully closed. If you can&#x27;t find it or it&#x27;s seized, we&#x27;ll sort it when we arrive. In the meantime, turn off your boiler and move valuables away from the leak."}},{"@type":"Question","name":"What if I have an emergency outside your opening hours?","acceptedAnswer":{"@type":"Answer","text":"Our phone lines are open Mon-Thurs 8:30am-6pm, Fri 9am-4pm. If you have a genuine emergency outside these hours, call during opening hours to book and we can dispatch an engineer."}},{"@type":"Question","name":"What if the problem comes back after you fix it?","acceptedAnswer":{"@type":"Answer","text":"Our 12-month guarantee is included with our membership plan. Members also get £50 off all our services (appliance, plumbing, drainage, boiler, and electrical repairs and installations), discounts on parts, £80 off our appliance store, and priority service. If the same fault recurs within a year, we&#x27;ll come back and fix it at no extra charge. We keep detailed records of every job."}},{"@type":"Question","name":"Will you make a mess fixing it?","acceptedAnswer":{"@type":"Answer","text":"We&#x27;ll do what&#x27;s necessary to fix the problem safely. If we need to lift floorboards or cut into walls, we&#x27;ll show you first and explain why. We&#x27;ll always use dustsheets and clean up after ourselves. For concealed pipework, sometimes there&#x27;s no way around making an access hole, but we&#x27;ll keep it as small as possible."}},{"@type":"Question","name":"Can you fix frozen pipes in winter?","acceptedAnswer":{"@type":"Answer","text":"Yes, we deal with dozens of frozen pipe call-outs every winter in Sheffield. We&#x27;ll carefully thaw the pipe using specialist equipment, never a blowtorch, which can cause bursts. If the pipe has already split from the ice, we&#x27;ll replace the damaged section. Most frozen pipe jobs take within 2 hours and cost £150-£300 depending on access."}}]}
 </script>
 <script>
 (function(){

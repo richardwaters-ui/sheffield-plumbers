@@ -27,8 +27,9 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
-.header{position:sticky;top:0;z-index:100;background:var(--navy)}
-.header-bar{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#1a1a2e;position:sticky;top:0;z-index:100}
+.header-logo{display:flex;align-items:center;gap:10px}
+.header-logo img{height:40px;width:auto}
 .logo{display:flex;align-items:center;gap:10px;color:var(--white)}
 .logo-mark{font-size:22px;width:38px;height:38px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center}
 .logo-name{font-family:var(--font-h);font-weight:700;font-size:16px;line-height:1.2}
@@ -38,12 +39,12 @@ ul{list-style:none}
 .nav-link:hover,.nav-link.open{color:#fff;background:rgba(255,255,255,0.08)}
 .nav-link .arrow{font-size:10px;transition:transform 0.2s}
 .nav-link.open .arrow{transform:rotate(180deg)}
+.call-btn{display:inline-flex;align-items:center;gap:6px;background:#6b21a8;color:white;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;border:none;cursor:pointer;transition:0.15s}
+.call-btn:hover{background:#5a2d8c}
+.call-btn svg{width:14px;height:14px}
 .hdr-right{display:flex;align-items:center;gap:14px}
 .hdr-phone{color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
 .hdr-phone svg{width:15px;height:15px}
-.btn-call{background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:var(--radius);display:flex;align-items:center;gap:6px;transition:0.15s;border:none;cursor:pointer}
-.btn-call:hover{background:var(--accent-hover)}
-.btn-call svg{width:14px;height:14px}
 
 .dropdown-wrap{position:relative}
 .mega{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:24px 28px;min-width:520px;opacity:0;visibility:hidden;transition:opacity 0.15s,visibility 0.15s;z-index:200}
@@ -194,19 +195,9 @@ textarea{resize:vertical;min-height:80px}
 .footer-bottom a:hover{color:rgba(255,255,255,0.6)}
 .footer-disc{font-size:11px;color:rgba(255,255,255,0.25);margin-top:12px;line-height:1.6;max-width:800px}
 
-.mob-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:6px}
-.mob-toggle svg{width:22px;height:22px}
-.mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:300;padding:20px;overflow-y:auto}
-.mob-nav.show{display:block}
-.mob-nav-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.mob-close{background:none;border:none;color:#fff;cursor:pointer;padding:6px}
-.mob-close svg{width:22px;height:22px}
-.mob-nav a{display:block;padding:14px 0;font-size:17px;font-weight:600;color:#fff;border-bottom:1px solid rgba(255,255,255,0.06)}
-.mob-nav .mob-services a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.65);padding:9px 0;border:none}
 
 @media(max-width:900px){
-  .nav,.hdr-phone{display:none}
-  .mob-toggle{display:block}
+  .nav{display:none}
   .mega{display:none!important}
   .svc-grid{grid-template-columns:1fr 1fr}
   .about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
@@ -217,12 +208,17 @@ textarea{resize:vertical;min-height:80px}
   .hero h1{font-size:28px}
   .section{padding:32px 20px}
   .phone-fab{display:flex}
+  .call-btn{display:inline-flex}
 }
 @media(max-width:600px){
   .svc-grid,.reviews-grid{grid-template-columns:1fr}
   .areas-grid{grid-template-columns:1fr 1fr}
   .trust-bar-inner{flex-direction:column;align-items:flex-start;gap:6px}
   .about-stats{grid-template-columns:1fr 1fr}
+  .call-btn{padding:6px 12px;font-size:12px}
+  .call-btn svg{width:12px;height:12px}
+  .hdr-right{gap:8px}
+  .hdr-phone{display:none}
 }
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
@@ -232,17 +228,18 @@ textarea{resize:vertical;min-height:80px}
 <body>
 
 <header class="header">
-  <div class="header-bar">
+  <div class="header-logo">
     <a href="../index.html" class="logo">
       <div class="logo-mark">💧</div>
       <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
-    <nav class="nav">
-      <div class="dropdown-wrap" id="ddWrap">
-        <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
-        <div class="mega" id="ddMenu">
-          <h4>Our Services</h4>
-          <div class="mega-grid"><a href="../emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+  </div>
+  <nav class="nav">
+    <div class="dropdown-wrap" id="ddWrap">
+      <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
+      <div class="mega" id="ddMenu">
+        <h4>Our Services</h4>
+        <div class="mega-grid"><a href="../emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../blocked-drains.html" class="mega-link">Blocked Drains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../boiler-repairs.html" class="mega-link">Boiler Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../tap-toilet-repairs.html" class="mega-link">Tap &amp; Toilet Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
@@ -251,18 +248,13 @@ textarea{resize:vertical;min-height:80px}
 <a href="../general-plumbing.html" class="mega-link">General Plumbing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../services.html" class="mega-link" style="color:var(--accent);font-weight:600;margin-top:4px">View all services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
-        </div>
       </div>
-      <a href="../about.html" class="nav-link">About</a>
-      <a href="../areas.html" class="nav-link">Areas</a>
-      <a href="../index.html#contact" class="nav-link">Contact</a>
-    </nav>
-    <div class="hdr-right">
-      <a href="tel:01143034567" class="hdr-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us on 0114 303 4567</a>
-      <a href="tel:01143034567" class="btn-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us</a>
     </div>
-    <button class="mob-toggle" onclick="document.getElementById('mobNav').classList.add('show');document.body.style.overflow='hidden'" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
-  </div>
+    <a href="../about.html" class="nav-link">About</a>
+    <a href="../areas.html" class="nav-link">Areas</a>
+    <a href="../index.html#contact" class="nav-link">Contact</a>
+  </nav>
+  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
 </header>
 
 <div class="trust-bar">
@@ -308,7 +300,7 @@ textarea{resize:vertical;min-height:80px}
     <div class="content-cards">
         <div class="content-card info">
           <div class="cc-header"><h4>Limescale buildup</h4></div>
-          <p>Nottingham&#x27;s water is moderately hard. Over years, limescale deposits cement the valve mechanism shut. If you never turn it, the limescale hardens and locks it solid.</p>
+          <p>Sheffield&#x27;s water is moderately hard. Over years, limescale deposits cement the valve mechanism shut. If you never turn it, the limescale hardens and locks it solid.</p>
         </div>
         <div class="content-card info">
           <div class="cc-header"><h4>Corrosion</h4></div>
@@ -397,7 +389,7 @@ textarea{resize:vertical;min-height:80px}
     <h2 class="section-title">Got questions? Here&#x27;s the quick answers.</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">How much does emergency stopcock replacement cost in Nottingham?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-q">How much does emergency stopcock replacement cost in Sheffield?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
         <div class="faq-a"><div class="faq-a-inner">Standard replacements cost £120-£200 across Sheffield and surrounding areas. Complex jobs requiring pipework modifications or difficult access cost £180-£280. If we need to isolate the water temporarily while we source parts, that&#x27;s £85-£120.</div></div>
       </div>
       <div class="faq-item">
@@ -406,27 +398,27 @@ textarea{resize:vertical;min-height:80px}
       </div>
       <div class="faq-item">
         <div class="faq-q">Can you force my seized stopcock to turn?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">We&#x27;ll try, using penetrating oil and careful leverage. But forcing it risks snapping the valve spindle, which makes the situation worse. If it won&#x27;t move safely, we replace it We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We&#x27;ll try, using penetrating oil and careful leverage. But forcing it risks snapping the valve spindle, which makes the situation worse. If it won&#x27;t move safely, we replace it.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">What if my stopcock is in an awkward place?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">We&#x27;ve seen them in some tricky spots, under stairs, behind washing machines, buried in kitchen cabinets. We can relocate your stopcock to somewhere accessible or fit a secondary isolation valve in an easier location We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We&#x27;ve seen them in some tricky spots, under stairs, behind washing machines, buried in kitchen cabinets. We can relocate your stopcock to somewhere accessible or fit a secondary isolation valve in an easier location.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Will a new stopcock be easier to turn?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, modern quarter-turn lever valves operate with a 90-degree turn of the handle. No stiff spinning required. They&#x27;re far more reliable than old gate valves and they don&#x27;t seize We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, modern quarter-turn lever valves operate with a 90-degree turn of the handle. No stiff spinning required. They&#x27;re far more reliable than old gate valves and they don&#x27;t seize.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can I replace a stopcock myself?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Technically yes, but you&#x27;ll need to drain the system and work fast. If the old valve won&#x27;t come off easily, you&#x27;ll have water everywhere. For emergencies, it&#x27;s safer and faster to call us We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Technically yes, but you&#x27;ll need to drain the system and work fast. If the old valve won&#x27;t come off easily, you&#x27;ll have water everywhere. For emergencies, it&#x27;s safer and faster to call us.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">What if my stopcock is leaking when I finally turn it?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Old stopcocks often leak once disturbed. The valve seat is worn or the gland packing has dried out. If turning it causes a leak, turn it back fully on and call us to replace it We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Old stopcocks often leak once disturbed. The valve seat is worn or the gland packing has dried out. If turning it causes a leak, turn it back fully on and call us to replace it.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Do you carry stopcocks on your van?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, we carry quarter-turn stopcocks in common sizes (15mm and 22mm) plus the fittings needed to connect them. Most replacements are completed in one visit without needing to order parts We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, we carry quarter-turn stopcocks in common sizes (15mm and 22mm) plus the fittings needed to connect them. Most replacements are completed in one visit without needing to order parts.</div></div>
       </div>
     </div>
   </div>
@@ -537,7 +529,7 @@ textarea{resize:vertical;min-height:80px}
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does emergency stopcock replacement cost in Nottingham?","acceptedAnswer":{"@type":"Answer","text":"Standard replacements cost £120-£200 across Sheffield and surrounding areas. Complex jobs requiring pipework modifications or difficult access cost £180-£280. If we need to isolate the water temporarily while we source parts, that&#x27;s £85-£120."}},{"@type":"Question","name":"How long does emergency stopcock replacement take?","acceptedAnswer":{"@type":"Answer","text":"Most replacements take within 2 hours from isolating the water to testing the new valve. Complex jobs in tight spaces or requiring pipe modifications take 2-3 hours, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}},{"@type":"Question","name":"Can you force my seized stopcock to turn?","acceptedAnswer":{"@type":"Answer","text":"We&#x27;ll try, using penetrating oil and careful leverage. But forcing it risks snapping the valve spindle, which makes the situation worse. If it won&#x27;t move safely, we replace it We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"What if my stopcock is in an awkward place?","acceptedAnswer":{"@type":"Answer","text":"We&#x27;ve seen them in some tricky spots, under stairs, behind washing machines, buried in kitchen cabinets. We can relocate your stopcock to somewhere accessible or fit a secondary isolation valve in an easier location We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Will a new stopcock be easier to turn?","acceptedAnswer":{"@type":"Answer","text":"Yes, modern quarter-turn lever valves operate with a 90-degree turn of the handle. No stiff spinning required. They&#x27;re far more reliable than old gate valves and they don&#x27;t seize We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Can I replace a stopcock myself?","acceptedAnswer":{"@type":"Answer","text":"Technically yes, but you&#x27;ll need to drain the system and work fast. If the old valve won&#x27;t come off easily, you&#x27;ll have water everywhere. For emergencies, it&#x27;s safer and faster to call us We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"What if my stopcock is leaking when I finally turn it?","acceptedAnswer":{"@type":"Answer","text":"Old stopcocks often leak once disturbed. The valve seat is worn or the gland packing has dried out. If turning it causes a leak, turn it back fully on and call us to replace it We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Do you carry stopcocks on your van?","acceptedAnswer":{"@type":"Answer","text":"Yes, we carry quarter-turn stopcocks in common sizes (15mm and 22mm) plus the fittings needed to connect them. Most replacements are completed in one visit without needing to order parts We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does emergency stopcock replacement cost in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Standard replacements cost £120-£200 across Sheffield and surrounding areas. Complex jobs requiring pipework modifications or difficult access cost £180-£280. If we need to isolate the water temporarily while we source parts, that&#x27;s £85-£120."}},{"@type":"Question","name":"How long does emergency stopcock replacement take?","acceptedAnswer":{"@type":"Answer","text":"Most replacements take within 2 hours from isolating the water to testing the new valve. Complex jobs in tight spaces or requiring pipe modifications take 2-3 hours, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}},{"@type":"Question","name":"Can you force my seized stopcock to turn?","acceptedAnswer":{"@type":"Answer","text":"We&#x27;ll try, using penetrating oil and careful leverage. But forcing it risks snapping the valve spindle, which makes the situation worse. If it won&#x27;t move safely, we replace it."}},{"@type":"Question","name":"What if my stopcock is in an awkward place?","acceptedAnswer":{"@type":"Answer","text":"We&#x27;ve seen them in some tricky spots, under stairs, behind washing machines, buried in kitchen cabinets. We can relocate your stopcock to somewhere accessible or fit a secondary isolation valve in an easier location."}},{"@type":"Question","name":"Will a new stopcock be easier to turn?","acceptedAnswer":{"@type":"Answer","text":"Yes, modern quarter-turn lever valves operate with a 90-degree turn of the handle. No stiff spinning required. They&#x27;re far more reliable than old gate valves and they don&#x27;t seize."}},{"@type":"Question","name":"Can I replace a stopcock myself?","acceptedAnswer":{"@type":"Answer","text":"Technically yes, but you&#x27;ll need to drain the system and work fast. If the old valve won&#x27;t come off easily, you&#x27;ll have water everywhere. For emergencies, it&#x27;s safer and faster to call us."}},{"@type":"Question","name":"What if my stopcock is leaking when I finally turn it?","acceptedAnswer":{"@type":"Answer","text":"Old stopcocks often leak once disturbed. The valve seat is worn or the gland packing has dried out. If turning it causes a leak, turn it back fully on and call us to replace it."}},{"@type":"Question","name":"Do you carry stopcocks on your van?","acceptedAnswer":{"@type":"Answer","text":"Yes, we carry quarter-turn stopcocks in common sizes (15mm and 22mm) plus the fittings needed to connect them. Most replacements are completed in one visit without needing to order parts."}}]}
 </script>
 <script>
 (function(){

@@ -27,8 +27,9 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
-.header{position:sticky;top:0;z-index:100;background:var(--navy)}
-.header-bar{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#1a1a2e;position:sticky;top:0;z-index:100}
+.header-logo{display:flex;align-items:center;gap:10px}
+.header-logo img{height:40px;width:auto}
 .logo{display:flex;align-items:center;gap:10px;color:var(--white)}
 .logo-mark{font-size:22px;width:38px;height:38px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center}
 .logo-name{font-family:var(--font-h);font-weight:700;font-size:16px;line-height:1.2}
@@ -38,12 +39,12 @@ ul{list-style:none}
 .nav-link:hover,.nav-link.open{color:#fff;background:rgba(255,255,255,0.08)}
 .nav-link .arrow{font-size:10px;transition:transform 0.2s}
 .nav-link.open .arrow{transform:rotate(180deg)}
+.call-btn{display:inline-flex;align-items:center;gap:6px;background:#6b21a8;color:white;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;border:none;cursor:pointer;transition:0.15s}
+.call-btn:hover{background:#5a2d8c}
+.call-btn svg{width:14px;height:14px}
 .hdr-right{display:flex;align-items:center;gap:14px}
 .hdr-phone{color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
 .hdr-phone svg{width:15px;height:15px}
-.btn-call{background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:var(--radius);display:flex;align-items:center;gap:6px;transition:0.15s;border:none;cursor:pointer}
-.btn-call:hover{background:var(--accent-hover)}
-.btn-call svg{width:14px;height:14px}
 
 .dropdown-wrap{position:relative}
 .mega{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:24px 28px;min-width:520px;opacity:0;visibility:hidden;transition:opacity 0.15s,visibility 0.15s;z-index:200}
@@ -194,19 +195,9 @@ textarea{resize:vertical;min-height:80px}
 .footer-bottom a:hover{color:rgba(255,255,255,0.6)}
 .footer-disc{font-size:11px;color:rgba(255,255,255,0.25);margin-top:12px;line-height:1.6;max-width:800px}
 
-.mob-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:6px}
-.mob-toggle svg{width:22px;height:22px}
-.mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:300;padding:20px;overflow-y:auto}
-.mob-nav.show{display:block}
-.mob-nav-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.mob-close{background:none;border:none;color:#fff;cursor:pointer;padding:6px}
-.mob-close svg{width:22px;height:22px}
-.mob-nav a{display:block;padding:14px 0;font-size:17px;font-weight:600;color:#fff;border-bottom:1px solid rgba(255,255,255,0.06)}
-.mob-nav .mob-services a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.65);padding:9px 0;border:none}
 
 @media(max-width:900px){
-  .nav,.hdr-phone{display:none}
-  .mob-toggle{display:block}
+  .nav{display:none}
   .mega{display:none!important}
   .svc-grid{grid-template-columns:1fr 1fr}
   .about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
@@ -217,12 +208,17 @@ textarea{resize:vertical;min-height:80px}
   .hero h1{font-size:28px}
   .section{padding:32px 20px}
   .phone-fab{display:flex}
+  .call-btn{display:inline-flex}
 }
 @media(max-width:600px){
   .svc-grid,.reviews-grid{grid-template-columns:1fr}
   .areas-grid{grid-template-columns:1fr 1fr}
   .trust-bar-inner{flex-direction:column;align-items:flex-start;gap:6px}
   .about-stats{grid-template-columns:1fr 1fr}
+  .call-btn{padding:6px 12px;font-size:12px}
+  .call-btn svg{width:12px;height:12px}
+  .hdr-right{gap:8px}
+  .hdr-phone{display:none}
 }
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
@@ -232,17 +228,18 @@ textarea{resize:vertical;min-height:80px}
 <body>
 
 <header class="header">
-  <div class="header-bar">
+  <div class="header-logo">
     <a href="../index.html" class="logo">
       <div class="logo-mark">💧</div>
       <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
-    <nav class="nav">
-      <div class="dropdown-wrap" id="ddWrap">
-        <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
-        <div class="mega" id="ddMenu">
-          <h4>Our Services</h4>
-          <div class="mega-grid"><a href="../emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+  </div>
+  <nav class="nav">
+    <div class="dropdown-wrap" id="ddWrap">
+      <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
+      <div class="mega" id="ddMenu">
+        <h4>Our Services</h4>
+        <div class="mega-grid"><a href="../emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../blocked-drains.html" class="mega-link">Blocked Drains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../boiler-repairs.html" class="mega-link">Boiler Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../tap-toilet-repairs.html" class="mega-link">Tap &amp; Toilet Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
@@ -251,18 +248,13 @@ textarea{resize:vertical;min-height:80px}
 <a href="../general-plumbing.html" class="mega-link">General Plumbing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../services.html" class="mega-link" style="color:var(--accent);font-weight:600;margin-top:4px">View all services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
-        </div>
       </div>
-      <a href="../about.html" class="nav-link">About</a>
-      <a href="../areas.html" class="nav-link">Areas</a>
-      <a href="../index.html#contact" class="nav-link">Contact</a>
-    </nav>
-    <div class="hdr-right">
-      <a href="tel:01143034567" class="hdr-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us on 0114 303 4567</a>
-      <a href="tel:01143034567" class="btn-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us</a>
     </div>
-    <button class="mob-toggle" onclick="document.getElementById('mobNav').classList.add('show');document.body.style.overflow='hidden'" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
-  </div>
+    <a href="../about.html" class="nav-link">About</a>
+    <a href="../areas.html" class="nav-link">Areas</a>
+    <a href="../index.html#contact" class="nav-link">Contact</a>
+  </nav>
+  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
 </header>
 
 <div class="trust-bar">
@@ -289,15 +281,18 @@ textarea{resize:vertical;min-height:80px}
       <h1 style="font-family:var(--font-h);font-size:clamp(24px,3.5vw,36px);font-weight:800;line-height:1.2;margin-bottom:16px">How to Fix a Dripping Tap (Or When to Call a Plumber)</h1>
       <p style="font-size:17px;color:var(--text);line-height:1.7;margin-bottom:28px">Dripping tap keeping you awake? Here&#x27;s how to fix it yourself, or when to admit defeat and call someone who knows what they&#x27;re doing.</p>
       <h2>Why Taps Drip</h2>
+<img src="https://images.pexels.com/photos/32042965/pexels-photo-32042965.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940" alt="Why Taps Drip" style="width:100%;max-width:720px;height:auto;border-radius:8px;margin:20px 0" loading="lazy">
 <p>Taps drip because the washer or ceramic disc that seals the valve has worn out. Every time you turn the tap, the washer compresses and releases. After years of use, it degrades and stops sealing properly. Water seeps through even when the tap&#x27;s off.</p>
 <p>Traditional taps with rubber washers last 5-10 years before the washer needs replacing. Modern quarter-turn taps with ceramic discs last longer, but the discs can crack or get debris stuck in them, causing drips.</p>
 <p>Hard water makes it worse. Sheffield&#x27;s water isn&#x27;t particularly hard, but limescale can build up on tap mechanisms over time, stopping them sealing cleanly. You&#x27;ll notice this more in kettles and shower heads than taps, but it&#x27;s a factor.</p>
 <h2>Fixing a Dripping Tap Yourself</h2>
+<img src="https://images.pexels.com/photos/18274115/pexels-photo-18274115.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940" alt="Fixing a Dripping Tap Yourself" style="width:100%;max-width:720px;height:auto;border-radius:8px;margin:20px 0" loading="lazy">
 <p>For a traditional tap with a rubber washer, you need: an adjustable spanner, a flat-head screwdriver, and a replacement washer from any hardware shop (they cost 50p). Turn your water off at the stopcock before you start.</p>
 <p>Remove the tap head cover (usually pries off or unscrews). Undo the headgear nut with a spanner. Pull out the valve mechanism. You&#x27;ll see a rubber washer at the bottom, held by a small screw. Replace it, reassemble, turn water back on.</p>
 <p>If it still drips, the valve seat might be scored. You can buy a reseating tool to smooth it, but at this point you&#x27;re often better off replacing the whole tap. A new tap costs £15-£60 and lasts another decade.</p>
 <p>Quarter-turn ceramic disc taps are harder to fix. The cartridge is a sealed unit. If it&#x27;s dripping, you need to replace the entire cartridge, which costs £15-£30 and requires the exact model. Easier to call a plumber unless you&#x27;re confident.</p>
 <h2>When to Call a Plumber</h2>
+<img src="https://images.pexels.com/photos/7859953/pexels-photo-7859953.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940" alt="When to Call a Plumber" style="width:100%;max-width:720px;height:auto;border-radius:8px;margin:20px 0" loading="lazy">
 <p>If you&#x27;ve replaced the washer and it still drips, call us. The valve seat&#x27;s probably damaged or the tap body&#x27;s corroded. We&#x27;ll assess whether it&#x27;s fixable or needs replacing. Most tap replacements take 30-60 minutes.</p>
 <p>If the tap&#x27;s dripping from the spout AND the base, you&#x27;ve got multiple seals failing. This usually means the tap&#x27;s worn out. Replacing it costs less than fixing it at this point. We charge £60-£120 to supply and fit a new tap.</p>
 <p>If you can&#x27;t get the tap apart (seized screws, corroded threads), don&#x27;t force it. You&#x27;ll snap something and turn a £5 washer job into a £120 tap replacement. We&#x27;ve got the tools to free seized taps without damage.</p>

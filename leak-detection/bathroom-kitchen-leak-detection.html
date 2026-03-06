@@ -27,8 +27,9 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
-.header{position:sticky;top:0;z-index:100;background:var(--navy)}
-.header-bar{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#1a1a2e;position:sticky;top:0;z-index:100}
+.header-logo{display:flex;align-items:center;gap:10px}
+.header-logo img{height:40px;width:auto}
 .logo{display:flex;align-items:center;gap:10px;color:var(--white)}
 .logo-mark{font-size:22px;width:38px;height:38px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center}
 .logo-name{font-family:var(--font-h);font-weight:700;font-size:16px;line-height:1.2}
@@ -38,12 +39,12 @@ ul{list-style:none}
 .nav-link:hover,.nav-link.open{color:#fff;background:rgba(255,255,255,0.08)}
 .nav-link .arrow{font-size:10px;transition:transform 0.2s}
 .nav-link.open .arrow{transform:rotate(180deg)}
+.call-btn{display:inline-flex;align-items:center;gap:6px;background:#6b21a8;color:white;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;border:none;cursor:pointer;transition:0.15s}
+.call-btn:hover{background:#5a2d8c}
+.call-btn svg{width:14px;height:14px}
 .hdr-right{display:flex;align-items:center;gap:14px}
 .hdr-phone{color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
 .hdr-phone svg{width:15px;height:15px}
-.btn-call{background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:var(--radius);display:flex;align-items:center;gap:6px;transition:0.15s;border:none;cursor:pointer}
-.btn-call:hover{background:var(--accent-hover)}
-.btn-call svg{width:14px;height:14px}
 
 .dropdown-wrap{position:relative}
 .mega{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:24px 28px;min-width:520px;opacity:0;visibility:hidden;transition:opacity 0.15s,visibility 0.15s;z-index:200}
@@ -194,19 +195,9 @@ textarea{resize:vertical;min-height:80px}
 .footer-bottom a:hover{color:rgba(255,255,255,0.6)}
 .footer-disc{font-size:11px;color:rgba(255,255,255,0.25);margin-top:12px;line-height:1.6;max-width:800px}
 
-.mob-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:6px}
-.mob-toggle svg{width:22px;height:22px}
-.mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:300;padding:20px;overflow-y:auto}
-.mob-nav.show{display:block}
-.mob-nav-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.mob-close{background:none;border:none;color:#fff;cursor:pointer;padding:6px}
-.mob-close svg{width:22px;height:22px}
-.mob-nav a{display:block;padding:14px 0;font-size:17px;font-weight:600;color:#fff;border-bottom:1px solid rgba(255,255,255,0.06)}
-.mob-nav .mob-services a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.65);padding:9px 0;border:none}
 
 @media(max-width:900px){
-  .nav,.hdr-phone{display:none}
-  .mob-toggle{display:block}
+  .nav{display:none}
   .mega{display:none!important}
   .svc-grid{grid-template-columns:1fr 1fr}
   .about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
@@ -217,12 +208,17 @@ textarea{resize:vertical;min-height:80px}
   .hero h1{font-size:28px}
   .section{padding:32px 20px}
   .phone-fab{display:flex}
+  .call-btn{display:inline-flex}
 }
 @media(max-width:600px){
   .svc-grid,.reviews-grid{grid-template-columns:1fr}
   .areas-grid{grid-template-columns:1fr 1fr}
   .trust-bar-inner{flex-direction:column;align-items:flex-start;gap:6px}
   .about-stats{grid-template-columns:1fr 1fr}
+  .call-btn{padding:6px 12px;font-size:12px}
+  .call-btn svg{width:12px;height:12px}
+  .hdr-right{gap:8px}
+  .hdr-phone{display:none}
 }
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
@@ -232,17 +228,18 @@ textarea{resize:vertical;min-height:80px}
 <body>
 
 <header class="header">
-  <div class="header-bar">
+  <div class="header-logo">
     <a href="../index.html" class="logo">
       <div class="logo-mark">💧</div>
       <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
-    <nav class="nav">
-      <div class="dropdown-wrap" id="ddWrap">
-        <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
-        <div class="mega" id="ddMenu">
-          <h4>Our Services</h4>
-          <div class="mega-grid"><a href="../emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+  </div>
+  <nav class="nav">
+    <div class="dropdown-wrap" id="ddWrap">
+      <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
+      <div class="mega" id="ddMenu">
+        <h4>Our Services</h4>
+        <div class="mega-grid"><a href="../emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../blocked-drains.html" class="mega-link">Blocked Drains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../boiler-repairs.html" class="mega-link">Boiler Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../tap-toilet-repairs.html" class="mega-link">Tap &amp; Toilet Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
@@ -251,18 +248,13 @@ textarea{resize:vertical;min-height:80px}
 <a href="../general-plumbing.html" class="mega-link">General Plumbing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
 <a href="../services.html" class="mega-link" style="color:var(--accent);font-weight:600;margin-top:4px">View all services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
-        </div>
       </div>
-      <a href="../about.html" class="nav-link">About</a>
-      <a href="../areas.html" class="nav-link">Areas</a>
-      <a href="../index.html#contact" class="nav-link">Contact</a>
-    </nav>
-    <div class="hdr-right">
-      <a href="tel:01143034567" class="hdr-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us on 0114 303 4567</a>
-      <a href="tel:01143034567" class="btn-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us</a>
     </div>
-    <button class="mob-toggle" onclick="document.getElementById('mobNav').classList.add('show');document.body.style.overflow='hidden'" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
-  </div>
+    <a href="../about.html" class="nav-link">About</a>
+    <a href="../areas.html" class="nav-link">Areas</a>
+    <a href="../index.html#contact" class="nav-link">Contact</a>
+  </nav>
+  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
 </header>
 
 <div class="trust-bar">
@@ -360,7 +352,7 @@ textarea{resize:vertical;min-height:80px}
 <section class="section" style="background:var(--off-white)">
   <div class="section-inner">
     <h2 class="section-title">Typical Leak Sources We Fix</h2>
-    <p class="section-desc">Here are the most common bathroom and kitchen leak sources in Nottingham homes:</p>
+    <p class="section-desc">Here are the most common bathroom and kitchen leak sources in Sheffield homes:</p>
     <div class="content-cards">
         <div class="content-card info">
           <div class="cc-header"><h4>Failed shower tray seal</h4></div>
@@ -429,7 +421,7 @@ textarea{resize:vertical;min-height:80px}
     <h2 class="section-title">Got questions? Here&#x27;s the quick answers.</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">How much does bathroom leak detection cost in Nottingham?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-q">How much does bathroom leak detection cost in Sheffield?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
         <div class="faq-a"><div class="faq-a-inner">Bathroom and kitchen leak detection costs £85-£150 depending on complexity across Sheffield and surrounding areas. If we find and fix the leak on the same visit, we often waive the detection fee. Re-sealing showers costs £80-£130. Waste pipe replacement is £60-£90.</div></div>
       </div>
       <div class="faq-item">
@@ -438,23 +430,23 @@ textarea{resize:vertical;min-height:80px}
       </div>
       <div class="faq-item">
         <div class="faq-q">Water is leaking through my ceiling, is it the shower?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Probably, but not always. It could be the shower tray, the grout, the waste pipe, or even a supply pipe above. We&#x27;ll test each systematically to find the actual source, then fix it properly We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Probably, but not always. It could be the shower tray, the grout, the waste pipe, or even a supply pipe above. We&#x27;ll test each systematically to find the actual source, then fix it properly.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can you fix shower leaks without removing tiles?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Often yes. Most shower leaks are sealant or grout failures, which we fix by re-sealing or re-grouting. If the shower tray itself is cracked or the waterproofing has failed, tiles might need to come off We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Often yes. Most shower leaks are sealant or grout failures, which we fix by re-sealing or re-grouting. If the shower tray itself is cracked or the waterproofing has failed, tiles might need to come off.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Why does my bath leak only when it&#x27;s full?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">The overflow connection is loose or cracked. When the bath fills past the overflow level, water runs into the overflow but leaks from the failed connection into the wall. We&#x27;ll tighten or replace the overflow fitting We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">The overflow connection is loose or cracked. When the bath fills past the overflow level, water runs into the overflow but leaks from the failed connection into the wall. We&#x27;ll tighten or replace the overflow fitting.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Is a leak from under my sink urgent?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Even small drips cause rot in the cabinet base and the floor underneath. Left alone, you&#x27;ll be replacing the whole cabinet and possibly floor joists. Fix it now while it&#x27;s cheap We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Even small drips cause rot in the cabinet base and the floor underneath. Left alone, you&#x27;ll be replacing the whole cabinet and possibly floor joists. Fix it now while it&#x27;s cheap.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How often should I re-seal my shower?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Every 12-18 months depending on usage. Silicone perishes with heat, moisture, and cleaning products. If you see black mould in the seal or it&#x27;s cracked, do it immediately We cover all Sheffield areas including NG1, NG2, and NG9 postcodes.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Every 12-18 months depending on usage. Silicone perishes with heat, moisture, and cleaning products. If you see black mould in the seal or it&#x27;s cracked, do it immediately.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Will you need to come back multiple times?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -569,7 +561,7 @@ textarea{resize:vertical;min-height:80px}
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does bathroom leak detection cost in Nottingham?","acceptedAnswer":{"@type":"Answer","text":"Bathroom and kitchen leak detection costs £85-£150 depending on complexity across Sheffield and surrounding areas. If we find and fix the leak on the same visit, we often waive the detection fee. Re-sealing showers costs £80-£130. Waste pipe replacement is £60-£90."}},{"@type":"Question","name":"How long does it take to find a bathroom leak?","acceptedAnswer":{"@type":"Answer","text":"Most bathroom and kitchen leaks are found within 2 hours through visual inspection and water testing. Repairs take another within 2 hours depending on what&#x27;s failed. Expect 2-3 hours for the complete job, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}},{"@type":"Question","name":"Water is leaking through my ceiling, is it the shower?","acceptedAnswer":{"@type":"Answer","text":"Probably, but not always. It could be the shower tray, the grout, the waste pipe, or even a supply pipe above. We&#x27;ll test each systematically to find the actual source, then fix it properly We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Can you fix shower leaks without removing tiles?","acceptedAnswer":{"@type":"Answer","text":"Often yes. Most shower leaks are sealant or grout failures, which we fix by re-sealing or re-grouting. If the shower tray itself is cracked or the waterproofing has failed, tiles might need to come off We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Why does my bath leak only when it&#x27;s full?","acceptedAnswer":{"@type":"Answer","text":"The overflow connection is loose or cracked. When the bath fills past the overflow level, water runs into the overflow but leaks from the failed connection into the wall. We&#x27;ll tighten or replace the overflow fitting We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Is a leak from under my sink urgent?","acceptedAnswer":{"@type":"Answer","text":"Yes. Even small drips cause rot in the cabinet base and the floor underneath. Left alone, you&#x27;ll be replacing the whole cabinet and possibly floor joists. Fix it now while it&#x27;s cheap We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"How often should I re-seal my shower?","acceptedAnswer":{"@type":"Answer","text":"Every 12-18 months depending on usage. Silicone perishes with heat, moisture, and cleaning products. If you see black mould in the seal or it&#x27;s cracked, do it immediately We cover all Sheffield areas including NG1, NG2, and NG9 postcodes."}},{"@type":"Question","name":"Will you need to come back multiple times?","acceptedAnswer":{"@type":"Answer","text":"Usually not. Most bathroom and kitchen leaks are diagnosed and fixed in a single visit. If we need specialist parts or the repair is complex, we&#x27;ll return the next day. We test thoroughly before leaving, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does bathroom leak detection cost in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Bathroom and kitchen leak detection costs £85-£150 depending on complexity across Sheffield and surrounding areas. If we find and fix the leak on the same visit, we often waive the detection fee. Re-sealing showers costs £80-£130. Waste pipe replacement is £60-£90."}},{"@type":"Question","name":"How long does it take to find a bathroom leak?","acceptedAnswer":{"@type":"Answer","text":"Most bathroom and kitchen leaks are found within 2 hours through visual inspection and water testing. Repairs take another within 2 hours depending on what&#x27;s failed. Expect 2-3 hours for the complete job, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}},{"@type":"Question","name":"Water is leaking through my ceiling, is it the shower?","acceptedAnswer":{"@type":"Answer","text":"Probably, but not always. It could be the shower tray, the grout, the waste pipe, or even a supply pipe above. We&#x27;ll test each systematically to find the actual source, then fix it properly."}},{"@type":"Question","name":"Can you fix shower leaks without removing tiles?","acceptedAnswer":{"@type":"Answer","text":"Often yes. Most shower leaks are sealant or grout failures, which we fix by re-sealing or re-grouting. If the shower tray itself is cracked or the waterproofing has failed, tiles might need to come off."}},{"@type":"Question","name":"Why does my bath leak only when it&#x27;s full?","acceptedAnswer":{"@type":"Answer","text":"The overflow connection is loose or cracked. When the bath fills past the overflow level, water runs into the overflow but leaks from the failed connection into the wall. We&#x27;ll tighten or replace the overflow fitting."}},{"@type":"Question","name":"Is a leak from under my sink urgent?","acceptedAnswer":{"@type":"Answer","text":"Yes. Even small drips cause rot in the cabinet base and the floor underneath. Left alone, you&#x27;ll be replacing the whole cabinet and possibly floor joists. Fix it now while it&#x27;s cheap."}},{"@type":"Question","name":"How often should I re-seal my shower?","acceptedAnswer":{"@type":"Answer","text":"Every 12-18 months depending on usage. Silicone perishes with heat, moisture, and cleaning products. If you see black mould in the seal or it&#x27;s cracked, do it immediately."}},{"@type":"Question","name":"Will you need to come back multiple times?","acceptedAnswer":{"@type":"Answer","text":"Usually not. Most bathroom and kitchen leaks are diagnosed and fixed in a single visit. If we need specialist parts or the repair is complex, we&#x27;ll return the next day. We test thoroughly before leaving, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}}]}
 </script>
 <script>
 (function(){
