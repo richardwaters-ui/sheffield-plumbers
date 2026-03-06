@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions | Sheffield Plumbers</title>
+<meta name="description" content="Terms and conditions for Sheffield Plumbers">
+<meta name="robots" content="noindex, nofollow">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2332;--navy-mid:#222d3e;--navy-light:#2a3549;
+  --accent:#6c3fa0;--accent-hover:#5a2d8c;
+  --accent-soft:rgba(108,63,160,0.08);--accent-softer:rgba(108,63,160,0.04);
+  --white:#fff;--off-white:#f5f6f8;
+  --text:#1e2a3a;--text-mid:#4a5568;--text-light:#718096;
+  --border:#e2e8f0;--radius:8px;--radius-lg:12px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+  --shadow:0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
+  --max-w:1180px;
+  --font:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-h:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);color:var(--text);line-height:1.6}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+.header{position:sticky;top:0;z-index:100;background:var(--navy)}
+.header-bar{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--white)}
+.logo-mark{font-size:22px;width:38px;height:38px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.logo-name{font-family:var(--font-h);font-weight:700;font-size:16px;line-height:1.2}
+.logo-name small{display:block;font-size:12px;font-weight:500;opacity:0.6}
+.nav{display:flex;align-items:center;gap:2px}
+.nav-link{color:rgba(255,255,255,0.8);font-size:14px;font-weight:500;padding:8px 14px;border-radius:6px;transition:0.15s;cursor:pointer;display:flex;align-items:center;gap:5px}
+.nav-link:hover,.nav-link.open{color:#fff;background:rgba(255,255,255,0.08)}
+.nav-link .arrow{font-size:10px;transition:transform 0.2s}
+.nav-link.open .arrow{transform:rotate(180deg)}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.hdr-phone{color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
+.hdr-phone svg{width:15px;height:15px}
+.btn-call{background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:var(--radius);display:flex;align-items:center;gap:6px;transition:0.15s;border:none;cursor:pointer}
+.btn-call:hover{background:var(--accent-hover)}
+.btn-call svg{width:14px;height:14px}
+
+.dropdown-wrap{position:relative}
+.mega{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:24px 28px;min-width:520px;opacity:0;visibility:hidden;transition:opacity 0.15s,visibility 0.15s;z-index:200}
+.mega::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid var(--white)}
+.mega.show{opacity:1;visibility:visible}
+.mega h4{font-family:var(--font-h);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-light);margin-bottom:14px}
+.mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 24px}
+.mega-link{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:6px;font-size:14px;font-weight:500;color:var(--text);transition:0.12s}
+.mega-link:hover{background:var(--accent-soft);color:var(--accent)}
+.mega-link svg{width:14px;height:14px;opacity:0;transition:0.12s;color:var(--accent)}
+.mega-link:hover svg{opacity:1}
+
+.trust-bar{background:var(--navy-mid);border-bottom:1px solid rgba(255,255,255,0.05)}
+.trust-bar-inner{max-width:var(--max-w);margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.trust-item{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.85);font-size:13px;font-weight:500}
+.trust-item svg{width:16px;height:16px;opacity:0.65;flex-shrink:0}
+
+.hero{position:relative;min-height:480px;display:flex;align-items:center}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(26,35,50,0.82),rgba(26,35,50,0.55))}
+.hero-inner{max-width:var(--max-w);margin:0 auto;padding:72px 24px;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.15);padding:7px 16px;border-radius:50px;color:rgba(255,255,255,0.9);font-size:13px;font-weight:500;margin-bottom:18px}
+.hero-badge svg{width:15px;height:15px}
+.hero h1{font-family:var(--font-h);font-size:clamp(30px,4.5vw,48px);font-weight:800;color:#fff;line-height:1.12;max-width:620px;margin-bottom:14px}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.8);max-width:500px;line-height:1.6;margin-bottom:28px}
+.hero-cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;font-family:var(--font);font-size:16px;font-weight:600;padding:14px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:0.15s;box-shadow:0 4px 20px rgba(108,63,160,0.35)}
+.hero-cta:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.hero-cta svg{width:18px;height:18px}
+
+.section{padding:48px 24px}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.section-label{font-family:var(--font-h);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);margin-bottom:4px}
+.section-title{font-family:var(--font-h);font-size:clamp(24px,3vw,32px);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:8px}
+.section-desc{font-size:15px;color:var(--text-mid);max-width:560px;line-height:1.7;margin-bottom:28px}
+
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc-card{display:block;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;transition:0.15s}
+.svc-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.svc-card-icon{font-size:28px;margin-bottom:14px}
+.svc-card h3{font-family:var(--font-h);font-size:16px;font-weight:700;margin-bottom:6px}
+.svc-card p{font-size:13px;color:var(--text-mid);line-height:1.55;margin-bottom:12px}
+.svc-card .price{font-size:13px;font-weight:600;color:var(--accent)}
+.svc-card .more{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:var(--accent);margin-top:10px}
+.svc-card .more svg{width:13px;height:13px;transition:transform 0.15s}
+.svc-card:hover .more svg{transform:translateX(3px)}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-text p{font-size:15px;color:var(--text-mid);line-height:1.7;margin-bottom:14px}
+.about-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.stat{background:var(--accent-soft);border-radius:var(--radius);padding:16px;text-align:center}
+.stat strong{display:block;font-family:var(--font-h);font-size:24px;font-weight:800;color:var(--accent)}
+.stat span{font-size:12px;color:var(--text-light);font-weight:500}
+.about-img{border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;background:var(--off-white)}
+.about-img img{width:100%;height:100%;object-fit:cover}
+
+.content-body{max-width:720px}
+.content-body p{font-size:15px;color:var(--text-mid);line-height:1.7;margin-bottom:16px}
+
+.svc-index{display:flex;flex-direction:column;gap:12px;max-width:800px}
+.svc-index-group{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--white)}
+.svc-index-header{display:flex;align-items:center;gap:16px;padding:18px 22px;text-decoration:none;transition:background 0.15s}
+.svc-index-header:hover{background:var(--accent-soft)}
+.svc-index-icon{font-size:24px;flex-shrink:0}
+.svc-index-header h3{font-family:var(--font-h);font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px}
+.svc-index-header p{font-size:13px;color:var(--text-mid);margin:0}
+.svc-index-price{margin-left:auto;font-family:var(--font-h);font-size:13px;font-weight:600;color:var(--accent);white-space:nowrap}
+.svc-sub-list{border-top:1px solid var(--border);background:var(--off-white);padding:6px 12px}
+.svc-sub-link{display:flex;align-items:center;gap:12px;padding:10px 12px;text-decoration:none;border-radius:var(--radius);transition:background 0.12s}
+.svc-sub-link:hover{background:var(--white)}
+.svc-sub-icon{font-size:14px;flex-shrink:0}
+.svc-sub-link strong{display:block;font-family:var(--font-h);font-size:13.5px;font-weight:600;color:var(--text)}
+.svc-sub-link span{font-size:12px;color:var(--text-light)}
+@media(max-width:600px){.svc-index-price{display:none}}
+
+.content-cards{display:flex;flex-direction:column;gap:8px;max-width:720px}
+.content-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px}
+.content-card.warning{border-left:3px solid #f59e0b}
+.content-card.steps{border-left:3px solid var(--accent)}
+.content-card.process{border-left:3px solid #10b981}
+.content-card.info{border-left:3px solid #3b82f6}
+.cc-header{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.cc-header h4{font-family:var(--font-h);font-size:14px;font-weight:700;color:var(--text)}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--font-h);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.content-card.process .step-num{background:#10b981}
+.warn-icon{font-size:15px;flex-shrink:0}
+.content-card p{font-size:13.5px;color:var(--text-mid);line-height:1.6;margin:0}
+
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.review{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.review-text{font-size:14px;color:var(--text);line-height:1.6;margin-bottom:14px;font-style:italic}
+.review-name{font-size:13px;font-weight:600}
+.review-loc{font-size:12px;color:var(--text-light)}
+
+.pricing-section{background:var(--off-white)}
+.price-table{max-width:720px;width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--border)}
+.price-table thead{background:var(--navy)}
+.price-table th{padding:11px 20px;text-align:left;font-family:var(--font-h);font-size:13px;font-weight:700;color:#fff}
+.price-table th:last-child{text-align:right}
+.price-table td{padding:11px 20px;font-size:14px;border-bottom:1px solid var(--border)}
+.price-table tr:last-child td{border-bottom:none}
+.price-table tr:hover td{background:var(--accent-soft)}
+.price-table .cost{font-weight:600;color:var(--accent);white-space:nowrap;text-align:right}
+.price-note{font-size:12px;color:var(--text-light);margin-top:10px;font-style:italic;max-width:720px}
+
+.faq-list{max-width:720px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;cursor:pointer;font-family:var(--font-h);font-size:14px;font-weight:600;color:var(--text);transition:color 0.12s}
+.faq-q:hover{color:var(--accent)}
+.faq-q .icon{width:18px;height:18px;flex-shrink:0;transition:transform 0.2s;color:var(--text-light)}
+.faq-item.open .faq-q .icon{transform:rotate(45deg);color:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 0 14px;font-size:14px;color:var(--text-mid);line-height:1.65}
+
+.areas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.area{padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;font-weight:500;text-align:center;transition:0.12s}
+.area:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.areas-note{font-size:13px;color:var(--text-light);margin-top:16px}
+
+.contact-section{}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact-detail{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:14px;color:var(--text)}
+.contact-detail svg{width:18px;height:18px;color:var(--accent);flex-shrink:0}
+.form-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px}
+.form-box h3{font-family:var(--font-h);font-size:17px;font-weight:700;margin-bottom:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group.full{grid-column:1/-1}
+.form-label{font-size:12px;font-weight:600;color:var(--text)}
+input[type="text"],input[type="tel"],input[type="email"],select,textarea{padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--font);font-size:14px;color:var(--text);width:100%;transition:border-color 0.15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{resize:vertical;min-height:80px}
+.form-btn{width:100%;background:var(--accent);color:#fff;border:none;font-family:var(--font);font-size:14px;font-weight:600;padding:12px;border-radius:var(--radius);cursor:pointer;transition:0.15s;margin-top:6px}
+.form-btn:hover{background:var(--accent-hover)}
+
+.final-cta{background:var(--navy);padding:40px 24px;text-align:center}
+.final-cta h2{font-family:var(--font-h);font-size:clamp(20px,2.5vw,26px);font-weight:800;color:#fff;margin-bottom:8px}
+.final-cta p{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:18px}
+
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:40px 24px 20px}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:32px}
+.footer-col h4{font-family:var(--font-h);font-size:13px;font-weight:700;color:#fff;margin-bottom:12px}
+.footer-col p,.footer-col a{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.8;display:block}
+.footer-col a:hover{color:rgba(255,255,255,0.8)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.35)}
+.footer-bottom a{color:rgba(255,255,255,0.35)}
+.footer-bottom a:hover{color:rgba(255,255,255,0.6)}
+.footer-disc{font-size:11px;color:rgba(255,255,255,0.25);margin-top:12px;line-height:1.6;max-width:800px}
+
+.mob-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:6px}
+.mob-toggle svg{width:22px;height:22px}
+.mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:300;padding:20px;overflow-y:auto}
+.mob-nav.show{display:block}
+.mob-nav-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.mob-close{background:none;border:none;color:#fff;cursor:pointer;padding:6px}
+.mob-close svg{width:22px;height:22px}
+.mob-nav a{display:block;padding:14px 0;font-size:17px;font-weight:600;color:#fff;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mob-nav .mob-services a{font-size:14px;font-weight:500;color:rgba(255,255,255,0.65);padding:9px 0;border:none}
+
+@media(max-width:900px){
+  .nav,.hdr-phone{display:none}
+  .mob-toggle{display:block}
+  .mega{display:none!important}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .about-img{display:none}
+  .hero{min-height:380px}
+  .hero h1{font-size:28px}
+  .section{padding:32px 20px}
+  .phone-fab{display:flex}
+}
+@media(max-width:600px){
+  .svc-grid,.reviews-grid{grid-template-columns:1fr}
+  .areas-grid{grid-template-columns:1fr 1fr}
+  .trust-bar-inner{flex-direction:column;align-items:flex-start;gap:6px}
+  .about-stats{grid-template-columns:1fr 1fr}
+}
+.phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
+.phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
+.phone-fab svg{width:24px;height:24px}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-bar">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">💧</div>
+      <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
+    </a>
+    <nav class="nav">
+      <div class="dropdown-wrap" id="ddWrap">
+        <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
+        <div class="mega" id="ddMenu">
+          <h4>Our Services</h4>
+          <div class="mega-grid"><a href="emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="blocked-drains.html" class="mega-link">Blocked Drains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="boiler-repairs.html" class="mega-link">Boiler Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="tap-toilet-repairs.html" class="mega-link">Tap &amp; Toilet Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="leak-detection.html" class="mega-link">Leak Detection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="radiators-heating.html" class="mega-link">Radiators &amp; Heating <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="general-plumbing.html" class="mega-link">General Plumbing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="services.html" class="mega-link" style="color:var(--accent);font-weight:600;margin-top:4px">View all services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+        </div>
+      </div>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="areas.html" class="nav-link">Areas</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="hdr-right">
+      <a href="tel:01143034567" class="hdr-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us on 0114 303 4567</a>
+      <a href="tel:01143034567" class="btn-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call us</a>
+    </div>
+    <button class="mob-toggle" onclick="document.getElementById('mobNav').classList.add('show');document.body.style.overflow='hidden'" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+</header>
+
+<section class="section" style="padding-top:48px">
+  <div class="section-inner">
+    <h1 class="section-title">Terms &amp; Conditions</h1>
+    <p style="font-size:12px;color:var(--text-light);margin-bottom:28px">Last updated: March 2026</p>
+    <div class="content-body" style="max-width:760px">
+<h3>1. About Us</h3>
+<p>We are Go Assist Limited, a company registered in England and Wales (company number 08668025). Our registered office is Enterprise House, 21 Oxford Road, Bournemouth, Dorset, BH8 8EY. Sheffield Plumbers is a trading name of Go Assist Limited.</p>
+
+<h3>2. How to Contact Us</h3>
+<p>Email: customerservices@go-assist.co.uk. Post: Enterprise House, 21 Oxford Road, Bournemouth, Dorset, BH8 8EY. Phone: 0114 303 4567. Our office hours are 9am to 5.30pm Monday to Friday.</p>
+
+<h3>3. Our Services</h3>
+<p>We provide plumbing repair and maintenance services. The scope of each service will be agreed with you before work begins. We will always provide a quotation before starting any work.</p>
+
+<h3>4. Pricing and Payment</h3>
+<p>The price of the service (which includes VAT) shall be payable at the time of booking, except where otherwise agreed. All prices quoted are estimates and may vary depending on the specific requirements of the job. A final quotation will be provided before work commences.</p>
+
+<h3>5. Your Rights to Cancel</h3>
+<p>You have the right to cancel your booking up to 14 days after the date of purchase, unless the service has already been carried out. If an engineer has already visited and begun work, cancellation rights may be limited.</p>
+
+<h3>6. Our Guarantee</h3>
+<p>All parts and labour on repairs we carry out are guaranteed for 12 months from the date of the repair. If the same fault recurs within the guarantee period, we will repair it again at no additional cost.</p>
+
+<h3>7. Limitation of Liability</h3>
+<p>We are not liable for any loss or damage arising from circumstances beyond our reasonable control, including but not limited to pre-existing defects, damage caused by third parties, or issues arising from the age or condition of existing pipework or appliances.</p>
+
+<h3>8. Complaints</h3>
+<p>We are committed to providing the highest standard of service. Should you have any cause for complaint, please contact us at customerservices@go-assist.co.uk and we will do our best to resolve your issue.</p>
+
+<h3>9. Governing Law</h3>
+<p>These terms are governed by the laws of England and Wales. Unless otherwise agreed, the contractual terms and other information relating to this contract will be in English.</p>
+</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Sheffield Plumbers</h4>
+        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of a UK-wide home services network.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><a href="emergency-plumbing.html">Emergency Plumber</a><a href="blocked-drains.html">Blocked Drains</a><a href="boiler-repairs.html">Boiler Repairs</a><a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="leak-detection.html">Leak Detection</a><a href="radiators-heating.html">Radiators &amp; Heating</a></div>
+      <div class="footer-col"><h4>Explore</h4><a href="index.html#areas">Ecclesall</a><a href="index.html#areas">Hillsborough</a><a href="index.html#areas">Woodseats</a><a href="index.html#areas">Crookes</a><a href="index.html#areas">Dore</a><a href="index.html#areas">Heeley</a><a href="blog.html">Blog</a><a href="about.html">About Us</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:01143034567">0114 303 4567</a><p>Mon-Thurs 8:30am-6pm, Fri 9am-4pm</p></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Sheffield Plumbers. All rights reserved.</p>
+      <p><a href="privacy.html" rel="nofollow">Privacy Policy</a> &middot; <a href="terms.html" rel="nofollow">Terms &amp; Conditions</a></p>
+    </div>
+    <p class="footer-disc">Sheffield Plumbers is part of a national home services network. Tradespeople who visit your property will be employed or vetted subcontractors within your area.</p>
+  </div>
+</footer>
+
+<div class="mob-nav" id="mobNav">
+  <div class="mob-nav-top">
+    <div class="logo"><div class="logo-mark">💧</div><div class="logo-name" style="color:#fff">Sheffield Plumbers</div></div>
+    <button class="mob-close" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  </div>
+  <a href="index.html#services" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">Services</a>
+  <div class="mob-services"><a href="emergency-plumbing.html">Emergency Plumber</a><a href="blocked-drains.html">Blocked Drains</a><a href="boiler-repairs.html">Boiler Repairs</a><a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="leak-detection.html">Leak Detection</a><a href="radiators-heating.html">Radiators &amp; Heating</a><a href="general-plumbing.html">General Plumbing</a>
+    <a href="services.html" style="color:var(--accent);font-weight:600;margin-top:4px">View all services</a>
+  </div>
+  <a href="about.html" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">About</a>
+  <a href="areas.html" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">Areas</a>
+  <a href="blog.html" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">Blog</a>
+  <a href="index.html#contact" onclick="document.getElementById('mobNav').classList.remove('show');document.body.style.overflow=''">Contact</a>
+  <a href="tel:01143034567" style="color:#6c3fa0;margin-top:12px">Call 0114 303 4567</a>
+</div>
+<a href="tel:01143034567" class="phone-fab" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+<script>
+(function(){
+  var wrap=document.getElementById('ddWrap');
+  var trigger=document.getElementById('ddTrigger');
+  var menu=document.getElementById('ddMenu');
+  if(!wrap||!trigger||!menu) return;
+  var timer=null;
+  function openDD(){clearTimeout(timer);menu.classList.add('show');trigger.classList.add('open')}
+  function closeDD(){timer=setTimeout(function(){menu.classList.remove('show');trigger.classList.remove('open')},250)}
+  trigger.addEventListener('mouseenter',openDD);
+  trigger.addEventListener('click',function(e){e.stopPropagation();openDD()});
+  menu.addEventListener('mouseenter',function(){clearTimeout(timer)});
+  wrap.addEventListener('mouseleave',closeDD);
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target)){clearTimeout(timer);menu.classList.remove('show');trigger.classList.remove('open')}});
+})();
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    this.parentElement.classList.toggle('open');
+  });
+});
+window.addEventListener('scroll',function(){
+  var h=document.querySelector('.header');
+  if(h) h.style.boxShadow=window.scrollY>5?'0 2px 16px rgba(0,0,0,0.15)':'none';
+});
+</script>
+</body>
+</html>
