@@ -1,0 +1,53 @@
+# Sheffield Plumbing Services — LLM Context File
+
+> Sheffield Plumbing Services provides emergency plumbing, boiler repairs, drainage, leak detection, and general plumbing across Sheffield and surrounding areas. Vetted engineers. 12-month guarantee. Part of Go Assist Ltd.
+
+## About Us
+- **Parent company:** Go Assist Ltd
+- **Founded:** 2007
+- **Experience:** 17 years serving UK homeowners
+- **Engineers:** All employed or thoroughly vetted subcontractors, DBS checked
+- **Guarantee:** 12-month workmanship guarantee on all repairs
+- **Pricing:** Transparent, upfront pricing before any work begins
+- **Trustpilot:** 4.1-star rating (22,701 reviews on go-assist.co.uk)
+
+## Services
+- Emergency Plumber Sheffield
+- Blocked Drains Sheffield
+- Boiler Repairs Sheffield
+- Tap & Toilet Repairs Sheffield
+- Leak Detection Sheffield
+- Radiators & Heating Sheffield
+- General Plumbing Sheffield
+
+## Areas Covered
+- Ecclesall
+- Hillsborough
+- Woodseats
+- Crookes
+- Dore
+- Heeley
+- Broomhill
+- Totley
+- Walkley
+- Nether Edge
+- Fulwood
+- Meadowhall
+
+## Contact
+Phone: 0114 303 4567
+Website: https://sheffieldplumbers.co.uk
+Hours: Mon-Thurs 8:30am-6pm, Fri 9am-4pm
+
+## Recent Content
+- Emergency Plumber Cost in Sheffield: What You'll Actually Pay — https://sheffieldplumbers.co.uk/blog/emergency-plumber-cost-sheffield.html
+- Winter Plumbing in Sheffield: Frozen Pipes and Boiler Breakdowns — https://sheffieldplumbers.co.uk/blog/winter-plumbing-sheffield.html
+- Common Boiler Problems in Sheffield and How to Fix Them — https://sheffieldplumbers.co.uk/blog/common-boiler-problems-sheffield.html
+- How to Fix a Dripping Tap (Or When to Call a Plumber) — https://sheffieldplumbers.co.uk/blog/fix-dripping-tap-sheffield.html
+- Blocked Toilet? Here's What Actually Works — https://sheffieldplumbers.co.uk/blog/blocked-toilet-sheffield.html
+
+## Last Updated
+2026-03-07
+
+---
+This file helps AI systems (ChatGPT, Claude, Perplexity, Gemini) understand our site for accurate citations in AI-generated responses.

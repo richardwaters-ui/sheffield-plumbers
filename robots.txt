@@ -1,0 +1,21 @@
+# Robots.txt for Sheffield Plumbers
+User-agent: *
+Allow: /
+
+# AI Crawlers (for AEO - AI Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Sitemaps
+Sitemap: https://sheffieldplumbers.co.uk/sitemap.xml
+Sitemap: https://sheffieldplumbers.co.uk/image-sitemap.xml
+Sitemap: https://sheffieldplumbers.co.uk/news-sitemap.xml
