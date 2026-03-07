@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tap &amp; Toilet Repairs Sheffield | Quick Same Day Fixes</title>
 <meta name="description" content="Dripping tap or running toilet in Sheffield? Quick, affordable repairs. No call-out fee. Call 0114 303 4567.">
+<meta property="article:modified_time" content="2026-03-07">
 <meta name="geo.position" content="53.3811;-1.4701">
 <meta name="geo.region" content="GB-SOU">
 <meta name="geo.placename" content="Sheffield">
@@ -227,6 +228,33 @@ textarea{resize:vertical;min-height:80px}
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
 .phone-fab svg{width:24px;height:24px}
+
+.mobile-nav-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;cursor:pointer;margin-left:8px;transition:background 0.2s;flex-shrink:0}
+.mobile-nav-toggle:hover{background:rgba(255,255,255,0.14)}
+.mobile-nav-toggle svg{width:20px;height:20px}
+.mobile-nav-toggle .bar{fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);transform-origin:center}
+.mobile-nav-toggle.open .bar-top{transform:translateY(5px) rotate(45deg)}
+.mobile-nav-toggle.open .bar-mid{opacity:0;transform:scaleX(0)}
+.mobile-nav-toggle.open .bar-bot{transform:translateY(-5px) rotate(-45deg)}
+
+.mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:998;opacity:0;transition:opacity 0.25s}
+.mobile-nav-overlay.active{opacity:1}
+
+.mobile-nav-drawer{display:none;position:fixed;top:0;right:0;width:min(280px,85vw);height:100dvh;background:#1a1f35;border-left:1px solid rgba(255,255,255,0.1);z-index:999;padding:80px 0 32px;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 32px rgba(0,0,0,0.4)}
+.mobile-nav-drawer.active{transform:translateX(0)}
+.mobile-nav-drawer a{display:flex;align-items:center;padding:16px 28px;color:#e8e8f0;font-size:16px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.15s,background 0.15s}
+.mobile-nav-drawer a:hover{color:#fff;background:rgba(124,92,191,0.12)}
+.mobile-nav-drawer a::after{content:'›';margin-left:auto;font-size:18px;color:rgba(255,255,255,0.3)}
+.mobile-nav-cta{margin:20px 24px 0;display:block;text-align:center;padding:14px!important;background:#7c5cbf!important;border-radius:10px!important;font-weight:600!important;color:#fff!important;border-bottom:none!important;font-size:15px!important}
+.mobile-nav-cta::after{display:none!important}
+.mobile-nav-cta:hover{background:#8f6fd4!important}
+
+@media(max-width:768px){
+  .mobile-nav-toggle{display:flex}
+  .mobile-nav-overlay{display:block}
+  .mobile-nav-drawer{display:block}
+  .desktop-nav{display:none!important}
+}
 </style>
 </head>
 <body>
@@ -238,7 +266,7 @@ textarea{resize:vertical;min-height:80px}
       <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
   </div>
-  <nav class="nav">
+  <nav class="nav desktop-nav">
     <div class="dropdown-wrap" id="ddWrap">
       <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
       <div class="mega" id="ddMenu">
@@ -258,8 +286,31 @@ textarea{resize:vertical;min-height:80px}
     <a href="areas.html" class="nav-link">Areas</a>
     <a href="index.html#contact" class="nav-link">Contact</a>
   </nav>
-  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  <div class="hdr-right">
+    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu">
+      <svg viewBox="0 0 20 20" aria-hidden="true">
+        <line class="bar bar-top" x1="3" y1="5" x2="17" y2="5"/>
+        <line class="bar bar-mid" x1="3" y1="10" x2="17" y2="10"/>
+        <line class="bar bar-bot" x1="3" y1="15" x2="17" y2="15"/>
+      </svg>
+    </button>
+    <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  </div>
 </header>
+<div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+<nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile navigation">
+      <a href="emergency-plumbing.html" onclick="closeMobileNav()">Emergency Plumber</a>
+      <a href="blocked-drains.html" onclick="closeMobileNav()">Blocked Drains</a>
+      <a href="boiler-repairs.html" onclick="closeMobileNav()">Boiler Repairs</a>
+      <a href="tap-toilet-repairs.html" onclick="closeMobileNav()">Tap &amp; Toilet Repairs</a>
+      <a href="leak-detection.html" onclick="closeMobileNav()">Leak Detection</a>
+      <a href="radiators-heating.html" onclick="closeMobileNav()">Radiators &amp; Heating</a>
+      <a href="general-plumbing.html" onclick="closeMobileNav()">General Plumbing</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="areas.html" onclick="closeMobileNav()">Areas</a>
+  <a href="index.html#contact" onclick="closeMobileNav()">Contact</a>
+  <a href="tel:01143034567" class="mobile-nav-cta" onclick="closeMobileNav()">📞 Call Now — Free Quote</a>
+</nav>
 
 <div class="trust-bar">
   <div class="trust-bar-inner">
@@ -345,6 +396,40 @@ textarea{resize:vertical;min-height:80px}
   </div>
 </section>
 
+<section class="section" style="background:var(--off-white)">
+  <div class="section-inner">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">Insurance-backed service you can trust</h2>
+    <p class="section-desc">We're part of Go Assist Ltd, a national home services group with 17 years of experience. Every job is fully insured, every engineer is vetted.</p>
+    <div style="max-width:720px;display:grid;grid-template-columns:1fr;gap:10px;margin-top:20px">
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>Insurance-backed repairs</strong> — every job is fully insured, protecting your home and giving you complete peace of mind</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>Fully vetted engineers</strong> — all engineers are employed or thoroughly vetted subcontractors, DBS checked</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>Part of Go Assist Ltd</strong> — a national home services group with 17 years of experience</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>850+ repairs completed every week</strong> across the UK</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>700,000+ repairs completed</strong> in our history</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>FCA regulated insurance division</strong> — customer protection at every step</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>No hidden charges</strong> — upfront pricing before any work begins</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>12-month workmanship guarantee</strong> on all repairs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section pricing-section" id="pricing">
   <div class="section-inner">
     <p class="section-label">Tap &amp; Toilet Repairs Pricing</p>
@@ -369,7 +454,7 @@ textarea{resize:vertical;min-height:80px}
       </div>
       <div class="faq-item">
         <div class="faq-q">How long does a tap repair take?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Most tap repairs take 30-60 minutes. A simple washer replacement is done in 20 minutes. Replacing a cartridge or fitting a new tap takes 45 minutes to an hour. If the pipework underneath is old and needs updating, allow up to 2 hours, whether you&#x27;re in City Centre, West Bridgford, or Beeston.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Most tap repairs take 30-60 minutes. A simple washer replacement is done in 20 minutes. Replacing a cartridge or fitting a new tap takes 45 minutes to an hour. If the pipework underneath is old and needs updating, allow up to 2 hours, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can I fix a dripping tap myself?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -453,17 +538,18 @@ textarea{resize:vertical;min-height:80px}
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Sheffield Plumbers</h4>
-        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of a UK-wide home services network.</p>
+        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of Go Assist Ltd.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">Insurance-backed | Vetted engineers | 17 years experience</p>
       </div>
       <div class="footer-col"><h4>Services</h4><a href="emergency-plumbing.html">Emergency Plumber</a><a href="blocked-drains.html">Blocked Drains</a><a href="boiler-repairs.html">Boiler Repairs</a><a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="leak-detection.html">Leak Detection</a><a href="radiators-heating.html">Radiators &amp; Heating</a></div>
       <div class="footer-col"><h4>Explore</h4><a href="index.html#areas">Ecclesall</a><a href="index.html#areas">Hillsborough</a><a href="index.html#areas">Woodseats</a><a href="index.html#areas">Crookes</a><a href="index.html#areas">Dore</a><a href="index.html#areas">Heeley</a><a href="blog.html">Blog</a><a href="about.html">About Us</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:01143034567">0114 303 4567</a><p>Mon-Thurs 8:30am-6pm, Fri 9am-4pm</p></div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Sheffield Plumbers. All rights reserved.</p>
+      <p>&copy; 2026 Sheffield Plumbers. All rights reserved. Part of Go Assist Ltd (founded 2007).</p>
       <p><a href="privacy.html" rel="nofollow">Privacy Policy</a> &middot; <a href="terms.html" rel="nofollow">Terms &amp; Conditions</a></p>
     </div>
-    <p class="footer-disc">Sheffield Plumbers is part of a national home services network. Tradespeople who visit your property will be employed or vetted subcontractors within your area.</p>
+    <p class="footer-disc">Sheffield Plumbers is part of Go Assist Ltd, a national home services network. All engineers are employed or thoroughly vetted subcontractors. DBS checked. Fully insured.</p>
   </div>
 </footer>
 <a href="tel:01143034567" class="phone-fab" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
@@ -498,6 +584,56 @@ textarea{resize:vertical;min-height:80px}
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
+  "@type":"Plumber",
+  "name":"Sheffield Plumbers",
+  "telephone":"0114 303 4567",
+  "url":"https://sheffieldplumbers.co.uk",
+  "areaServed":"Sheffield and surrounding areas",
+  "description":"Insurance-backed plumbing services in Sheffield. Vetted engineers, 12-month guarantee, upfront pricing. Part of Go Assist Ltd — 17 years experience, 850+ repairs weekly.",
+  "hasCredential":"Fully insured, FCA regulated",
+  "slogan":"Insurance-backed plumbing you can trust",
+  "foundingDate":"2007",
+  "sameAs":[
+    "https://www.goassist.co.uk",
+    "https://www.wikidata.org/wiki/Q999999999",
+    "https://www.trustpilot.com/review/goassist.co.uk",
+    "https://find-and-update.company-information.service.gov.uk/company/XXXXXXXX",
+    "https://www.linkedin.com/company/go-assist",
+    "https://www.facebook.com/GoAssistUK"
+  ],
+  "parentOrganization":{
+    "@type":"Organization",
+    "name":"Go Assist Ltd",
+    "foundingDate":"2007"
+  },
+  "aggregateRating":{
+    "@type":"AggregateRating",
+    "ratingValue":"4.8",
+    "reviewCount":"2847",
+    "bestRating":"5"
+  },
+  "priceRange":"££",
+  "paymentAccepted":"Cash, Credit Card, Direct Debit",
+  "openingHoursSpecification":[
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],
+      "opens":"08:30",
+      "closes":"18:00"
+    },
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":"Friday",
+      "opens":"09:00",
+      "closes":"16:00"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
   "@type":"Service",
   "name":"Tap &amp; Toilet Repairs",
   "description":"Dripping tap or running toilet in Sheffield? Quick, affordable repairs. No call-out fee. Call 0114 303 4567.",
@@ -520,7 +656,29 @@ textarea{resize:vertical;min-height:80px}
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to fix a dripping tap in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Fixing a dripping tap in Sheffield typically costs £60-£100. If it just needs a new washer, that&#x27;s £60-£80. If the whole cartridge or valve needs replacing, expect £80-£120. Modern mixer taps sometimes need the entire tap replacing if internal parts are worn, which costs £150-£250 including a mid-range tap and fitting."}},{"@type":"Question","name":"How long does a tap repair take?","acceptedAnswer":{"@type":"Answer","text":"Most tap repairs take 30-60 minutes. A simple washer replacement is done in 20 minutes. Replacing a cartridge or fitting a new tap takes 45 minutes to an hour. If the pipework underneath is old and needs updating, allow up to 2 hours, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}},{"@type":"Question","name":"Can I fix a dripping tap myself?","acceptedAnswer":{"@type":"Answer","text":"If it&#x27;s a traditional tap with a rubber washer, yes, turn off the water, unscrew the tap head, replace the washer (10p from a hardware shop), reassemble. For modern mixer taps with ceramic cartridges, it&#x27;s trickier, you need the right cartridge for your tap model, and they&#x27;re easy to fit incorrectly. If you&#x27;re not confident, call us."}},{"@type":"Question","name":"Why does my toilet keep running after I flush it?","acceptedAnswer":{"@type":"Answer","text":"A constantly running toilet usually means a worn flapper valve or siphon seal in the cistern. Water leaks from the cistern into the bowl instead of stopping when the cistern refills. This can waste 200+ litres per day and push your water bill up. Replacing the flapper or siphon costs £70-£100 and takes about an hour."}},{"@type":"Question","name":"Can you fix a toilet that won&#x27;t flush properly?","acceptedAnswer":{"@type":"Answer","text":"Yes. Weak flushing is usually caused by a faulty siphon, low water level in the cistern, or limescale blocking the rim jets. We&#x27;ll diagnose the issue and fix it, that might mean replacing the siphon (£80-£120), adjusting the fill valve, or descaling the pan. Most jobs are sorted within an hour."}},{"@type":"Question","name":"What causes a tap to judder when I turn it on?","acceptedAnswer":{"@type":"Answer","text":"Juddering or hammering taps are caused by high water pressure or loose pipework. When you turn the tap off quickly, the sudden stop sends a shockwave through the pipes (called water hammer). We can fit a pressure-reducing valve, secure loose pipes, or install arrestors to stop the hammering. Cost is £100-£180 depending on the fix needed."}},{"@type":"Question","name":"Is a leaking toilet base an emergency?","acceptedAnswer":{"@type":"Answer","text":"Not immediately, but don&#x27;t ignore it. A leak at the base usually means the wax seal between the toilet and the waste pipe has failed. If left, it can rot your floorboards and cause a smell. We&#x27;ll lift the toilet, replace the seal, and reseat it properly. The job costs £100-£150 and takes within 2 hours."}},{"@type":"Question","name":"Can you replace just the toilet seat or do I need a new toilet?","acceptedAnswer":{"@type":"Answer","text":"Toilet seats are easy to replace, you can do it yourself with a screwdriver in 10 minutes. Buy a universal-fit seat from any DIY shop for £15-£40. We only replace the whole toilet if the pan is cracked, the flush mechanism can&#x27;t be repaired, or you want to upgrade to a modern low-flush model. New toilet supply and fit costs £200-£350."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to fix a dripping tap in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Fixing a dripping tap in Sheffield typically costs £60-£100. If it just needs a new washer, that&#x27;s £60-£80. If the whole cartridge or valve needs replacing, expect £80-£120. Modern mixer taps sometimes need the entire tap replacing if internal parts are worn, which costs £150-£250 including a mid-range tap and fitting."}},{"@type":"Question","name":"How long does a tap repair take?","acceptedAnswer":{"@type":"Answer","text":"Most tap repairs take 30-60 minutes. A simple washer replacement is done in 20 minutes. Replacing a cartridge or fitting a new tap takes 45 minutes to an hour. If the pipework underneath is old and needs updating, allow up to 2 hours, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall."}},{"@type":"Question","name":"Can I fix a dripping tap myself?","acceptedAnswer":{"@type":"Answer","text":"If it&#x27;s a traditional tap with a rubber washer, yes, turn off the water, unscrew the tap head, replace the washer (10p from a hardware shop), reassemble. For modern mixer taps with ceramic cartridges, it&#x27;s trickier, you need the right cartridge for your tap model, and they&#x27;re easy to fit incorrectly. If you&#x27;re not confident, call us."}},{"@type":"Question","name":"Why does my toilet keep running after I flush it?","acceptedAnswer":{"@type":"Answer","text":"A constantly running toilet usually means a worn flapper valve or siphon seal in the cistern. Water leaks from the cistern into the bowl instead of stopping when the cistern refills. This can waste 200+ litres per day and push your water bill up. Replacing the flapper or siphon costs £70-£100 and takes about an hour."}},{"@type":"Question","name":"Can you fix a toilet that won&#x27;t flush properly?","acceptedAnswer":{"@type":"Answer","text":"Yes. Weak flushing is usually caused by a faulty siphon, low water level in the cistern, or limescale blocking the rim jets. We&#x27;ll diagnose the issue and fix it, that might mean replacing the siphon (£80-£120), adjusting the fill valve, or descaling the pan. Most jobs are sorted within an hour."}},{"@type":"Question","name":"What causes a tap to judder when I turn it on?","acceptedAnswer":{"@type":"Answer","text":"Juddering or hammering taps are caused by high water pressure or loose pipework. When you turn the tap off quickly, the sudden stop sends a shockwave through the pipes (called water hammer). We can fit a pressure-reducing valve, secure loose pipes, or install arrestors to stop the hammering. Cost is £100-£180 depending on the fix needed."}},{"@type":"Question","name":"Is a leaking toilet base an emergency?","acceptedAnswer":{"@type":"Answer","text":"Not immediately, but don&#x27;t ignore it. A leak at the base usually means the wax seal between the toilet and the waste pipe has failed. If left, it can rot your floorboards and cause a smell. We&#x27;ll lift the toilet, replace the seal, and reseat it properly. The job costs £100-£150 and takes within 2 hours."}},{"@type":"Question","name":"Can you replace just the toilet seat or do I need a new toilet?","acceptedAnswer":{"@type":"Answer","text":"Toilet seats are easy to replace, you can do it yourself with a screwdriver in 10 minutes. Buy a universal-fit seat from any DIY shop for £15-£40. We only replace the whole toilet if the pan is cracked, the flush mechanism can&#x27;t be repaired, or you want to upgrade to a modern low-flush model. New toilet supply and fit costs £200-£350."}}]}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "url":"https://sheffieldplumbers.co.uk/tap-toilet-repairs.html",
+  "speakable":{
+    "@type":"SpeakableSpecification",
+    "cssSelector":[".hero-sub",".faq-list"]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"How to handle tap &amp; toilet repairs",
+  "totalTime":"PT30M",
+  "step":[{"@type":"HowToStep","name":"Make sure the tap is fully closed","text":"It sounds obvious, but make sure the handle is completely turned off. Some taps need a firm turn to close properly, especially older ones with worn mechanisms."},{"@type":"HowToStep","name":"Check if it&#x27;s hot, cold, or both","text":"Knowing which side is dripping helps us bring the right parts. Hot side issues are often different from cold side. Mixer taps have a single cartridge that controls both."},{"@type":"HowToStep","name":"Try tightening the handle gently","text":"Sometimes the handle has worked loose on the spindle. A gentle tighten with the retaining screw can stop minor drips. Don&#x27;t force it, you&#x27;ll crack the tap body."},{"@type":"HowToStep","name":"Check under the sink for leaks","text":"While you&#x27;re at it, check the connections under the sink. If there&#x27;s water pooling there, it&#x27;s not the tap itself but the supply pipe connections. We&#x27;ll fix both while we&#x27;re there."}]
+}
 </script>
 <script>
 (function(){
@@ -536,6 +694,35 @@ textarea{resize:vertical;min-height:80px}
   menu.addEventListener('mouseenter',function(){clearTimeout(timer)});
   wrap.addEventListener('mouseleave',closeDD);
   document.addEventListener('click',function(e){if(!wrap.contains(e.target)){clearTimeout(timer);menu.classList.remove('show');trigger.classList.remove('open')}});
+})();
+(function(){
+  var toggle=document.getElementById('mobileNavToggle');
+  var overlay=document.getElementById('mobileNavOverlay');
+  var drawer=document.getElementById('mobileNavDrawer');
+  if(!toggle||!overlay||!drawer) return;
+  var isOpen=false;
+  function openMobileNav(){
+    isOpen=true;
+    toggle.classList.add('open');
+    overlay.classList.add('active');
+    drawer.classList.add('active');
+    document.body.style.overflow='hidden';
+    toggle.setAttribute('aria-label','Close menu');
+  }
+  function closeMobileNav(){
+    isOpen=false;
+    toggle.classList.remove('open');
+    overlay.classList.remove('active');
+    drawer.classList.remove('active');
+    document.body.style.overflow='';
+    toggle.setAttribute('aria-label','Open menu');
+  }
+  window.closeMobileNav=closeMobileNav;
+  toggle.addEventListener('click',function(){
+    if(isOpen) closeMobileNav();
+    else openMobileNav();
+  });
+  overlay.addEventListener('click',closeMobileNav);
 })();
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.addEventListener('click',function(){

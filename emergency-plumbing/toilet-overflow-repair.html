@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Toilet Overflow Repair Sheffield | Stop Constant Running</title>
 <meta name="description" content="Toilet overflowing or running constantly in Sheffield? We fix cistern faults fast. Same day service. Call 0114 303 4567.">
+<meta property="article:modified_time" content="2026-03-07">
 <meta name="geo.position" content="53.3811;-1.4701">
 <meta name="geo.region" content="GB-SOU">
 <meta name="geo.placename" content="Sheffield">
@@ -227,6 +228,33 @@ textarea{resize:vertical;min-height:80px}
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
 .phone-fab svg{width:24px;height:24px}
+
+.mobile-nav-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;cursor:pointer;margin-left:8px;transition:background 0.2s;flex-shrink:0}
+.mobile-nav-toggle:hover{background:rgba(255,255,255,0.14)}
+.mobile-nav-toggle svg{width:20px;height:20px}
+.mobile-nav-toggle .bar{fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);transform-origin:center}
+.mobile-nav-toggle.open .bar-top{transform:translateY(5px) rotate(45deg)}
+.mobile-nav-toggle.open .bar-mid{opacity:0;transform:scaleX(0)}
+.mobile-nav-toggle.open .bar-bot{transform:translateY(-5px) rotate(-45deg)}
+
+.mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:998;opacity:0;transition:opacity 0.25s}
+.mobile-nav-overlay.active{opacity:1}
+
+.mobile-nav-drawer{display:none;position:fixed;top:0;right:0;width:min(280px,85vw);height:100dvh;background:#1a1f35;border-left:1px solid rgba(255,255,255,0.1);z-index:999;padding:80px 0 32px;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 32px rgba(0,0,0,0.4)}
+.mobile-nav-drawer.active{transform:translateX(0)}
+.mobile-nav-drawer a{display:flex;align-items:center;padding:16px 28px;color:#e8e8f0;font-size:16px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.15s,background 0.15s}
+.mobile-nav-drawer a:hover{color:#fff;background:rgba(124,92,191,0.12)}
+.mobile-nav-drawer a::after{content:'›';margin-left:auto;font-size:18px;color:rgba(255,255,255,0.3)}
+.mobile-nav-cta{margin:20px 24px 0;display:block;text-align:center;padding:14px!important;background:#7c5cbf!important;border-radius:10px!important;font-weight:600!important;color:#fff!important;border-bottom:none!important;font-size:15px!important}
+.mobile-nav-cta::after{display:none!important}
+.mobile-nav-cta:hover{background:#8f6fd4!important}
+
+@media(max-width:768px){
+  .mobile-nav-toggle{display:flex}
+  .mobile-nav-overlay{display:block}
+  .mobile-nav-drawer{display:block}
+  .desktop-nav{display:none!important}
+}
 </style>
 </head>
 <body>
@@ -238,7 +266,7 @@ textarea{resize:vertical;min-height:80px}
       <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
   </div>
-  <nav class="nav">
+  <nav class="nav desktop-nav">
     <div class="dropdown-wrap" id="ddWrap">
       <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
       <div class="mega" id="ddMenu">
@@ -258,8 +286,31 @@ textarea{resize:vertical;min-height:80px}
     <a href="../areas.html" class="nav-link">Areas</a>
     <a href="../index.html#contact" class="nav-link">Contact</a>
   </nav>
-  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  <div class="hdr-right">
+    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu">
+      <svg viewBox="0 0 20 20" aria-hidden="true">
+        <line class="bar bar-top" x1="3" y1="5" x2="17" y2="5"/>
+        <line class="bar bar-mid" x1="3" y1="10" x2="17" y2="10"/>
+        <line class="bar bar-bot" x1="3" y1="15" x2="17" y2="15"/>
+      </svg>
+    </button>
+    <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  </div>
 </header>
+<div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+<nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile navigation">
+      <a href="../emergency-plumbing.html" onclick="closeMobileNav()">Emergency Plumber</a>
+      <a href="../blocked-drains.html" onclick="closeMobileNav()">Blocked Drains</a>
+      <a href="../boiler-repairs.html" onclick="closeMobileNav()">Boiler Repairs</a>
+      <a href="../tap-toilet-repairs.html" onclick="closeMobileNav()">Tap &amp; Toilet Repairs</a>
+      <a href="../leak-detection.html" onclick="closeMobileNav()">Leak Detection</a>
+      <a href="../radiators-heating.html" onclick="closeMobileNav()">Radiators &amp; Heating</a>
+      <a href="../general-plumbing.html" onclick="closeMobileNav()">General Plumbing</a>
+  <a href="../about.html" onclick="closeMobileNav()">About</a>
+  <a href="../areas.html" onclick="closeMobileNav()">Areas</a>
+  <a href="../index.html#contact" onclick="closeMobileNav()">Contact</a>
+  <a href="tel:01143034567" class="mobile-nav-cta" onclick="closeMobileNav()">📞 Call Now — Free Quote</a>
+</nav>
 
 <div class="trust-bar">
   <div class="trust-bar-inner">
@@ -430,7 +481,7 @@ textarea{resize:vertical;min-height:80px}
       </div>
       <div class="faq-item">
         <div class="faq-q">How long does toilet overflow repair take?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Most repairs take 30 minutes to 1 hour. Simple adjustments take 15-20 minutes. Complete cistern overhauls with multiple parts replaced take within 2 hours, whether you&#x27;re in City Centre, West Bridgford, or Beeston.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Most repairs take 30 minutes to 1 hour. Simple adjustments take 15-20 minutes. Complete cistern overhauls with multiple parts replaced take within 2 hours, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Why is my toilet constantly running?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -514,17 +565,18 @@ textarea{resize:vertical;min-height:80px}
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Sheffield Plumbers</h4>
-        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of a UK-wide home services network.</p>
+        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of Go Assist Ltd.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">Insurance-backed | Vetted engineers | 17 years experience</p>
       </div>
       <div class="footer-col"><h4>Services</h4><a href="../emergency-plumbing.html">Emergency Plumber</a><a href="../blocked-drains.html">Blocked Drains</a><a href="../boiler-repairs.html">Boiler Repairs</a><a href="../tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="../leak-detection.html">Leak Detection</a><a href="../radiators-heating.html">Radiators &amp; Heating</a></div>
       <div class="footer-col"><h4>Explore</h4><a href="../index.html#areas">Ecclesall</a><a href="../index.html#areas">Hillsborough</a><a href="../index.html#areas">Woodseats</a><a href="../index.html#areas">Crookes</a><a href="../index.html#areas">Dore</a><a href="../index.html#areas">Heeley</a><a href="../blog.html">Blog</a><a href="../about.html">About Us</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:01143034567">0114 303 4567</a><p>Mon-Thurs 8:30am-6pm, Fri 9am-4pm</p></div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Sheffield Plumbers. All rights reserved.</p>
+      <p>&copy; 2026 Sheffield Plumbers. All rights reserved. Part of Go Assist Ltd (founded 2007).</p>
       <p><a href="../privacy.html" rel="nofollow">Privacy Policy</a> &middot; <a href="../terms.html" rel="nofollow">Terms &amp; Conditions</a></p>
     </div>
-    <p class="footer-disc">Sheffield Plumbers is part of a national home services network. Tradespeople who visit your property will be employed or vetted subcontractors within your area.</p>
+    <p class="footer-disc">Sheffield Plumbers is part of Go Assist Ltd, a national home services network. All engineers are employed or thoroughly vetted subcontractors. DBS checked. Fully insured.</p>
   </div>
 </footer>
 <a href="tel:01143034567" class="phone-fab" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
@@ -581,7 +633,7 @@ textarea{resize:vertical;min-height:80px}
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does toilet overflow repair cost in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Fill valve replacement costs £75-£120 across Sheffield and surrounding areas. Flush valve or washer replacement is £70-£110. Dual flush mechanism repairs cost £80-£140. Simple float adjustments are £60-£85. A complete cistern service with all new parts is £120-£180."}},{"@type":"Question","name":"How long does toilet overflow repair take?","acceptedAnswer":{"@type":"Answer","text":"Most repairs take 30 minutes to 1 hour. Simple adjustments take 15-20 minutes. Complete cistern overhauls with multiple parts replaced take within 2 hours, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}},{"@type":"Question","name":"Why is my toilet constantly running?","acceptedAnswer":{"@type":"Answer","text":"Either the fill valve isn&#x27;t shutting off (faulty valve or float set too high), or the flush valve washer is leaking (water drains into the bowl constantly so the cistern refills non-stop). Both are quick fixes."}},{"@type":"Question","name":"Can I fix a toilet overflow myself?","acceptedAnswer":{"@type":"Answer","text":"If it&#x27;s a simple float adjustment, yes. Lift the lid, bend the float arm down slightly to lower the water level. For failed valves or washers, you&#x27;ll need replacement parts and some plumbing knowledge. We can sort it in under an hour."}},{"@type":"Question","name":"Why is water dripping from the overflow pipe outside?","acceptedAnswer":{"@type":"Answer","text":"The cistern is overfilling and water is escaping via the overflow pipe. This means the fill valve isn&#x27;t shutting off properly. The float mechanism has failed or is set too high."}},{"@type":"Question","name":"How much water does a running toilet waste?","acceptedAnswer":{"@type":"Answer","text":"A constantly running toilet wastes 200-400 litres a day, that&#x27;s about 10,000 litres a month across Sheffield and surrounding areas. It&#x27;ll add £20-£40 to your water bill. Getting it fixed pays for itself in a couple of months."}},{"@type":"Question","name":"What if my toilet overflows onto the floor?","acceptedAnswer":{"@type":"Answer","text":"Turn off the isolation valve immediately to stop water flow. The overflow pipe is blocked or missing. This needs fixing urgently before it causes floor and ceiling damage. Call us now."}},{"@type":"Question","name":"Will you need to remove the toilet to fix it?","acceptedAnswer":{"@type":"Answer","text":"No, most cistern repairs are done from inside the cistern without removing the toilet. We only remove the cistern itself if we&#x27;re replacing it entirely."}},{"@type":"Question","name":"Can you fix dual flush toilets?","acceptedAnswer":{"@type":"Answer","text":"Yes, dual flush mechanisms are more complex but we carry replacement buttons, cables, and flush valves for most common brands. If the mechanism is beyond repair, we&#x27;ll recommend a full replacement."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does toilet overflow repair cost in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Fill valve replacement costs £75-£120 across Sheffield and surrounding areas. Flush valve or washer replacement is £70-£110. Dual flush mechanism repairs cost £80-£140. Simple float adjustments are £60-£85. A complete cistern service with all new parts is £120-£180."}},{"@type":"Question","name":"How long does toilet overflow repair take?","acceptedAnswer":{"@type":"Answer","text":"Most repairs take 30 minutes to 1 hour. Simple adjustments take 15-20 minutes. Complete cistern overhauls with multiple parts replaced take within 2 hours, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall."}},{"@type":"Question","name":"Why is my toilet constantly running?","acceptedAnswer":{"@type":"Answer","text":"Either the fill valve isn&#x27;t shutting off (faulty valve or float set too high), or the flush valve washer is leaking (water drains into the bowl constantly so the cistern refills non-stop). Both are quick fixes."}},{"@type":"Question","name":"Can I fix a toilet overflow myself?","acceptedAnswer":{"@type":"Answer","text":"If it&#x27;s a simple float adjustment, yes. Lift the lid, bend the float arm down slightly to lower the water level. For failed valves or washers, you&#x27;ll need replacement parts and some plumbing knowledge. We can sort it in under an hour."}},{"@type":"Question","name":"Why is water dripping from the overflow pipe outside?","acceptedAnswer":{"@type":"Answer","text":"The cistern is overfilling and water is escaping via the overflow pipe. This means the fill valve isn&#x27;t shutting off properly. The float mechanism has failed or is set too high."}},{"@type":"Question","name":"How much water does a running toilet waste?","acceptedAnswer":{"@type":"Answer","text":"A constantly running toilet wastes 200-400 litres a day, that&#x27;s about 10,000 litres a month across Sheffield and surrounding areas. It&#x27;ll add £20-£40 to your water bill. Getting it fixed pays for itself in a couple of months."}},{"@type":"Question","name":"What if my toilet overflows onto the floor?","acceptedAnswer":{"@type":"Answer","text":"Turn off the isolation valve immediately to stop water flow. The overflow pipe is blocked or missing. This needs fixing urgently before it causes floor and ceiling damage. Call us now."}},{"@type":"Question","name":"Will you need to remove the toilet to fix it?","acceptedAnswer":{"@type":"Answer","text":"No, most cistern repairs are done from inside the cistern without removing the toilet. We only remove the cistern itself if we&#x27;re replacing it entirely."}},{"@type":"Question","name":"Can you fix dual flush toilets?","acceptedAnswer":{"@type":"Answer","text":"Yes, dual flush mechanisms are more complex but we carry replacement buttons, cables, and flush valves for most common brands. If the mechanism is beyond repair, we&#x27;ll recommend a full replacement."}}]}
 </script>
 <script>
 (function(){
@@ -597,6 +649,35 @@ textarea{resize:vertical;min-height:80px}
   menu.addEventListener('mouseenter',function(){clearTimeout(timer)});
   wrap.addEventListener('mouseleave',closeDD);
   document.addEventListener('click',function(e){if(!wrap.contains(e.target)){clearTimeout(timer);menu.classList.remove('show');trigger.classList.remove('open')}});
+})();
+(function(){
+  var toggle=document.getElementById('mobileNavToggle');
+  var overlay=document.getElementById('mobileNavOverlay');
+  var drawer=document.getElementById('mobileNavDrawer');
+  if(!toggle||!overlay||!drawer) return;
+  var isOpen=false;
+  function openMobileNav(){
+    isOpen=true;
+    toggle.classList.add('open');
+    overlay.classList.add('active');
+    drawer.classList.add('active');
+    document.body.style.overflow='hidden';
+    toggle.setAttribute('aria-label','Close menu');
+  }
+  function closeMobileNav(){
+    isOpen=false;
+    toggle.classList.remove('open');
+    overlay.classList.remove('active');
+    drawer.classList.remove('active');
+    document.body.style.overflow='';
+    toggle.setAttribute('aria-label','Open menu');
+  }
+  window.closeMobileNav=closeMobileNav;
+  toggle.addEventListener('click',function(){
+    if(isOpen) closeMobileNav();
+    else openMobileNav();
+  });
+  overlay.addEventListener('click',closeMobileNav);
 })();
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.addEventListener('click',function(){

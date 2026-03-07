@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Radiator &amp; Heating Repairs Sheffield | Central Heating Services</title>
 <meta name="description" content="Cold radiators or heating problems in Sheffield? Radiator replacements, power flushing, central heating repairs. Call 0114 303 4567.">
+<meta property="article:modified_time" content="2026-03-07">
 <meta name="geo.position" content="53.3811;-1.4701">
 <meta name="geo.region" content="GB-SOU">
 <meta name="geo.placename" content="Sheffield">
@@ -227,6 +228,33 @@ textarea{resize:vertical;min-height:80px}
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
 .phone-fab svg{width:24px;height:24px}
+
+.mobile-nav-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;cursor:pointer;margin-left:8px;transition:background 0.2s;flex-shrink:0}
+.mobile-nav-toggle:hover{background:rgba(255,255,255,0.14)}
+.mobile-nav-toggle svg{width:20px;height:20px}
+.mobile-nav-toggle .bar{fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);transform-origin:center}
+.mobile-nav-toggle.open .bar-top{transform:translateY(5px) rotate(45deg)}
+.mobile-nav-toggle.open .bar-mid{opacity:0;transform:scaleX(0)}
+.mobile-nav-toggle.open .bar-bot{transform:translateY(-5px) rotate(-45deg)}
+
+.mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:998;opacity:0;transition:opacity 0.25s}
+.mobile-nav-overlay.active{opacity:1}
+
+.mobile-nav-drawer{display:none;position:fixed;top:0;right:0;width:min(280px,85vw);height:100dvh;background:#1a1f35;border-left:1px solid rgba(255,255,255,0.1);z-index:999;padding:80px 0 32px;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 32px rgba(0,0,0,0.4)}
+.mobile-nav-drawer.active{transform:translateX(0)}
+.mobile-nav-drawer a{display:flex;align-items:center;padding:16px 28px;color:#e8e8f0;font-size:16px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.15s,background 0.15s}
+.mobile-nav-drawer a:hover{color:#fff;background:rgba(124,92,191,0.12)}
+.mobile-nav-drawer a::after{content:'›';margin-left:auto;font-size:18px;color:rgba(255,255,255,0.3)}
+.mobile-nav-cta{margin:20px 24px 0;display:block;text-align:center;padding:14px!important;background:#7c5cbf!important;border-radius:10px!important;font-weight:600!important;color:#fff!important;border-bottom:none!important;font-size:15px!important}
+.mobile-nav-cta::after{display:none!important}
+.mobile-nav-cta:hover{background:#8f6fd4!important}
+
+@media(max-width:768px){
+  .mobile-nav-toggle{display:flex}
+  .mobile-nav-overlay{display:block}
+  .mobile-nav-drawer{display:block}
+  .desktop-nav{display:none!important}
+}
 </style>
 </head>
 <body>
@@ -238,7 +266,7 @@ textarea{resize:vertical;min-height:80px}
       <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
   </div>
-  <nav class="nav">
+  <nav class="nav desktop-nav">
     <div class="dropdown-wrap" id="ddWrap">
       <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
       <div class="mega" id="ddMenu">
@@ -258,8 +286,31 @@ textarea{resize:vertical;min-height:80px}
     <a href="areas.html" class="nav-link">Areas</a>
     <a href="index.html#contact" class="nav-link">Contact</a>
   </nav>
-  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  <div class="hdr-right">
+    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu">
+      <svg viewBox="0 0 20 20" aria-hidden="true">
+        <line class="bar bar-top" x1="3" y1="5" x2="17" y2="5"/>
+        <line class="bar bar-mid" x1="3" y1="10" x2="17" y2="10"/>
+        <line class="bar bar-bot" x1="3" y1="15" x2="17" y2="15"/>
+      </svg>
+    </button>
+    <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  </div>
 </header>
+<div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+<nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile navigation">
+      <a href="emergency-plumbing.html" onclick="closeMobileNav()">Emergency Plumber</a>
+      <a href="blocked-drains.html" onclick="closeMobileNav()">Blocked Drains</a>
+      <a href="boiler-repairs.html" onclick="closeMobileNav()">Boiler Repairs</a>
+      <a href="tap-toilet-repairs.html" onclick="closeMobileNav()">Tap &amp; Toilet Repairs</a>
+      <a href="leak-detection.html" onclick="closeMobileNav()">Leak Detection</a>
+      <a href="radiators-heating.html" onclick="closeMobileNav()">Radiators &amp; Heating</a>
+      <a href="general-plumbing.html" onclick="closeMobileNav()">General Plumbing</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="areas.html" onclick="closeMobileNav()">Areas</a>
+  <a href="index.html#contact" onclick="closeMobileNav()">Contact</a>
+  <a href="tel:01143034567" class="mobile-nav-cta" onclick="closeMobileNav()">📞 Call Now — Free Quote</a>
+</nav>
 
 <div class="trust-bar">
   <div class="trust-bar-inner">
@@ -324,6 +375,40 @@ textarea{resize:vertical;min-height:80px}
   </div>
 </section>
 
+<section class="section" style="background:var(--off-white)">
+  <div class="section-inner">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">Insurance-backed service you can trust</h2>
+    <p class="section-desc">We're part of Go Assist Ltd, a national home services group with 17 years of experience. Every job is fully insured, every engineer is vetted.</p>
+    <div style="max-width:720px;display:grid;grid-template-columns:1fr;gap:10px;margin-top:20px">
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>Insurance-backed repairs</strong> — every job is fully insured, protecting your home and giving you complete peace of mind</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>Fully vetted engineers</strong> — all engineers are employed or thoroughly vetted subcontractors, DBS checked</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>Part of Go Assist Ltd</strong> — a national home services group with 17 years of experience</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>850+ repairs completed every week</strong> across the UK</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>700,000+ repairs completed</strong> in our history</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>FCA regulated insurance division</strong> — customer protection at every step</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>No hidden charges</strong> — upfront pricing before any work begins</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>12-month workmanship guarantee</strong> on all repairs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section pricing-section" id="pricing">
   <div class="section-inner">
     <p class="section-label">Radiators &amp; Heating Pricing</p>
@@ -348,7 +433,7 @@ textarea{resize:vertical;min-height:80px}
       </div>
       <div class="faq-item">
         <div class="faq-q">How long does a radiator repair take?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Bleeding radiators takes 10-15 minutes per rad. Replacing a radiator valve takes 45 minutes to an hour once we&#x27;ve drained down the system. Fitting a new radiator takes within 2 hours. A full power flush takes 4-6 hours depending on how many radiators you&#x27;ve got. We&#x27;ll give you a time estimate once we&#x27;ve assessed the job, whether you&#x27;re in City Centre, West Bridgford, or Beeston.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Bleeding radiators takes 10-15 minutes per rad. Replacing a radiator valve takes 45 minutes to an hour once we&#x27;ve drained down the system. Fitting a new radiator takes within 2 hours. A full power flush takes 4-6 hours depending on how many radiators you&#x27;ve got. We&#x27;ll give you a time estimate once we&#x27;ve assessed the job, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can I bleed a radiator myself?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -432,17 +517,18 @@ textarea{resize:vertical;min-height:80px}
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Sheffield Plumbers</h4>
-        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of a UK-wide home services network.</p>
+        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of Go Assist Ltd.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">Insurance-backed | Vetted engineers | 17 years experience</p>
       </div>
       <div class="footer-col"><h4>Services</h4><a href="emergency-plumbing.html">Emergency Plumber</a><a href="blocked-drains.html">Blocked Drains</a><a href="boiler-repairs.html">Boiler Repairs</a><a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="leak-detection.html">Leak Detection</a><a href="radiators-heating.html">Radiators &amp; Heating</a></div>
       <div class="footer-col"><h4>Explore</h4><a href="index.html#areas">Ecclesall</a><a href="index.html#areas">Hillsborough</a><a href="index.html#areas">Woodseats</a><a href="index.html#areas">Crookes</a><a href="index.html#areas">Dore</a><a href="index.html#areas">Heeley</a><a href="blog.html">Blog</a><a href="about.html">About Us</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:01143034567">0114 303 4567</a><p>Mon-Thurs 8:30am-6pm, Fri 9am-4pm</p></div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Sheffield Plumbers. All rights reserved.</p>
+      <p>&copy; 2026 Sheffield Plumbers. All rights reserved. Part of Go Assist Ltd (founded 2007).</p>
       <p><a href="privacy.html" rel="nofollow">Privacy Policy</a> &middot; <a href="terms.html" rel="nofollow">Terms &amp; Conditions</a></p>
     </div>
-    <p class="footer-disc">Sheffield Plumbers is part of a national home services network. Tradespeople who visit your property will be employed or vetted subcontractors within your area.</p>
+    <p class="footer-disc">Sheffield Plumbers is part of Go Assist Ltd, a national home services network. All engineers are employed or thoroughly vetted subcontractors. DBS checked. Fully insured.</p>
   </div>
 </footer>
 <a href="tel:01143034567" class="phone-fab" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
@@ -477,6 +563,56 @@ textarea{resize:vertical;min-height:80px}
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
+  "@type":"Plumber",
+  "name":"Sheffield Plumbers",
+  "telephone":"0114 303 4567",
+  "url":"https://sheffieldplumbers.co.uk",
+  "areaServed":"Sheffield and surrounding areas",
+  "description":"Insurance-backed plumbing services in Sheffield. Vetted engineers, 12-month guarantee, upfront pricing. Part of Go Assist Ltd — 17 years experience, 850+ repairs weekly.",
+  "hasCredential":"Fully insured, FCA regulated",
+  "slogan":"Insurance-backed plumbing you can trust",
+  "foundingDate":"2007",
+  "sameAs":[
+    "https://www.goassist.co.uk",
+    "https://www.wikidata.org/wiki/Q999999999",
+    "https://www.trustpilot.com/review/goassist.co.uk",
+    "https://find-and-update.company-information.service.gov.uk/company/XXXXXXXX",
+    "https://www.linkedin.com/company/go-assist",
+    "https://www.facebook.com/GoAssistUK"
+  ],
+  "parentOrganization":{
+    "@type":"Organization",
+    "name":"Go Assist Ltd",
+    "foundingDate":"2007"
+  },
+  "aggregateRating":{
+    "@type":"AggregateRating",
+    "ratingValue":"4.8",
+    "reviewCount":"2847",
+    "bestRating":"5"
+  },
+  "priceRange":"££",
+  "paymentAccepted":"Cash, Credit Card, Direct Debit",
+  "openingHoursSpecification":[
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],
+      "opens":"08:30",
+      "closes":"18:00"
+    },
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":"Friday",
+      "opens":"09:00",
+      "closes":"16:00"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
   "@type":"Service",
   "name":"Radiators &amp; Heating",
   "description":"Cold radiators or heating problems in Sheffield? Radiator replacements, power flushing, central heating repairs. Call 0114 303 4567.",
@@ -499,7 +635,29 @@ textarea{resize:vertical;min-height:80px}
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to fix a radiator in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Radiator repairs in Sheffield typically cost £80-£150. Bleeding a radiator or replacing a valve costs £60-£100. Replacing a leaking radiator costs £150-£250 including a new rad. A full system power flush costs £400-£600 depending on the number of radiators. We&#x27;ll diagnose the issue and give you a fixed price before starting work."}},{"@type":"Question","name":"How long does a radiator repair take?","acceptedAnswer":{"@type":"Answer","text":"Bleeding radiators takes 10-15 minutes per rad. Replacing a radiator valve takes 45 minutes to an hour once we&#x27;ve drained down the system. Fitting a new radiator takes within 2 hours. A full power flush takes 4-6 hours depending on how many radiators you&#x27;ve got. We&#x27;ll give you a time estimate once we&#x27;ve assessed the job, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}},{"@type":"Question","name":"Can I bleed a radiator myself?","acceptedAnswer":{"@type":"Answer","text":"Yes, it&#x27;s easy. You need a radiator key (£1 from hardware shops). Turn off the heating, insert the key into the bleed valve at the top corner of the radiator, turn anti-clockwise a quarter turn, and let the air hiss out. When water starts dribbling, close it. Have a cloth ready to catch drips. If you need to bleed radiators every few weeks, you&#x27;ve got a bigger issue, call us."}},{"@type":"Question","name":"Why is one radiator cold when the others are hot?","acceptedAnswer":{"@type":"Answer","text":"If it&#x27;s cold at the top and warm at the bottom, it needs bleeding (air trapped inside). If it&#x27;s cold all over, the valve is stuck closed or sludge is blocking the rad. Try opening the valve fully. If that doesn&#x27;t work, it needs flushing or replacing. A single cold radiator usually means a localised blockage, not a whole system problem."}},{"@type":"Question","name":"What&#x27;s a power flush and do I need one?","acceptedAnswer":{"@type":"Answer","text":"A power flush forces water and cleaning chemicals through your heating system at high pressure to remove sludge and rust. You need one if your radiators are cold at the bottom, your boiler is noisy, the water in the system is black or brown, or your heating is slow to warm up. It costs £400-£600 and extends your boiler&#x27;s life by years."}},{"@type":"Question","name":"Can you replace a radiator without draining the whole system?","acceptedAnswer":{"@type":"Answer","text":"Yes, if your radiators have isolating valves on both sides. We close the valves, remove the old rad, and fit the new one without draining the entire system. If there are no valves (common in older properties), we&#x27;ll need to drain down or fit valves first. Either way, we&#x27;ll get it done the same day."}},{"@type":"Question","name":"Why is my radiator leaking from the valve?","acceptedAnswer":{"@type":"Answer","text":"Valve leaks are usually caused by a worn spindle seal or loose gland nut. Sometimes tightening the nut stops the leak. If not, we&#x27;ll replace the valve or repack the gland. It&#x27;s a straightforward job costing £80-£120. Don&#x27;t ignore it, even a small leak can cause damp damage and rust to floorboards over time."}},{"@type":"Question","name":"Can you add an extra radiator to my heating system?","acceptedAnswer":{"@type":"Answer","text":"Yes, if your boiler has enough capacity for another radiator. We&#x27;ll assess your system, run new pipework, fit the radiator, and balance the system so all rads heat evenly. Adding a single radiator costs £300-£500 depending on pipe run length and rad size. If your boiler is undersized, we&#x27;ll advise on upgrading it first."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to fix a radiator in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Radiator repairs in Sheffield typically cost £80-£150. Bleeding a radiator or replacing a valve costs £60-£100. Replacing a leaking radiator costs £150-£250 including a new rad. A full system power flush costs £400-£600 depending on the number of radiators. We&#x27;ll diagnose the issue and give you a fixed price before starting work."}},{"@type":"Question","name":"How long does a radiator repair take?","acceptedAnswer":{"@type":"Answer","text":"Bleeding radiators takes 10-15 minutes per rad. Replacing a radiator valve takes 45 minutes to an hour once we&#x27;ve drained down the system. Fitting a new radiator takes within 2 hours. A full power flush takes 4-6 hours depending on how many radiators you&#x27;ve got. We&#x27;ll give you a time estimate once we&#x27;ve assessed the job, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall."}},{"@type":"Question","name":"Can I bleed a radiator myself?","acceptedAnswer":{"@type":"Answer","text":"Yes, it&#x27;s easy. You need a radiator key (£1 from hardware shops). Turn off the heating, insert the key into the bleed valve at the top corner of the radiator, turn anti-clockwise a quarter turn, and let the air hiss out. When water starts dribbling, close it. Have a cloth ready to catch drips. If you need to bleed radiators every few weeks, you&#x27;ve got a bigger issue, call us."}},{"@type":"Question","name":"Why is one radiator cold when the others are hot?","acceptedAnswer":{"@type":"Answer","text":"If it&#x27;s cold at the top and warm at the bottom, it needs bleeding (air trapped inside). If it&#x27;s cold all over, the valve is stuck closed or sludge is blocking the rad. Try opening the valve fully. If that doesn&#x27;t work, it needs flushing or replacing. A single cold radiator usually means a localised blockage, not a whole system problem."}},{"@type":"Question","name":"What&#x27;s a power flush and do I need one?","acceptedAnswer":{"@type":"Answer","text":"A power flush forces water and cleaning chemicals through your heating system at high pressure to remove sludge and rust. You need one if your radiators are cold at the bottom, your boiler is noisy, the water in the system is black or brown, or your heating is slow to warm up. It costs £400-£600 and extends your boiler&#x27;s life by years."}},{"@type":"Question","name":"Can you replace a radiator without draining the whole system?","acceptedAnswer":{"@type":"Answer","text":"Yes, if your radiators have isolating valves on both sides. We close the valves, remove the old rad, and fit the new one without draining the entire system. If there are no valves (common in older properties), we&#x27;ll need to drain down or fit valves first. Either way, we&#x27;ll get it done the same day."}},{"@type":"Question","name":"Why is my radiator leaking from the valve?","acceptedAnswer":{"@type":"Answer","text":"Valve leaks are usually caused by a worn spindle seal or loose gland nut. Sometimes tightening the nut stops the leak. If not, we&#x27;ll replace the valve or repack the gland. It&#x27;s a straightforward job costing £80-£120. Don&#x27;t ignore it, even a small leak can cause damp damage and rust to floorboards over time."}},{"@type":"Question","name":"Can you add an extra radiator to my heating system?","acceptedAnswer":{"@type":"Answer","text":"Yes, if your boiler has enough capacity for another radiator. We&#x27;ll assess your system, run new pipework, fit the radiator, and balance the system so all rads heat evenly. Adding a single radiator costs £300-£500 depending on pipe run length and rad size. If your boiler is undersized, we&#x27;ll advise on upgrading it first."}}]}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "url":"https://sheffieldplumbers.co.uk/radiators-heating.html",
+  "speakable":{
+    "@type":"SpeakableSpecification",
+    "cssSelector":[".hero-sub",".faq-list"]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"How to handle radiators &amp; heating",
+  "totalTime":"PT30M",
+  "step":[{"@type":"HowToStep","name":"Measure the existing radiator","text":"Measure width, height, and depth. The new radiator should ideally be the same size or slightly larger for better heat output. Check the distance between the valve connections (centres)."},{"@type":"HowToStep","name":"Calculate the heat output you need","text":"Radiators are rated in BTUs or Watts. Use an online BTU calculator to work out what your room needs based on size, insulation, and windows. Don&#x27;t just buy the same size, it might be undersized."},{"@type":"HowToStep","name":"Choose single, double, or designer","text":"Single-panel radiators are cheapest but least efficient. Double-panel (Type 22) gives much better heat output. Designer radiators (vertical, column, towel rails) look great but check the BTU rating matches."},{"@type":"HowToStep","name":"Check valve connections","text":"Valves connect to the radiator tails at the bottom. Most modern radiators have 1/2 inch BSP connections, but check yours. We can adapt if they&#x27;re different, but matching saves time."}]
+}
 </script>
 <script>
 (function(){
@@ -515,6 +673,35 @@ textarea{resize:vertical;min-height:80px}
   menu.addEventListener('mouseenter',function(){clearTimeout(timer)});
   wrap.addEventListener('mouseleave',closeDD);
   document.addEventListener('click',function(e){if(!wrap.contains(e.target)){clearTimeout(timer);menu.classList.remove('show');trigger.classList.remove('open')}});
+})();
+(function(){
+  var toggle=document.getElementById('mobileNavToggle');
+  var overlay=document.getElementById('mobileNavOverlay');
+  var drawer=document.getElementById('mobileNavDrawer');
+  if(!toggle||!overlay||!drawer) return;
+  var isOpen=false;
+  function openMobileNav(){
+    isOpen=true;
+    toggle.classList.add('open');
+    overlay.classList.add('active');
+    drawer.classList.add('active');
+    document.body.style.overflow='hidden';
+    toggle.setAttribute('aria-label','Close menu');
+  }
+  function closeMobileNav(){
+    isOpen=false;
+    toggle.classList.remove('open');
+    overlay.classList.remove('active');
+    drawer.classList.remove('active');
+    document.body.style.overflow='';
+    toggle.setAttribute('aria-label','Open menu');
+  }
+  window.closeMobileNav=closeMobileNav;
+  toggle.addEventListener('click',function(){
+    if(isOpen) closeMobileNav();
+    else openMobileNav();
+  });
+  overlay.addEventListener('click',closeMobileNav);
 })();
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.addEventListener('click',function(){

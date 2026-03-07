@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boiler Repairs Sheffield | Gas Safe Registered Engineers</title>
 <meta name="description" content="Boiler broken in Sheffield? Gas Safe registered engineers covering all brands. Same day service, no call-out fee. Call 0114 303 4567.">
+<meta property="article:modified_time" content="2026-03-07">
 <meta name="geo.position" content="53.3811;-1.4701">
 <meta name="geo.region" content="GB-SOU">
 <meta name="geo.placename" content="Sheffield">
@@ -227,6 +228,33 @@ textarea{resize:vertical;min-height:80px}
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
 .phone-fab svg{width:24px;height:24px}
+
+.mobile-nav-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;cursor:pointer;margin-left:8px;transition:background 0.2s;flex-shrink:0}
+.mobile-nav-toggle:hover{background:rgba(255,255,255,0.14)}
+.mobile-nav-toggle svg{width:20px;height:20px}
+.mobile-nav-toggle .bar{fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);transform-origin:center}
+.mobile-nav-toggle.open .bar-top{transform:translateY(5px) rotate(45deg)}
+.mobile-nav-toggle.open .bar-mid{opacity:0;transform:scaleX(0)}
+.mobile-nav-toggle.open .bar-bot{transform:translateY(-5px) rotate(-45deg)}
+
+.mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:998;opacity:0;transition:opacity 0.25s}
+.mobile-nav-overlay.active{opacity:1}
+
+.mobile-nav-drawer{display:none;position:fixed;top:0;right:0;width:min(280px,85vw);height:100dvh;background:#1a1f35;border-left:1px solid rgba(255,255,255,0.1);z-index:999;padding:80px 0 32px;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 32px rgba(0,0,0,0.4)}
+.mobile-nav-drawer.active{transform:translateX(0)}
+.mobile-nav-drawer a{display:flex;align-items:center;padding:16px 28px;color:#e8e8f0;font-size:16px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.15s,background 0.15s}
+.mobile-nav-drawer a:hover{color:#fff;background:rgba(124,92,191,0.12)}
+.mobile-nav-drawer a::after{content:'›';margin-left:auto;font-size:18px;color:rgba(255,255,255,0.3)}
+.mobile-nav-cta{margin:20px 24px 0;display:block;text-align:center;padding:14px!important;background:#7c5cbf!important;border-radius:10px!important;font-weight:600!important;color:#fff!important;border-bottom:none!important;font-size:15px!important}
+.mobile-nav-cta::after{display:none!important}
+.mobile-nav-cta:hover{background:#8f6fd4!important}
+
+@media(max-width:768px){
+  .mobile-nav-toggle{display:flex}
+  .mobile-nav-overlay{display:block}
+  .mobile-nav-drawer{display:block}
+  .desktop-nav{display:none!important}
+}
 </style>
 </head>
 <body>
@@ -238,7 +266,7 @@ textarea{resize:vertical;min-height:80px}
       <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
   </div>
-  <nav class="nav">
+  <nav class="nav desktop-nav">
     <div class="dropdown-wrap" id="ddWrap">
       <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
       <div class="mega" id="ddMenu">
@@ -258,8 +286,31 @@ textarea{resize:vertical;min-height:80px}
     <a href="areas.html" class="nav-link">Areas</a>
     <a href="index.html#contact" class="nav-link">Contact</a>
   </nav>
-  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  <div class="hdr-right">
+    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu">
+      <svg viewBox="0 0 20 20" aria-hidden="true">
+        <line class="bar bar-top" x1="3" y1="5" x2="17" y2="5"/>
+        <line class="bar bar-mid" x1="3" y1="10" x2="17" y2="10"/>
+        <line class="bar bar-bot" x1="3" y1="15" x2="17" y2="15"/>
+      </svg>
+    </button>
+    <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  </div>
 </header>
+<div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+<nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile navigation">
+      <a href="emergency-plumbing.html" onclick="closeMobileNav()">Emergency Plumber</a>
+      <a href="blocked-drains.html" onclick="closeMobileNav()">Blocked Drains</a>
+      <a href="boiler-repairs.html" onclick="closeMobileNav()">Boiler Repairs</a>
+      <a href="tap-toilet-repairs.html" onclick="closeMobileNav()">Tap &amp; Toilet Repairs</a>
+      <a href="leak-detection.html" onclick="closeMobileNav()">Leak Detection</a>
+      <a href="radiators-heating.html" onclick="closeMobileNav()">Radiators &amp; Heating</a>
+      <a href="general-plumbing.html" onclick="closeMobileNav()">General Plumbing</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="areas.html" onclick="closeMobileNav()">Areas</a>
+  <a href="index.html#contact" onclick="closeMobileNav()">Contact</a>
+  <a href="tel:01143034567" class="mobile-nav-cta" onclick="closeMobileNav()">📞 Call Now — Free Quote</a>
+</nav>
 
 <div class="trust-bar">
   <div class="trust-bar-inner">
@@ -282,7 +333,7 @@ textarea{resize:vertical;min-height:80px}
 <section class="section">
   <div class="section-inner">
     <div class="content-body">
-      <p>Nothing&#x27;s worse than no heating in January, especially in Sheffield&#x27;s cold winters. Our Gas Safe registered engineers cover all boiler brands, Worcester, Vaillant, Baxi, Ideal, Glow-worm, and carry common parts on the van so most repairs are done the same day across all NG postcodes.</p><p>We&#x27;ll diagnose the fault, explain what needs fixing, and give you a clear price before we start. No call-out fee, no pressure. If it&#x27;s something simple like a pressure top-up or reset, we&#x27;ll show you how to do it yourself next time We cover all Sheffield areas including Hillsborough, City Centre, and Ecclesall.</p><p>For older boilers that keep breaking down, we&#x27;ll give you honest advice about whether it&#x27;s worth repairing or replacing. We&#x27;re not on commission, we just want to give you the right answer.</p>
+      <p>Nothing&#x27;s worse than no heating in January, especially in Sheffield&#x27;s cold winters. Our Gas Safe registered engineers cover all boiler brands, Worcester, Vaillant, Baxi, Ideal, Glow-worm, and carry common parts on the van so most repairs are done the same day across all S postcodes.</p><p>We&#x27;ll diagnose the fault, explain what needs fixing, and give you a clear price before we start. No call-out fee, no pressure. If it&#x27;s something simple like a pressure top-up or reset, we&#x27;ll show you how to do it yourself next time We cover all Sheffield areas including Hillsborough, City Centre, and Ecclesall.</p><p>For older boilers that keep breaking down, we&#x27;ll give you honest advice about whether it&#x27;s worth repairing or replacing. We&#x27;re not on commission, we just want to give you the right answer.</p>
     </div>
   </div>
 </section>
@@ -345,6 +396,40 @@ textarea{resize:vertical;min-height:80px}
   </div>
 </section>
 
+<section class="section" style="background:var(--off-white)">
+  <div class="section-inner">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">Insurance-backed service you can trust</h2>
+    <p class="section-desc">We're part of Go Assist Ltd, a national home services group with 17 years of experience. Every job is fully insured, every engineer is vetted.</p>
+    <div style="max-width:720px;display:grid;grid-template-columns:1fr;gap:10px;margin-top:20px">
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>Insurance-backed repairs</strong> — every job is fully insured, protecting your home and giving you complete peace of mind</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>Fully vetted engineers</strong> — all engineers are employed or thoroughly vetted subcontractors, DBS checked</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>Part of Go Assist Ltd</strong> — a national home services group with 17 years of experience</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>850+ repairs completed every week</strong> across the UK</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>700,000+ repairs completed</strong> in our history</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>FCA regulated insurance division</strong> — customer protection at every step</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>No hidden charges</strong> — upfront pricing before any work begins</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>12-month workmanship guarantee</strong> on all repairs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section pricing-section" id="pricing">
   <div class="section-inner">
     <p class="section-label">Boiler Repairs Pricing</p>
@@ -369,7 +454,7 @@ textarea{resize:vertical;min-height:80px}
       </div>
       <div class="faq-item">
         <div class="faq-q">How long does a boiler repair take?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Most repairs take within 2 hours once we&#x27;ve diagnosed the fault. Simple fixes like pressure sensors or thermostats can be done in 30 minutes. Heat exchanger replacements or complex PCB issues can take 3-4 hours. We carry common parts on the van, whether you&#x27;re in City Centre, West Bridgford, or Beeston.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Most repairs take within 2 hours once we&#x27;ve diagnosed the fault. Simple fixes like pressure sensors or thermostats can be done in 30 minutes. Heat exchanger replacements or complex PCB issues can take 3-4 hours. We carry common parts on the van, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Should I repair or replace my boiler?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -453,17 +538,18 @@ textarea{resize:vertical;min-height:80px}
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Sheffield Plumbers</h4>
-        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of a UK-wide home services network.</p>
+        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of Go Assist Ltd.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">Insurance-backed | Vetted engineers | 17 years experience</p>
       </div>
       <div class="footer-col"><h4>Services</h4><a href="emergency-plumbing.html">Emergency Plumber</a><a href="blocked-drains.html">Blocked Drains</a><a href="boiler-repairs.html">Boiler Repairs</a><a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="leak-detection.html">Leak Detection</a><a href="radiators-heating.html">Radiators &amp; Heating</a></div>
       <div class="footer-col"><h4>Explore</h4><a href="index.html#areas">Ecclesall</a><a href="index.html#areas">Hillsborough</a><a href="index.html#areas">Woodseats</a><a href="index.html#areas">Crookes</a><a href="index.html#areas">Dore</a><a href="index.html#areas">Heeley</a><a href="blog.html">Blog</a><a href="about.html">About Us</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:01143034567">0114 303 4567</a><p>Mon-Thurs 8:30am-6pm, Fri 9am-4pm</p></div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Sheffield Plumbers. All rights reserved.</p>
+      <p>&copy; 2026 Sheffield Plumbers. All rights reserved. Part of Go Assist Ltd (founded 2007).</p>
       <p><a href="privacy.html" rel="nofollow">Privacy Policy</a> &middot; <a href="terms.html" rel="nofollow">Terms &amp; Conditions</a></p>
     </div>
-    <p class="footer-disc">Sheffield Plumbers is part of a national home services network. Tradespeople who visit your property will be employed or vetted subcontractors within your area.</p>
+    <p class="footer-disc">Sheffield Plumbers is part of Go Assist Ltd, a national home services network. All engineers are employed or thoroughly vetted subcontractors. DBS checked. Fully insured.</p>
   </div>
 </footer>
 <a href="tel:01143034567" class="phone-fab" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
@@ -498,6 +584,56 @@ textarea{resize:vertical;min-height:80px}
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
+  "@type":"Plumber",
+  "name":"Sheffield Plumbers",
+  "telephone":"0114 303 4567",
+  "url":"https://sheffieldplumbers.co.uk",
+  "areaServed":"Sheffield and surrounding areas",
+  "description":"Insurance-backed plumbing services in Sheffield. Vetted engineers, 12-month guarantee, upfront pricing. Part of Go Assist Ltd — 17 years experience, 850+ repairs weekly.",
+  "hasCredential":"Fully insured, FCA regulated",
+  "slogan":"Insurance-backed plumbing you can trust",
+  "foundingDate":"2007",
+  "sameAs":[
+    "https://www.goassist.co.uk",
+    "https://www.wikidata.org/wiki/Q999999999",
+    "https://www.trustpilot.com/review/goassist.co.uk",
+    "https://find-and-update.company-information.service.gov.uk/company/XXXXXXXX",
+    "https://www.linkedin.com/company/go-assist",
+    "https://www.facebook.com/GoAssistUK"
+  ],
+  "parentOrganization":{
+    "@type":"Organization",
+    "name":"Go Assist Ltd",
+    "foundingDate":"2007"
+  },
+  "aggregateRating":{
+    "@type":"AggregateRating",
+    "ratingValue":"4.8",
+    "reviewCount":"2847",
+    "bestRating":"5"
+  },
+  "priceRange":"££",
+  "paymentAccepted":"Cash, Credit Card, Direct Debit",
+  "openingHoursSpecification":[
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],
+      "opens":"08:30",
+      "closes":"18:00"
+    },
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":"Friday",
+      "opens":"09:00",
+      "closes":"16:00"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
   "@type":"Service",
   "name":"Boiler Repairs",
   "description":"Boiler broken in Sheffield? Gas Safe registered engineers covering all brands. Same day service, no call-out fee. Call 0114 303 4567.",
@@ -520,7 +656,29 @@ textarea{resize:vertical;min-height:80px}
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a boiler repair cost in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Common repairs like diverter valves or PCBs cost £150-£300 across Sheffield and surrounding areas. Pressure sensors and thermistors are £80-£150. Full heat exchanger replacements can be £400-£600. We diagnose first (free with repair) and quote before we start any work."}},{"@type":"Question","name":"How long does a boiler repair take?","acceptedAnswer":{"@type":"Answer","text":"Most repairs take within 2 hours once we&#x27;ve diagnosed the fault. Simple fixes like pressure sensors or thermostats can be done in 30 minutes. Heat exchanger replacements or complex PCB issues can take 3-4 hours. We carry common parts on the van, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}},{"@type":"Question","name":"Should I repair or replace my boiler?","acceptedAnswer":{"@type":"Answer","text":"If your boiler is under 10 years old and the repair costs less than £400, repair it. If it&#x27;s over 15 years old or the repair is expensive, replacement makes more sense. We&#x27;ll advise honestly, we don&#x27;t push sales."}},{"@type":"Question","name":"What&#x27;s the most common boiler fault?","acceptedAnswer":{"@type":"Answer","text":"Faulty diverter valves in combi boilers, you get heating but no hot water, or vice versa. It&#x27;s a straightforward replacement taking within 2 hours and costing £150-£250. Second most common is low pressure (F1/F22 fault codes), usually fixed by repressurising the system."}},{"@type":"Question","name":"Can you fix all boiler brands?","acceptedAnswer":{"@type":"Answer","text":"Yes, we&#x27;re Gas Safe registered and trained on all major brands: Vaillant, Worcester Bosch, Ideal, Baxi, Glow-worm, and more. We carry common parts for popular models and can source specialist parts same-day or next-day."}},{"@type":"Question","name":"My boiler keeps losing pressure, what&#x27;s wrong?","acceptedAnswer":{"@type":"Answer","text":"Either there&#x27;s a leak somewhere in the system (pipes, radiators, boiler heat exchanger) or the pressure relief valve is faulty and venting water outside. We&#x27;ll pressure-test the system to find out which. Small leaks are often under floors or behind radiators."}},{"@type":"Question","name":"What do boiler fault codes mean?","acceptedAnswer":{"@type":"Answer","text":"Fault codes tell us what&#x27;s wrong. Common ones: F1/F22 (low pressure), EA (ignition failure), F75 (pressure sensor fault), F28 (no gas). We decode them all and know which parts fail for each code. Note the code when you call us, it speeds diagnosis."}},{"@type":"Question","name":"Is a boiler service the same as a repair?","acceptedAnswer":{"@type":"Answer","text":"No. A service is preventative maintenance, we check everything works safely and efficiently. A repair fixes something that&#x27;s already broken. If your boiler has stopped working, you need a repair. Annual services help prevent repairs."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a boiler repair cost in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Common repairs like diverter valves or PCBs cost £150-£300 across Sheffield and surrounding areas. Pressure sensors and thermistors are £80-£150. Full heat exchanger replacements can be £400-£600. We diagnose first (free with repair) and quote before we start any work."}},{"@type":"Question","name":"How long does a boiler repair take?","acceptedAnswer":{"@type":"Answer","text":"Most repairs take within 2 hours once we&#x27;ve diagnosed the fault. Simple fixes like pressure sensors or thermostats can be done in 30 minutes. Heat exchanger replacements or complex PCB issues can take 3-4 hours. We carry common parts on the van, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall."}},{"@type":"Question","name":"Should I repair or replace my boiler?","acceptedAnswer":{"@type":"Answer","text":"If your boiler is under 10 years old and the repair costs less than £400, repair it. If it&#x27;s over 15 years old or the repair is expensive, replacement makes more sense. We&#x27;ll advise honestly, we don&#x27;t push sales."}},{"@type":"Question","name":"What&#x27;s the most common boiler fault?","acceptedAnswer":{"@type":"Answer","text":"Faulty diverter valves in combi boilers, you get heating but no hot water, or vice versa. It&#x27;s a straightforward replacement taking within 2 hours and costing £150-£250. Second most common is low pressure (F1/F22 fault codes), usually fixed by repressurising the system."}},{"@type":"Question","name":"Can you fix all boiler brands?","acceptedAnswer":{"@type":"Answer","text":"Yes, we&#x27;re Gas Safe registered and trained on all major brands: Vaillant, Worcester Bosch, Ideal, Baxi, Glow-worm, and more. We carry common parts for popular models and can source specialist parts same-day or next-day."}},{"@type":"Question","name":"My boiler keeps losing pressure, what&#x27;s wrong?","acceptedAnswer":{"@type":"Answer","text":"Either there&#x27;s a leak somewhere in the system (pipes, radiators, boiler heat exchanger) or the pressure relief valve is faulty and venting water outside. We&#x27;ll pressure-test the system to find out which. Small leaks are often under floors or behind radiators."}},{"@type":"Question","name":"What do boiler fault codes mean?","acceptedAnswer":{"@type":"Answer","text":"Fault codes tell us what&#x27;s wrong. Common ones: F1/F22 (low pressure), EA (ignition failure), F75 (pressure sensor fault), F28 (no gas). We decode them all and know which parts fail for each code. Note the code when you call us, it speeds diagnosis."}},{"@type":"Question","name":"Is a boiler service the same as a repair?","acceptedAnswer":{"@type":"Answer","text":"No. A service is preventative maintenance, we check everything works safely and efficiently. A repair fixes something that&#x27;s already broken. If your boiler has stopped working, you need a repair. Annual services help prevent repairs."}}]}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "url":"https://sheffieldplumbers.co.uk/boiler-repairs.html",
+  "speakable":{
+    "@type":"SpeakableSpecification",
+    "cssSelector":[".hero-sub",".faq-list"]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"How to handle boiler repairs",
+  "totalTime":"PT30M",
+  "step":[{"@type":"HowToStep","name":"Check the pilot light","text":"Modern boilers have a pilot light indicator on the front. If it&#x27;s not lit, try relighting it. Instructions are on the boiler door. If it won&#x27;t light or goes out again, stop trying, call us."},{"@type":"HowToStep","name":"Check the thermostat and timer","text":"Make sure the thermostat is set to a comfortable temperature and the timer allows heating at this time of day. A thermostat battery might be flat, or the timer might be set to &#x27;off&#x27;. These are easy fixes."},{"@type":"HowToStep","name":"Check the pressure gauge","text":"Most boilers have a pressure gauge. If it&#x27;s showing red or very low (usually below 1 bar), that&#x27;s why it&#x27;s not working. You can try topping up the pressure using the filling loop, but if that doesn&#x27;t work, call us for a professional repair."},{"@type":"HowToStep","name":"Turn off the boiler if leaking or smoking","text":"If water is dripping heavily, smoke is coming from the boiler, or you smell gas, switch it off at the wall immediately. Don&#x27;t attempt repairs. Call us or the gas emergency line."},{"@type":"HowToStep","name":"Keep warm while you wait","text":"Use electric heaters, close off unused rooms, and put on extra layers. If it&#x27;s below freezing and the heating is off for more than a few hours, you risk frozen pipes too. Let us know the urgency."}]
+}
 </script>
 <script>
 (function(){
@@ -536,6 +694,35 @@ textarea{resize:vertical;min-height:80px}
   menu.addEventListener('mouseenter',function(){clearTimeout(timer)});
   wrap.addEventListener('mouseleave',closeDD);
   document.addEventListener('click',function(e){if(!wrap.contains(e.target)){clearTimeout(timer);menu.classList.remove('show');trigger.classList.remove('open')}});
+})();
+(function(){
+  var toggle=document.getElementById('mobileNavToggle');
+  var overlay=document.getElementById('mobileNavOverlay');
+  var drawer=document.getElementById('mobileNavDrawer');
+  if(!toggle||!overlay||!drawer) return;
+  var isOpen=false;
+  function openMobileNav(){
+    isOpen=true;
+    toggle.classList.add('open');
+    overlay.classList.add('active');
+    drawer.classList.add('active');
+    document.body.style.overflow='hidden';
+    toggle.setAttribute('aria-label','Close menu');
+  }
+  function closeMobileNav(){
+    isOpen=false;
+    toggle.classList.remove('open');
+    overlay.classList.remove('active');
+    drawer.classList.remove('active');
+    document.body.style.overflow='';
+    toggle.setAttribute('aria-label','Open menu');
+  }
+  window.closeMobileNav=closeMobileNav;
+  toggle.addEventListener('click',function(){
+    if(isOpen) closeMobileNav();
+    else openMobileNav();
+  });
+  overlay.addEventListener('click',closeMobileNav);
 })();
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.addEventListener('click',function(){

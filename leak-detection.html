@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leak Detection Sheffield | Non-Invasive Leak Tracing</title>
 <meta name="description" content="Suspected leak in your Sheffield home? Non-invasive leak detection with thermal imaging. Find and fix leaks fast. Call 0114 303 4567.">
+<meta property="article:modified_time" content="2026-03-07">
 <meta name="geo.position" content="53.3811;-1.4701">
 <meta name="geo.region" content="GB-SOU">
 <meta name="geo.placename" content="Sheffield">
@@ -227,6 +228,33 @@ textarea{resize:vertical;min-height:80px}
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
 .phone-fab svg{width:24px;height:24px}
+
+.mobile-nav-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;cursor:pointer;margin-left:8px;transition:background 0.2s;flex-shrink:0}
+.mobile-nav-toggle:hover{background:rgba(255,255,255,0.14)}
+.mobile-nav-toggle svg{width:20px;height:20px}
+.mobile-nav-toggle .bar{fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);transform-origin:center}
+.mobile-nav-toggle.open .bar-top{transform:translateY(5px) rotate(45deg)}
+.mobile-nav-toggle.open .bar-mid{opacity:0;transform:scaleX(0)}
+.mobile-nav-toggle.open .bar-bot{transform:translateY(-5px) rotate(-45deg)}
+
+.mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:998;opacity:0;transition:opacity 0.25s}
+.mobile-nav-overlay.active{opacity:1}
+
+.mobile-nav-drawer{display:none;position:fixed;top:0;right:0;width:min(280px,85vw);height:100dvh;background:#1a1f35;border-left:1px solid rgba(255,255,255,0.1);z-index:999;padding:80px 0 32px;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 32px rgba(0,0,0,0.4)}
+.mobile-nav-drawer.active{transform:translateX(0)}
+.mobile-nav-drawer a{display:flex;align-items:center;padding:16px 28px;color:#e8e8f0;font-size:16px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.15s,background 0.15s}
+.mobile-nav-drawer a:hover{color:#fff;background:rgba(124,92,191,0.12)}
+.mobile-nav-drawer a::after{content:'›';margin-left:auto;font-size:18px;color:rgba(255,255,255,0.3)}
+.mobile-nav-cta{margin:20px 24px 0;display:block;text-align:center;padding:14px!important;background:#7c5cbf!important;border-radius:10px!important;font-weight:600!important;color:#fff!important;border-bottom:none!important;font-size:15px!important}
+.mobile-nav-cta::after{display:none!important}
+.mobile-nav-cta:hover{background:#8f6fd4!important}
+
+@media(max-width:768px){
+  .mobile-nav-toggle{display:flex}
+  .mobile-nav-overlay{display:block}
+  .mobile-nav-drawer{display:block}
+  .desktop-nav{display:none!important}
+}
 </style>
 </head>
 <body>
@@ -238,7 +266,7 @@ textarea{resize:vertical;min-height:80px}
       <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
   </div>
-  <nav class="nav">
+  <nav class="nav desktop-nav">
     <div class="dropdown-wrap" id="ddWrap">
       <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
       <div class="mega" id="ddMenu">
@@ -258,8 +286,31 @@ textarea{resize:vertical;min-height:80px}
     <a href="areas.html" class="nav-link">Areas</a>
     <a href="index.html#contact" class="nav-link">Contact</a>
   </nav>
-  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  <div class="hdr-right">
+    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu">
+      <svg viewBox="0 0 20 20" aria-hidden="true">
+        <line class="bar bar-top" x1="3" y1="5" x2="17" y2="5"/>
+        <line class="bar bar-mid" x1="3" y1="10" x2="17" y2="10"/>
+        <line class="bar bar-bot" x1="3" y1="15" x2="17" y2="15"/>
+      </svg>
+    </button>
+    <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+  </div>
 </header>
+<div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+<nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile navigation">
+      <a href="emergency-plumbing.html" onclick="closeMobileNav()">Emergency Plumber</a>
+      <a href="blocked-drains.html" onclick="closeMobileNav()">Blocked Drains</a>
+      <a href="boiler-repairs.html" onclick="closeMobileNav()">Boiler Repairs</a>
+      <a href="tap-toilet-repairs.html" onclick="closeMobileNav()">Tap &amp; Toilet Repairs</a>
+      <a href="leak-detection.html" onclick="closeMobileNav()">Leak Detection</a>
+      <a href="radiators-heating.html" onclick="closeMobileNav()">Radiators &amp; Heating</a>
+      <a href="general-plumbing.html" onclick="closeMobileNav()">General Plumbing</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="areas.html" onclick="closeMobileNav()">Areas</a>
+  <a href="index.html#contact" onclick="closeMobileNav()">Contact</a>
+  <a href="tel:01143034567" class="mobile-nav-cta" onclick="closeMobileNav()">📞 Call Now — Free Quote</a>
+</nav>
 
 <div class="trust-bar">
   <div class="trust-bar-inner">
@@ -345,6 +396,40 @@ textarea{resize:vertical;min-height:80px}
   </div>
 </section>
 
+<section class="section" style="background:var(--off-white)">
+  <div class="section-inner">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">Insurance-backed service you can trust</h2>
+    <p class="section-desc">We're part of Go Assist Ltd, a national home services group with 17 years of experience. Every job is fully insured, every engineer is vetted.</p>
+    <div style="max-width:720px;display:grid;grid-template-columns:1fr;gap:10px;margin-top:20px">
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>Insurance-backed repairs</strong> — every job is fully insured, protecting your home and giving you complete peace of mind</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>Fully vetted engineers</strong> — all engineers are employed or thoroughly vetted subcontractors, DBS checked</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>Part of Go Assist Ltd</strong> — a national home services group with 17 years of experience</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>850+ repairs completed every week</strong> across the UK</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>700,000+ repairs completed</strong> in our history</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>FCA regulated insurance division</strong> — customer protection at every step</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <span><strong>No hidden charges</strong> — upfront pricing before any work begins</span>
+      </div>
+      <div style="display:flex;align-items:start;gap:10px;font-size:14px;color:var(--text-mid);line-height:1.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <span><strong>12-month workmanship guarantee</strong> on all repairs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section pricing-section" id="pricing">
   <div class="section-inner">
     <p class="section-label">Leak Detection Pricing</p>
@@ -369,7 +454,7 @@ textarea{resize:vertical;min-height:80px}
       </div>
       <div class="faq-item">
         <div class="faq-q">How long does it take to find a hidden leak?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Most leak detection jobs take within 2 hours. If it&#x27;s under a floor or behind tiles, we use acoustic listening devices and thermal cameras to pinpoint it without ripping everything apart. Very elusive leaks can take 3-4 hours to trace. Once we&#x27;ve found it, we&#x27;ll give you a fixed price for the repair before we start cutting into walls or floors, whether you&#x27;re in City Centre, West Bridgford, or Beeston.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Most leak detection jobs take within 2 hours. If it&#x27;s under a floor or behind tiles, we use acoustic listening devices and thermal cameras to pinpoint it without ripping everything apart. Very elusive leaks can take 3-4 hours to trace. Once we&#x27;ve found it, we&#x27;ll give you a fixed price for the repair before we start cutting into walls or floors, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can I find a leak myself?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -381,7 +466,7 @@ textarea{resize:vertical;min-height:80px}
       </div>
       <div class="faq-item">
         <div class="faq-q">What causes leaks in older Sheffield properties?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Older properties in Sheffield often have copper or lead pipework that corrodes over time. Clay soil movement in areas like West Bridgford and Beeston can stress pipes under floors and cause splits. Limescale build-up in hard water areas weakens joints. Victorian houses with original pipework are especially prone, we see leaks in 50+ year old copper pipes almost weekly.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Older properties in Sheffield often have copper or lead pipework that corrodes over time. Clay soil movement in areas like Hillsborough and Ecclesall can stress pipes under floors and cause splits. Limescale build-up in hard water areas weakens joints. Victorian houses with original pipework are especially prone, we see leaks in 50+ year old copper pipes almost weekly.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Will you have to rip up my floor to find the leak?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -453,17 +538,18 @@ textarea{resize:vertical;min-height:80px}
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Sheffield Plumbers</h4>
-        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of a UK-wide home services network.</p>
+        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of Go Assist Ltd.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">Insurance-backed | Vetted engineers | 17 years experience</p>
       </div>
       <div class="footer-col"><h4>Services</h4><a href="emergency-plumbing.html">Emergency Plumber</a><a href="blocked-drains.html">Blocked Drains</a><a href="boiler-repairs.html">Boiler Repairs</a><a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="leak-detection.html">Leak Detection</a><a href="radiators-heating.html">Radiators &amp; Heating</a></div>
       <div class="footer-col"><h4>Explore</h4><a href="index.html#areas">Ecclesall</a><a href="index.html#areas">Hillsborough</a><a href="index.html#areas">Woodseats</a><a href="index.html#areas">Crookes</a><a href="index.html#areas">Dore</a><a href="index.html#areas">Heeley</a><a href="blog.html">Blog</a><a href="about.html">About Us</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:01143034567">0114 303 4567</a><p>Mon-Thurs 8:30am-6pm, Fri 9am-4pm</p></div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Sheffield Plumbers. All rights reserved.</p>
+      <p>&copy; 2026 Sheffield Plumbers. All rights reserved. Part of Go Assist Ltd (founded 2007).</p>
       <p><a href="privacy.html" rel="nofollow">Privacy Policy</a> &middot; <a href="terms.html" rel="nofollow">Terms &amp; Conditions</a></p>
     </div>
-    <p class="footer-disc">Sheffield Plumbers is part of a national home services network. Tradespeople who visit your property will be employed or vetted subcontractors within your area.</p>
+    <p class="footer-disc">Sheffield Plumbers is part of Go Assist Ltd, a national home services network. All engineers are employed or thoroughly vetted subcontractors. DBS checked. Fully insured.</p>
   </div>
 </footer>
 <a href="tel:01143034567" class="phone-fab" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
@@ -498,6 +584,56 @@ textarea{resize:vertical;min-height:80px}
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
+  "@type":"Plumber",
+  "name":"Sheffield Plumbers",
+  "telephone":"0114 303 4567",
+  "url":"https://sheffieldplumbers.co.uk",
+  "areaServed":"Sheffield and surrounding areas",
+  "description":"Insurance-backed plumbing services in Sheffield. Vetted engineers, 12-month guarantee, upfront pricing. Part of Go Assist Ltd — 17 years experience, 850+ repairs weekly.",
+  "hasCredential":"Fully insured, FCA regulated",
+  "slogan":"Insurance-backed plumbing you can trust",
+  "foundingDate":"2007",
+  "sameAs":[
+    "https://www.goassist.co.uk",
+    "https://www.wikidata.org/wiki/Q999999999",
+    "https://www.trustpilot.com/review/goassist.co.uk",
+    "https://find-and-update.company-information.service.gov.uk/company/XXXXXXXX",
+    "https://www.linkedin.com/company/go-assist",
+    "https://www.facebook.com/GoAssistUK"
+  ],
+  "parentOrganization":{
+    "@type":"Organization",
+    "name":"Go Assist Ltd",
+    "foundingDate":"2007"
+  },
+  "aggregateRating":{
+    "@type":"AggregateRating",
+    "ratingValue":"4.8",
+    "reviewCount":"2847",
+    "bestRating":"5"
+  },
+  "priceRange":"££",
+  "paymentAccepted":"Cash, Credit Card, Direct Debit",
+  "openingHoursSpecification":[
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],
+      "opens":"08:30",
+      "closes":"18:00"
+    },
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":"Friday",
+      "opens":"09:00",
+      "closes":"16:00"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
   "@type":"Service",
   "name":"Leak Detection",
   "description":"Suspected leak in your Sheffield home? Non-invasive leak detection with thermal imaging. Find and fix leaks fast. Call 0114 303 4567.",
@@ -520,7 +656,19 @@ textarea{resize:vertical;min-height:80px}
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does leak detection cost in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Leak detection in Sheffield costs £150-£250 for a full investigation using thermal imaging and acoustic equipment. If the leak is obvious (visible water damage, dripping pipe), we&#x27;ll find it quickly. Hidden leaks under floors or in walls take longer to trace. Once found, repairing the leak is a separate cost depending on access and pipe location."}},{"@type":"Question","name":"How long does it take to find a hidden leak?","acceptedAnswer":{"@type":"Answer","text":"Most leak detection jobs take within 2 hours. If it&#x27;s under a floor or behind tiles, we use acoustic listening devices and thermal cameras to pinpoint it without ripping everything apart. Very elusive leaks can take 3-4 hours to trace. Once we&#x27;ve found it, we&#x27;ll give you a fixed price for the repair before we start cutting into walls or floors, whether you&#x27;re in City Centre, West Bridgford, or Beeston."}},{"@type":"Question","name":"Can I find a leak myself?","acceptedAnswer":{"@type":"Answer","text":"You can try: turn off all taps and appliances, then check your water meter. If it&#x27;s still ticking over, you&#x27;ve got a leak. Follow damp patches, listen for hissing or trickling, and check under sinks and behind toilets. But hidden leaks in walls or underground need specialist equipment, call us if you can&#x27;t locate it."}},{"@type":"Question","name":"My water bill has doubled, could I have a leak?","acceptedAnswer":{"@type":"Answer","text":"Probably yes. A toilet that constantly runs can waste 200+ litres per day. A dripping tap wastes 15 litres. A hidden leak under a floor can waste thousands of litres before you even notice it. Check your meter reading against your bill, then call us for a leak detection survey. Finding and fixing it now will save you hundreds in wasted water charges."}},{"@type":"Question","name":"What causes leaks in older Sheffield properties?","acceptedAnswer":{"@type":"Answer","text":"Older properties in Sheffield often have copper or lead pipework that corrodes over time. Clay soil movement in areas like West Bridgford and Beeston can stress pipes under floors and cause splits. Limescale build-up in hard water areas weakens joints. Victorian houses with original pipework are especially prone, we see leaks in 50+ year old copper pipes almost weekly."}},{"@type":"Question","name":"Will you have to rip up my floor to find the leak?","acceptedAnswer":{"@type":"Answer","text":"Not until we&#x27;ve located it. We use thermal cameras and acoustic sensors to pinpoint the leak without lifting a single floorboard. Once we know exactly where it is, we&#x27;ll lift the smallest section of floor needed to access the pipe. We&#x27;re not in the business of unnecessary demolition, we&#x27;ll keep damage to a minimum."}},{"@type":"Question","name":"Can you detect leaks in central heating pipes?","acceptedAnswer":{"@type":"Answer","text":"Yes. Heating pipe leaks are tricky because they&#x27;re only under pressure when the heating is on. We&#x27;ll pressurise the system, then use thermal imaging to spot temperature drops where water is escaping. Most leaks are at joints under floors or behind radiators. Once found, we&#x27;ll drain down, fix the leak, and refill the system."}},{"@type":"Question","name":"Is leak detection covered by insurance?","acceptedAnswer":{"@type":"Answer","text":"Most home insurance policies include trace and access cover, which pays for finding and accessing the leak (not always the repair itself). Check your policy or call your insurer. We can provide a detailed report and invoice for your claim. Even without insurance, finding and fixing a leak quickly saves you more than the detection cost in avoided water bills and damage."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does leak detection cost in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Leak detection in Sheffield costs £150-£250 for a full investigation using thermal imaging and acoustic equipment. If the leak is obvious (visible water damage, dripping pipe), we&#x27;ll find it quickly. Hidden leaks under floors or in walls take longer to trace. Once found, repairing the leak is a separate cost depending on access and pipe location."}},{"@type":"Question","name":"How long does it take to find a hidden leak?","acceptedAnswer":{"@type":"Answer","text":"Most leak detection jobs take within 2 hours. If it&#x27;s under a floor or behind tiles, we use acoustic listening devices and thermal cameras to pinpoint it without ripping everything apart. Very elusive leaks can take 3-4 hours to trace. Once we&#x27;ve found it, we&#x27;ll give you a fixed price for the repair before we start cutting into walls or floors, whether you&#x27;re in City Centre, Hillsborough, or Ecclesall."}},{"@type":"Question","name":"Can I find a leak myself?","acceptedAnswer":{"@type":"Answer","text":"You can try: turn off all taps and appliances, then check your water meter. If it&#x27;s still ticking over, you&#x27;ve got a leak. Follow damp patches, listen for hissing or trickling, and check under sinks and behind toilets. But hidden leaks in walls or underground need specialist equipment, call us if you can&#x27;t locate it."}},{"@type":"Question","name":"My water bill has doubled, could I have a leak?","acceptedAnswer":{"@type":"Answer","text":"Probably yes. A toilet that constantly runs can waste 200+ litres per day. A dripping tap wastes 15 litres. A hidden leak under a floor can waste thousands of litres before you even notice it. Check your meter reading against your bill, then call us for a leak detection survey. Finding and fixing it now will save you hundreds in wasted water charges."}},{"@type":"Question","name":"What causes leaks in older Sheffield properties?","acceptedAnswer":{"@type":"Answer","text":"Older properties in Sheffield often have copper or lead pipework that corrodes over time. Clay soil movement in areas like Hillsborough and Ecclesall can stress pipes under floors and cause splits. Limescale build-up in hard water areas weakens joints. Victorian houses with original pipework are especially prone, we see leaks in 50+ year old copper pipes almost weekly."}},{"@type":"Question","name":"Will you have to rip up my floor to find the leak?","acceptedAnswer":{"@type":"Answer","text":"Not until we&#x27;ve located it. We use thermal cameras and acoustic sensors to pinpoint the leak without lifting a single floorboard. Once we know exactly where it is, we&#x27;ll lift the smallest section of floor needed to access the pipe. We&#x27;re not in the business of unnecessary demolition, we&#x27;ll keep damage to a minimum."}},{"@type":"Question","name":"Can you detect leaks in central heating pipes?","acceptedAnswer":{"@type":"Answer","text":"Yes. Heating pipe leaks are tricky because they&#x27;re only under pressure when the heating is on. We&#x27;ll pressurise the system, then use thermal imaging to spot temperature drops where water is escaping. Most leaks are at joints under floors or behind radiators. Once found, we&#x27;ll drain down, fix the leak, and refill the system."}},{"@type":"Question","name":"Is leak detection covered by insurance?","acceptedAnswer":{"@type":"Answer","text":"Most home insurance policies include trace and access cover, which pays for finding and accessing the leak (not always the repair itself). Check your policy or call your insurer. We can provide a detailed report and invoice for your claim. Even without insurance, finding and fixing a leak quickly saves you more than the detection cost in avoided water bills and damage."}}]}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "url":"https://sheffieldplumbers.co.uk/leak-detection.html",
+  "speakable":{
+    "@type":"SpeakableSpecification",
+    "cssSelector":[".hero-sub",".faq-list"]
+  }
+}
 </script>
 <script>
 (function(){
@@ -536,6 +684,35 @@ textarea{resize:vertical;min-height:80px}
   menu.addEventListener('mouseenter',function(){clearTimeout(timer)});
   wrap.addEventListener('mouseleave',closeDD);
   document.addEventListener('click',function(e){if(!wrap.contains(e.target)){clearTimeout(timer);menu.classList.remove('show');trigger.classList.remove('open')}});
+})();
+(function(){
+  var toggle=document.getElementById('mobileNavToggle');
+  var overlay=document.getElementById('mobileNavOverlay');
+  var drawer=document.getElementById('mobileNavDrawer');
+  if(!toggle||!overlay||!drawer) return;
+  var isOpen=false;
+  function openMobileNav(){
+    isOpen=true;
+    toggle.classList.add('open');
+    overlay.classList.add('active');
+    drawer.classList.add('active');
+    document.body.style.overflow='hidden';
+    toggle.setAttribute('aria-label','Close menu');
+  }
+  function closeMobileNav(){
+    isOpen=false;
+    toggle.classList.remove('open');
+    overlay.classList.remove('active');
+    drawer.classList.remove('active');
+    document.body.style.overflow='';
+    toggle.setAttribute('aria-label','Open menu');
+  }
+  window.closeMobileNav=closeMobileNav;
+  toggle.addEventListener('click',function(){
+    if(isOpen) closeMobileNav();
+    else openMobileNav();
+  });
+  overlay.addEventListener('click',closeMobileNav);
 })();
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.addEventListener('click',function(){
