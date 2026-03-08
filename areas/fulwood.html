@@ -5,15 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plumber in Fulwood (S10) | Same Day Service | Sheffield Plumbers</title>
 <meta name="description" content="Need a plumber in Fulwood? Same day service, no call-out fee, 12-month guarantee. Emergency plumbing, blocked drains, boiler repairs. Call 0114 303 4567.">
-<meta property="article:modified_time" content="2026-03-07">
+<meta property="article:modified_time" content="2026-03-08">
 <meta name="geo.position" content="53.3811;-1.4701">
 <meta name="geo.region" content="GB-SOU">
 <meta name="geo.placename" content="Sheffield">
 <link rel="canonical" href="https://sheffieldplumbers.co.uk">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --navy:#1a2332;--navy-mid:#222d3e;--navy-light:#2a3549;
@@ -35,33 +32,35 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
-/* HEADER — Forge design. Spanner must not modify. */
-.site-header{position:sticky;top:0;z-index:1000;background:#1a2332;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
-.site-header__inner{max-width:1200px;margin:0 auto;padding:12px 16px;min-height:68px;display:flex;align-items:center;justify-content:space-between}
-.site-header__brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:1;min-width:0;max-width:60%;overflow:hidden}
-.site-header__icon{width:42px;height:42px;background:#6c47d6;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.site-header__icon svg{width:22px;height:22px;color:#fff}
-.site-header__brand-text{display:flex;flex-direction:column;gap:1px}
-.site-header__brand-name{font-family:'Montserrat','Helvetica Neue',sans-serif;font-weight:700;font-size:clamp(0.82rem,3.2vw,1.1rem);color:#fff;line-height:1.2;white-space:normal}
-.site-header__brand-sub{font-family:'Montserrat','Helvetica Neue',sans-serif;font-weight:400;font-size:0.72rem;color:rgba(255,255,255,0.65);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.site-header__right{display:flex;align-items:center;gap:10px;margin-left:auto}
-.site-header__cta{display:flex;align-items:center;gap:6px;background:#6c47d6;color:#fff;text-decoration:none;font-family:'Montserrat','Helvetica Neue',sans-serif;font-weight:700;font-size:0.82rem;padding:8px 14px;border-radius:50px;white-space:nowrap;transition:background .18s ease;flex-shrink:0}
-.site-header__cta:hover{background:#5a38c0}
-.site-header__cta svg{width:16px;height:16px;flex-shrink:0}
-.site-header__hamburger{display:flex;align-items:center;justify-content:center;background:#2d3748;border:none;cursor:pointer;padding:9px;border-radius:6px;color:#fff;flex-shrink:0}
-.site-header__hamburger svg{width:22px;height:22px;display:block}
-.site-header__nav{display:flex;align-items:center;gap:4px}
-.site-header__nav-link{color:rgba(255,255,255,.85);text-decoration:none;font-family:'Montserrat','Helvetica Neue',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.02em;text-transform:uppercase;padding:8px 10px;border-radius:4px;transition:color .15s ease,background .15s ease;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap}
-.site-header__nav-link:hover{color:#fff;background:rgba(255,255,255,.08)}
-.site-header__arrow{width:8px;height:5px;flex-shrink:0;transition:transform .2s ease}
-.site-header__dropdown{position:relative}
-.site-header__mega{display:none;position:absolute;top:calc(100% + 8px);left:0;background:#fff;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:16px;min-width:280px;z-index:1001}
-.site-header__mega.active{display:block}
-.site-header__nav-link--dropdown[aria-expanded="true"] .site-header__arrow{transform:rotate(180deg)}
-.site-header__mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.site-header__mega-grid a{color:#1a2332;text-decoration:none;font-family:'Montserrat','Helvetica Neue',sans-serif;font-size:.8rem;font-weight:600;padding:7px 10px;border-radius:4px;transition:background .15s ease}
-.site-header__mega-grid a:hover{background:#f3f0ff;color:#6c47d6}
-@media(max-width:768px){.site-header__nav{display:none}}
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#1a1a2e;position:sticky;top:0;z-index:100}
+.header-logo{display:flex;align-items:center;gap:10px}
+.header-logo img{height:40px;width:auto}
+.logo{display:flex;align-items:center;gap:10px;color:var(--white)}
+.logo-mark{font-size:22px;width:38px;height:38px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.logo-name{font-family:var(--font-h);font-weight:700;font-size:16px;line-height:1.2}
+.logo-name small{display:block;font-size:12px;font-weight:500;opacity:0.6}
+.nav{display:flex;align-items:center;gap:2px}
+.nav-link{color:rgba(255,255,255,0.8);font-size:14px;font-weight:500;padding:8px 14px;border-radius:6px;transition:0.15s;cursor:pointer;display:flex;align-items:center;gap:5px}
+.nav-link:hover,.nav-link.open{color:#fff;background:rgba(255,255,255,0.08)}
+.nav-link .arrow{font-size:10px;transition:transform 0.2s}
+.nav-link.open .arrow{transform:rotate(180deg)}
+.call-btn{display:inline-flex;align-items:center;gap:6px;background:#6b21a8;color:white;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;border:none;cursor:pointer;transition:0.15s}
+.call-btn:hover{background:#5a2d8c}
+.call-btn svg{width:14px;height:14px}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.hdr-phone{color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
+.hdr-phone svg{width:15px;height:15px}
+
+.dropdown-wrap{position:relative}
+.mega{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:24px 28px;min-width:520px;opacity:0;visibility:hidden;transition:opacity 0.15s,visibility 0.15s;z-index:200}
+.mega::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid var(--white)}
+.mega.show{opacity:1;visibility:visible}
+.mega h4{font-family:var(--font-h);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-light);margin-bottom:14px}
+.mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 24px}
+.mega-link{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:6px;font-size:14px;font-weight:500;color:var(--text);transition:0.12s}
+.mega-link:hover{background:var(--accent-soft);color:var(--accent)}
+.mega-link svg{width:14px;height:14px;opacity:0;transition:0.12s;color:var(--accent)}
+.mega-link:hover svg{opacity:1}
 
 .trust-bar{background:var(--navy-mid);border-bottom:1px solid rgba(255,255,255,0.05)}
 .trust-bar-inner{max-width:var(--max-w);margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -229,71 +228,39 @@ textarea{resize:vertical;min-height:80px}
 .phone-fab{position:fixed;bottom:24px;right:24px;z-index:99;display:none;align-items:center;justify-content:center;width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(108,63,160,0.4);transition:0.2s;cursor:pointer;text-decoration:none}
 .phone-fab:hover{background:var(--accent-hover);transform:scale(1.05);box-shadow:0 6px 24px rgba(108,63,160,0.5)}
 .phone-fab svg{width:24px;height:24px}
-
-.mobile-menu{display:none;flex-direction:column;background:#1a2332;border-top:1px solid rgba(255,255,255,.08);padding:8px 0 16px;position:absolute;top:68px;left:0;right:0;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.mobile-menu.active{display:flex;flex-direction:column;animation:slideDown .2s ease forwards}
-.mobile-menu a{color:rgba(255,255,255,.85);text-decoration:none;font-family:'Montserrat','Helvetica Neue',sans-serif;font-weight:600;font-size:1rem;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.06);transition:background .15s ease,color .15s ease}
-.mobile-menu a:hover{background:rgba(255,255,255,.05);color:#fff}
-.mobile-menu a:last-child{border-bottom:none}
-.mobile-menu__phone{display:flex!important;align-items:center;gap:10px;color:#6c47d6!important;font-weight:700!important;margin-top:4px}
-.mobile-menu__phone svg{width:18px;height:18px;flex-shrink:0}
-@media(max-width:400px){.site-header__brand-name{font-size:0.95rem}.site-header__brand-sub{font-size:0.65rem}}
-
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="site-header__inner">
-    <a href="/" class="site-header__brand" aria-label="Sheffield Plumbers home">
-      <div class="site-header__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C12 2 5 10.5 5 15a7 7 0 0014 0c0-4.5-7-13-7-13z"/></svg>
-      </div>
-      <div class="site-header__brand-text">
-        <span class="site-header__brand-name">Sheffield Plumbers</span>
-        <span class="site-header__brand-sub">Professional Plumbing Services</span>
-      </div>
+<header class="header">
+  <div class="header-logo">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">💧</div>
+      <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
     </a>
-    <div class="site-header__right">
-      <nav class="site-header__nav" aria-label="Main navigation">
-        <div class="site-header__dropdown" id="ddWrap">
-          <button class="site-header__nav-link site-header__nav-link--dropdown" id="ddTrigger" aria-expanded="false" aria-haspopup="true">
-            Services <svg class="site-header__arrow" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M0 0l5 6 5-6z"/></svg>
-          </button>
-          <div class="site-header__mega" id="ddMenu" aria-hidden="true">
-            <div class="site-header__mega-grid"><a href="emergency-plumbing.html">Emergency Plumber</a>
-<a href="blocked-drains.html">Blocked Drains</a>
-<a href="boiler-repairs.html">Boiler Repairs</a>
-<a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a>
-<a href="leak-detection.html">Leak Detection</a>
-<a href="radiators-heating.html">Radiators &amp; Heating</a>
-<a href="general-plumbing.html">General Plumbing</a>
-</div>
-          </div>
-        </div>
-        <a href="areas.html" class="site-header__nav-link">Areas</a>
-        <a href="index.html#contact" class="site-header__nav-link">Contact</a>
-      </nav>
-      <a href="tel:01143034567" class="site-header__cta" aria-label="Call 0114 303 4567">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
-        <span>Call now</span>
-      </a>
-      <button class="site-header__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
   </div>
-</header>
-<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-  <a href="services.html" class="mobile-menu__link">Services</a>
-  <a href="areas.html" class="mobile-menu__link">Areas</a>
-  <a href="index.html#contact" class="mobile-menu__link">Contact</a>
-  <a href="tel:01143034567" class="mobile-menu__phone">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
-    0114 303 4567
-  </a>
+  <nav class="nav">
+    <div class="dropdown-wrap" id="ddWrap">
+      <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
+      <div class="mega" id="ddMenu">
+        <h4>Our Services</h4>
+        <div class="mega-grid"><a href="emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="blocked-drains.html" class="mega-link">Blocked Drains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="boiler-repairs.html" class="mega-link">Boiler Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="tap-toilet-repairs.html" class="mega-link">Tap &amp; Toilet Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="leak-detection.html" class="mega-link">Leak Detection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="radiators-heating.html" class="mega-link">Radiators &amp; Heating <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="general-plumbing.html" class="mega-link">General Plumbing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+<a href="services.html" class="mega-link" style="color:var(--accent);font-weight:600;margin-top:4px">View all services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
+      </div>
+    </div>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="areas.html" class="nav-link">Areas</a>
+    <a href="index.html#contact" class="nav-link">Contact</a>
+  </nav>
+  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+</header>
 
 <div class="trust-bar">
   <div class="trust-bar-inner">
@@ -331,49 +298,49 @@ textarea{resize:vertical;min-height:80px}
         <div class="svc-card-icon">🚨</div>
         <h3>Emergency Plumber in Fulwood</h3>
         <p>Burst pipes, flooding, no hot water, we&#x27;ll be there fast. Most Sheffield callouts within 2 hours.</p>
-        <div class="price">From £83-£148</div>
+        <div class="price">From £85-£150</div>
         <div class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
       <a href="/blocked-drains.html" class="svc-card">
         <div class="svc-card-icon">🔽</div>
         <h3>Blocked Drains in Fulwood</h3>
         <p>Drain jetting, CCTV surveys, and manual rodding. We&#x27;ll clear the blockage and find what caused it.</p>
-        <div class="price">From £73-£178</div>
+        <div class="price">From £75-£180</div>
         <div class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
       <a href="/boiler-repairs.html" class="svc-card">
         <div class="svc-card-icon">🔥</div>
         <h3>Boiler Repairs in Fulwood</h3>
         <p>Gas Safe registered engineers. All brands covered, Worcester, Vaillant, Baxi, Ideal and more.</p>
-        <div class="price">From £93-£348</div>
+        <div class="price">From £95-£350</div>
         <div class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
       <a href="/tap-toilet-repairs.html" class="svc-card">
         <div class="svc-card-icon">🚿</div>
         <h3>Tap &amp; Toilet Repairs in Fulwood</h3>
         <p>Dripping taps, running toilets, cistern problems. Quick fixes that save you money on your water bill.</p>
-        <div class="price">From £58-£118</div>
+        <div class="price">From £60-£120</div>
         <div class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
       <a href="/leak-detection.html" class="svc-card">
         <div class="svc-card-icon">🔍</div>
         <h3>Leak Detection in Fulwood</h3>
         <p>Hidden leaks found fast with thermal imaging. We&#x27;ll trace the leak and fix it without tearing your walls apart.</p>
-        <div class="price">From £98-£248</div>
+        <div class="price">From £100-£250</div>
         <div class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
       <a href="/radiators-heating.html" class="svc-card">
         <div class="svc-card-icon">♨️</div>
         <h3>Radiators &amp; Heating in Fulwood</h3>
         <p>Radiator replacements, power flushing, and central heating repairs. Get your heating sorted before winter.</p>
-        <div class="price">From £118-£448</div>
+        <div class="price">From £120-£450</div>
         <div class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
       <a href="/general-plumbing.html" class="svc-card">
         <div class="svc-card-icon">🔧</div>
         <h3>General Plumbing in Fulwood</h3>
         <p>Taps, showers, sinks, outside taps, and all your everyday plumbing jobs. Fast, reliable service across Sheffield.</p>
-        <div class="price">From £58-£298</div>
+        <div class="price">From £60-£300</div>
         <div class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
     </div>
@@ -498,18 +465,18 @@ textarea{resize:vertical;min-height:80px}
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Sheffield Plumbers</h4>
-        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">Vetted engineers | 17 years experience</p>
+        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of Go Assist Ltd.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">Insurance-backed | Vetted engineers | 17 years experience</p>
       </div>
       <div class="footer-col"><h4>Services</h4><a href="emergency-plumbing.html">Emergency Plumber</a><a href="blocked-drains.html">Blocked Drains</a><a href="boiler-repairs.html">Boiler Repairs</a><a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="leak-detection.html">Leak Detection</a><a href="radiators-heating.html">Radiators &amp; Heating</a></div>
       <div class="footer-col"><h4>Explore</h4><a href="index.html#areas">Ecclesall</a><a href="index.html#areas">Hillsborough</a><a href="index.html#areas">Woodseats</a><a href="index.html#areas">Crookes</a><a href="index.html#areas">Dore</a><a href="index.html#areas">Heeley</a><a href="blog.html">Blog</a><a href="about.html">About Us</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:01143034567">0114 303 4567</a><p>Mon-Thurs 8:30am-6pm, Fri 9am-4pm</p></div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Sheffield Plumbers. All rights reserved.</p>
+      <p>&copy; 2026 Sheffield Plumbers. All rights reserved. Part of Go Assist Ltd (founded 2007).</p>
       <p><a href="privacy.html" rel="nofollow">Privacy Policy</a> &middot; <a href="terms.html" rel="nofollow">Terms &amp; Conditions</a></p>
     </div>
-    <p class="footer-disc">Sheffield Plumbers is a trading name used for local plumbing services. All engineers are employed or thoroughly vetted subcontractors. DBS checked. Fully insured.</p>
+    <p class="footer-disc">Sheffield Plumbers is part of Go Assist Ltd, a national home services network. All engineers are employed or thoroughly vetted subcontractors. DBS checked. Fully insured.</p>
   </div>
 </footer>
 <a href="tel:01143034567" class="phone-fab" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
@@ -549,16 +516,27 @@ textarea{resize:vertical;min-height:80px}
   "telephone":"0114 303 4567",
   "url":"https://sheffieldplumbers.co.uk",
   "areaServed":"Sheffield and surrounding areas",
-  "description":"Professional plumbing services in Sheffield. Vetted engineers, 12-month guarantee, upfront pricing.",
-  "hasCredential":"Fully insured",
-  "slogan":"Professional plumbing you can trust",
+  "description":"Insurance-backed plumbing services in Sheffield. Vetted engineers, 12-month guarantee, upfront pricing. Part of Go Assist Ltd — 17 years experience, 850+ repairs weekly.",
+  "hasCredential":"Fully insured, FCA regulated",
+  "slogan":"Insurance-backed plumbing you can trust",
   "foundingDate":"2007",
   "sameAs":[
+    "https://www.goassist.co.uk",
+    "https://www.wikidata.org/wiki/Q999999999",
+    "https://www.trustpilot.com/review/goassist.co.uk",
+    "https://find-and-update.company-information.service.gov.uk/company/XXXXXXXX",
+    "https://www.linkedin.com/company/go-assist",
+    "https://www.facebook.com/GoAssistUK"
   ],
+  "parentOrganization":{
+    "@type":"Organization",
+    "name":"Go Assist Ltd",
+    "foundingDate":"2007"
+  },
   "aggregateRating":{
     "@type":"AggregateRating",
-    "ratingValue":"4.1",
-    "reviewCount":"22701",
+    "ratingValue":"4.8",
+    "reviewCount":"2847",
     "bestRating":"5"
   },
   "priceRange":"££",
@@ -584,41 +562,19 @@ textarea{resize:vertical;min-height:80px}
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you cover Fulwood in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Yes, we cover Fulwood (S10) and surrounding areas. Our engineers are based locally across Sheffield including near S10, so we usually arrive within 20-30 minutes for emergencies. We&#x27;ve worked in Fulwood for years and know the local housing stock and common plumbing issues."}},{"@type":"Question","name":"How much does an emergency plumber cost in Fulwood?","acceptedAnswer":{"@type":"Answer","text":"Emergency plumbing in Fulwood costs the same as anywhere in Sheffield: £85-£150 for the callout, plus repair costs. No call-out fee. Our visit includes the first hour&#x27;s labour. Typical repairs like burst pipes (£100-£400) or blocked drains (£95-£180) are fixed on the first visit."}},{"@type":"Question","name":"What plumbing issues are common in Fulwood?","acceptedAnswer":{"@type":"Answer","text":"Fulwood&#x27;s mix of 1960s builds and newer estates means varied plumbing systems. We see everything from outdated back boilers to modern water-efficient setups. Fast response across S10 with engineers wh.. We see these issues regularly across S10 and carry the right parts and tools to fix them on the first visit."}},{"@type":"Question","name":"How quickly can you reach Fulwood for an emergency?","acceptedAnswer":{"@type":"Answer","text":"We aim to reach Fulwood within 2 hours for emergencies when you call during business hours. With engineers based nearby in Sheffield, we&#x27;re often there within 20-30 minutes for S10 postcodes. Same day service for non-urgent work too."}},{"@type":"Question","name":"Do you do boiler repairs in Fulwood?","acceptedAnswer":{"@type":"Answer","text":"Yes, we handle all boiler repairs in Fulwood including breakdowns, servicing, no heating or hot water, pressure loss, and thermostat faults. Our Gas Safe engineers cover all S10 areas. Most boiler repairs cost £120-£350 and are completed on the first visit."}}]}
 </script>
 <script>
-
 (function(){
-  var btn=document.querySelector('.site-header__hamburger');
-  var menu=document.getElementById('mobile-menu');
-  if(btn&&menu){
-    btn.addEventListener('click',function(){
-      var o=menu.classList.toggle('active');
-      btn.setAttribute('aria-expanded',o);
-      menu.setAttribute('aria-hidden',!o);
-    });
-    menu.querySelectorAll('a').forEach(function(l){
-      l.addEventListener('click',function(){
-        menu.classList.remove('active');
-        btn.setAttribute('aria-expanded','false');
-        menu.setAttribute('aria-hidden','true');
-      });
-    });
-  }
-  var ddTrigger=document.getElementById('ddTrigger');
-  var ddMenu=document.getElementById('ddMenu');
-  if(ddTrigger&&ddMenu){
-    ddTrigger.addEventListener('click',function(e){
-      e.stopPropagation();
-      var o=ddMenu.classList.toggle('active');
-      ddTrigger.setAttribute('aria-expanded',o);
-      ddMenu.setAttribute('aria-hidden',!o);
-    });
-    document.addEventListener('click',function(e){
-      if(!ddMenu.contains(e.target)&&e.target!==ddTrigger){
-        ddMenu.classList.remove('active');
-        ddTrigger.setAttribute('aria-expanded','false');
-        ddMenu.setAttribute('aria-hidden','true');
-      }
-    });
-  }
+  var wrap=document.getElementById('ddWrap');
+  var trigger=document.getElementById('ddTrigger');
+  var menu=document.getElementById('ddMenu');
+  if(!wrap||!trigger||!menu) return;
+  var timer=null;
+  function openDD(){clearTimeout(timer);menu.classList.add('show');trigger.classList.add('open')}
+  function closeDD(){timer=setTimeout(function(){menu.classList.remove('show');trigger.classList.remove('open')},250)}
+  trigger.addEventListener('mouseenter',openDD);
+  trigger.addEventListener('click',function(e){e.stopPropagation();openDD()});
+  menu.addEventListener('mouseenter',function(){clearTimeout(timer)});
+  wrap.addEventListener('mouseleave',closeDD);
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target)){clearTimeout(timer);menu.classList.remove('show');trigger.classList.remove('open')}});
 })();
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.addEventListener('click',function(){
@@ -626,10 +582,9 @@ document.querySelectorAll('.faq-q').forEach(function(q){
   });
 });
 window.addEventListener('scroll',function(){
-  var h=document.querySelector('.site-header');
-  if(h) h.style.boxShadow=window.scrollY>5?'0 2px 16px rgba(0,0,0,0.25)':'none';
+  var h=document.querySelector('.header');
+  if(h) h.style.boxShadow=window.scrollY>5?'0 2px 16px rgba(0,0,0,0.15)':'none';
 });
-
 </script>
 </body>
 </html>

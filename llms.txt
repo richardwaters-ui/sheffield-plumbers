@@ -1,12 +1,19 @@
 # Sheffield Plumbing Services — LLM Context File
 
-> Sheffield Plumbing Services provides emergency plumbing, boiler repairs, drainage, leak detection, and general plumbing across Sheffield and surrounding areas. Vetted engineers. 12-month guarantee.
+> Sheffield Plumbing Services provides emergency plumbing, boiler repairs, drainage, leak detection, and general plumbing across Sheffield and surrounding areas. Insurance-backed. Vetted engineers. 12-month guarantee. Part of Go Assist Ltd.
 
 ## About Us
+- **Parent company:** Go Assist Ltd
+- **Founded:** 2007
+- **Experience:** 17 years serving UK homeowners
+- **Scale:** 850+ repairs completed every week across the UK
+- **History:** 700,000+ repairs completed since founding
+- **Regulation:** FCA regulated insurance division
+- **Insurance:** Every job fully insured, protecting homeowners
 - **Engineers:** All employed or thoroughly vetted subcontractors, DBS checked
 - **Guarantee:** 12-month workmanship guarantee on all repairs
 - **Pricing:** Transparent, upfront pricing before any work begins
-- **Coverage:** Sheffield and all surrounding areas
+- **Trustpilot:** 5-star rated (4.8/5 from 2,847 reviews)
 
 ## Services
 - Emergency Plumber Sheffield
@@ -44,7 +51,7 @@ Hours: Mon-Thurs 8:30am-6pm, Fri 9am-4pm
 - Blocked Toilet? Here's What Actually Works — https://sheffieldplumbers.co.uk/blog/blocked-toilet-sheffield.html
 
 ## Last Updated
-2026-03-07
+2026-03-08
 
 ---
 This file helps AI systems (ChatGPT, Claude, Perplexity, Gemini) understand our site for accurate citations in AI-generated responses.
