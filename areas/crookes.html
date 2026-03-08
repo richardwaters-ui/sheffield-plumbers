@@ -32,35 +32,30 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
-.header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#1a1a2e;position:sticky;top:0;z-index:100}
-.header-logo{display:flex;align-items:center;gap:10px}
-.header-logo img{height:40px;width:auto}
-.logo{display:flex;align-items:center;gap:10px;color:var(--white)}
-.logo-mark{font-size:22px;width:38px;height:38px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.logo-name{font-family:var(--font-h);font-weight:700;font-size:16px;line-height:1.2}
-.logo-name small{display:block;font-size:12px;font-weight:500;opacity:0.6}
-.nav{display:flex;align-items:center;gap:2px}
-.nav-link{color:rgba(255,255,255,0.8);font-size:14px;font-weight:500;padding:8px 14px;border-radius:6px;transition:0.15s;cursor:pointer;display:flex;align-items:center;gap:5px}
-.nav-link:hover,.nav-link.open{color:#fff;background:rgba(255,255,255,0.08)}
-.nav-link .arrow{font-size:10px;transition:transform 0.2s}
-.nav-link.open .arrow{transform:rotate(180deg)}
-.call-btn{display:inline-flex;align-items:center;gap:6px;background:#6b21a8;color:white;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;border:none;cursor:pointer;transition:0.15s}
-.call-btn:hover{background:#5a2d8c}
-.call-btn svg{width:14px;height:14px}
-.hdr-right{display:flex;align-items:center;gap:14px}
-.hdr-phone{color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
-.hdr-phone svg{width:15px;height:15px}
-
-.dropdown-wrap{position:relative}
-.mega{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:24px 28px;min-width:520px;opacity:0;visibility:hidden;transition:opacity 0.15s,visibility 0.15s;z-index:200}
-.mega::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid var(--white)}
-.mega.show{opacity:1;visibility:visible}
-.mega h4{font-family:var(--font-h);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-light);margin-bottom:14px}
-.mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 24px}
-.mega-link{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:6px;font-size:14px;font-weight:500;color:var(--text);transition:0.12s}
-.mega-link:hover{background:var(--accent-soft);color:var(--accent)}
-.mega-link svg{width:14px;height:14px;opacity:0;transition:0.12s;color:var(--accent)}
-.mega-link:hover svg{opacity:1}
+.site-header{background:#1a1a2e;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.3)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0}
+.brand-icon{background:#7c3aed;border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-text{display:flex;flex-direction:column}
+.brand-name{color:#fff;font-weight:700;font-size:clamp(0.82rem, 3.2vw, 1.1rem);white-space:normal;line-height:1.2;max-width:60%}
+.brand-sub{color:rgba(255,255,255,0.6);font-size:0.72rem}
+.main-nav{display:flex;align-items:center;gap:2rem}
+.nav-links{display:flex;align-items:center;gap:1.75rem}
+.nav-link{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.9rem;font-weight:500;white-space:nowrap;transition:color 0.2s}
+.nav-link:hover{color:#fff}
+.nav-item{position:relative}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:#fff;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,0.15);padding:1rem;min-width:280px;grid-template-columns:1fr 1fr;gap:0.5rem;z-index:200}
+.nav-item:hover .dropdown-menu{display:grid}
+.dropdown-menu a{color:#1a1a2e;text-decoration:none;font-size:0.875rem;padding:0.5rem 0.75rem;border-radius:4px;font-weight:500}
+.dropdown-menu a:hover{background:#f5f3ff;color:#7c3aed}
+.dropdown-see-all{grid-column:1 / -1;color:#7c3aed !important;font-weight:600 !important;border-top:1px solid #eee;margin-top:0.5rem;padding-top:0.75rem !important}
+.header-right{display:flex;align-items:center;gap:0.75rem}
+.header-phone{color:#fff;font-weight:700;font-size:1rem;white-space:nowrap}
+.btn-call{background:#7c3aed;color:#fff;border:none;border-radius:6px;padding:0.5rem 1rem;font-size:0.875rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:0.4rem;text-decoration:none;white-space:nowrap}
+.btn-call:hover{background:#6d28d9}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:1px solid rgba(255,255,255,0.3);border-radius:4px;padding:0.4rem;cursor:pointer}
+.menu-toggle span{display:block;width:20px;height:2px;background:#fff}
+@media (max-width:767px){.nav-links{display:none}.header-phone{display:none}.menu-toggle{display:flex}.btn-call span{display:none}}
 
 .trust-bar{background:var(--navy-mid);border-bottom:1px solid rgba(255,255,255,0.05)}
 .trust-bar-inner{max-width:var(--max-w);margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -232,34 +227,47 @@ textarea{resize:vertical;min-height:80px}
 </head>
 <body>
 
-<header class="header">
-  <div class="header-logo">
-    <a href="index.html" class="logo">
-      <div class="logo-mark">💧</div>
-      <div class="logo-name">Sheffield Plumbers<small>Professional Plumbing Services</small></div>
-    </a>
-  </div>
-  <nav class="nav">
-    <div class="dropdown-wrap" id="ddWrap">
-      <div class="nav-link" id="ddTrigger">Services <span class="arrow">▾</span></div>
-      <div class="mega" id="ddMenu">
-        <h4>Our Services</h4>
-        <div class="mega-grid"><a href="emergency-plumbing.html" class="mega-link">Emergency Plumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
-<a href="blocked-drains.html" class="mega-link">Blocked Drains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
-<a href="boiler-repairs.html" class="mega-link">Boiler Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
-<a href="tap-toilet-repairs.html" class="mega-link">Tap &amp; Toilet Repairs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
-<a href="leak-detection.html" class="mega-link">Leak Detection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
-<a href="radiators-heating.html" class="mega-link">Radiators &amp; Heating <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
-<a href="general-plumbing.html" class="mega-link">General Plumbing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
-<a href="services.html" class="mega-link" style="color:var(--accent);font-weight:600;margin-top:4px">View all services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-</div>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.5 7 5 10.5 5 14a7 7 0 0 0 14 0c0-3.5-3.5-7-7-12z"/></svg>
       </div>
-    </div>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="areas.html" class="nav-link">Areas</a>
-    <a href="index.html#contact" class="nav-link">Contact</a>
-  </nav>
-  <a href="tel:01143034567" class="call-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call now</a>
+      <div class="brand-text">
+        <span class="brand-name">Sheffield Plumbers</span>
+        <span class="brand-sub">Professional Plumbing Services</span>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <div class="nav-links">
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Services <span class="dropdown-arrow">▾</span></a>
+          <div class="dropdown-menu site-header__dropdown">
+            <a href="emergency-plumbing.html">Emergency Plumber</a>
+<a href="blocked-drains.html">Blocked Drains</a>
+<a href="boiler-repairs.html">Boiler Repairs</a>
+<a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a>
+<a href="leak-detection.html">Leak Detection</a>
+<a href="radiators-heating.html">Radiators &amp; Heating</a>
+<a href="general-plumbing.html">General Plumbing</a>
+<a href="services.html" class="dropdown-see-all">See all services →</a>
+          </div>
+        </div>
+        <a href="areas.html" class="nav-link">Areas</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="header-right">
+        <span class="header-phone site-header__phone">0114 303 4567</span>
+        <a href="tel:01143034567" class="btn-call site-header__cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.38A2 2 0 0 1 3.54 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 5.59 5.59l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call now
+        </a>
+        <button class="menu-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <div class="trust-bar">
@@ -375,7 +383,7 @@ textarea{resize:vertical;min-height:80px}
       </div>
       <div class="faq-item">
         <div class="faq-q">What plumbing issues are common in Crookes?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-        <div class="faq-a"><div class="faq-a-inner">Crookes has some of Sheffield&#x27;s oldest housing stock, with stone-built terraces dating back to the 1800s. Lead pipes, shallow foundations causing pipe movement, and shared drainage systems are common .. We see these issues regularly across S10 and carry the right parts and tools to fix them on the first visit.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Crookes has some of Sheffield&#x27;s oldest housing stock, with stone-built terraces dating back to the 1800s. Lead pipes, shallow foundations causing pipe movement, and shared drainage systems are common. We see these issues regularly across S10 and carry the right parts and tools to fix them on the first visit.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How quickly can you reach Crookes for an emergency?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
@@ -465,18 +473,18 @@ textarea{resize:vertical;min-height:80px}
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Sheffield Plumbers</h4>
-        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work. Part of Go Assist Ltd.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">Insurance-backed | Vetted engineers | 17 years experience</p>
+        <p>Local plumbers covering all Sheffield areas. Same day service, no call-out fee, 12-month guarantee on all work.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px">Fully insured | Vetted engineers | Serving Sheffield</p>
       </div>
       <div class="footer-col"><h4>Services</h4><a href="emergency-plumbing.html">Emergency Plumber</a><a href="blocked-drains.html">Blocked Drains</a><a href="boiler-repairs.html">Boiler Repairs</a><a href="tap-toilet-repairs.html">Tap &amp; Toilet Repairs</a><a href="leak-detection.html">Leak Detection</a><a href="radiators-heating.html">Radiators &amp; Heating</a></div>
       <div class="footer-col"><h4>Explore</h4><a href="index.html#areas">Ecclesall</a><a href="index.html#areas">Hillsborough</a><a href="index.html#areas">Woodseats</a><a href="index.html#areas">Crookes</a><a href="index.html#areas">Dore</a><a href="index.html#areas">Heeley</a><a href="blog.html">Blog</a><a href="about.html">About Us</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:01143034567">0114 303 4567</a><p>Mon-Thurs 8:30am-6pm, Fri 9am-4pm</p></div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Sheffield Plumbers. All rights reserved. Part of Go Assist Ltd (founded 2007).</p>
+      <p>&copy; 2026 Sheffield Plumbers. All rights reserved.</p>
       <p><a href="privacy.html" rel="nofollow">Privacy Policy</a> &middot; <a href="terms.html" rel="nofollow">Terms &amp; Conditions</a></p>
     </div>
-    <p class="footer-disc">Sheffield Plumbers is part of Go Assist Ltd, a national home services network. All engineers are employed or thoroughly vetted subcontractors. DBS checked. Fully insured.</p>
+    <p class="footer-disc">All engineers are employed or thoroughly vetted subcontractors. DBS checked. Fully insured.</p>
   </div>
 </footer>
 <a href="tel:01143034567" class="phone-fab" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
@@ -516,9 +524,9 @@ textarea{resize:vertical;min-height:80px}
   "telephone":"0114 303 4567",
   "url":"https://sheffieldplumbers.co.uk",
   "areaServed":"Sheffield and surrounding areas",
-  "description":"Insurance-backed plumbing services in Sheffield. Vetted engineers, 12-month guarantee, upfront pricing. Part of Go Assist Ltd — 17 years experience, 850+ repairs weekly.",
-  "hasCredential":"Fully insured, FCA regulated",
-  "slogan":"Insurance-backed plumbing you can trust",
+  "description":"Professional plumbing services in Sheffield. Vetted engineers, 12-month guarantee, upfront pricing. 850+ repairs completed weekly.",
+  "hasCredential":"Fully insured",
+  "slogan":"Professional plumbing you can trust",
   "foundingDate":"2007",
   "sameAs":[
     "https://www.goassist.co.uk",
@@ -528,11 +536,6 @@ textarea{resize:vertical;min-height:80px}
     "https://www.linkedin.com/company/go-assist",
     "https://www.facebook.com/GoAssistUK"
   ],
-  "parentOrganization":{
-    "@type":"Organization",
-    "name":"Go Assist Ltd",
-    "foundingDate":"2007"
-  },
   "aggregateRating":{
     "@type":"AggregateRating",
     "ratingValue":"4.8",
@@ -559,7 +562,7 @@ textarea{resize:vertical;min-height:80px}
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you cover Crookes in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Yes, we cover Crookes (S10) and surrounding areas. Our engineers are based locally across Sheffield including near S10, so we usually arrive within 20-30 minutes for emergencies. We&#x27;ve worked in Crookes for years and know the local housing stock and common plumbing issues."}},{"@type":"Question","name":"How much does an emergency plumber cost in Crookes?","acceptedAnswer":{"@type":"Answer","text":"Emergency plumbing in Crookes costs the same as anywhere in Sheffield: £85-£150 for the callout, plus repair costs. No call-out fee. Our visit includes the first hour&#x27;s labour. Typical repairs like burst pipes (£100-£400) or blocked drains (£95-£180) are fixed on the first visit."}},{"@type":"Question","name":"What plumbing issues are common in Crookes?","acceptedAnswer":{"@type":"Answer","text":"Crookes has some of Sheffield&#x27;s oldest housing stock, with stone-built terraces dating back to the 1800s. Lead pipes, shallow foundations causing pipe movement, and shared drainage systems are common .. We see these issues regularly across S10 and carry the right parts and tools to fix them on the first visit."}},{"@type":"Question","name":"How quickly can you reach Crookes for an emergency?","acceptedAnswer":{"@type":"Answer","text":"We aim to reach Crookes within 2 hours for emergencies when you call during business hours. With engineers based nearby in Sheffield, we&#x27;re often there within 20-30 minutes for S10 postcodes. Same day service for non-urgent work too."}},{"@type":"Question","name":"Do you do boiler repairs in Crookes?","acceptedAnswer":{"@type":"Answer","text":"Yes, we handle all boiler repairs in Crookes including breakdowns, servicing, no heating or hot water, pressure loss, and thermostat faults. Our Gas Safe engineers cover all S10 areas. Most boiler repairs cost £120-£350 and are completed on the first visit."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you cover Crookes in Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Yes, we cover Crookes (S10) and surrounding areas. Our engineers are based locally across Sheffield including near S10, so we usually arrive within 20-30 minutes for emergencies. We&#x27;ve worked in Crookes for years and know the local housing stock and common plumbing issues."}},{"@type":"Question","name":"How much does an emergency plumber cost in Crookes?","acceptedAnswer":{"@type":"Answer","text":"Emergency plumbing in Crookes costs the same as anywhere in Sheffield: £85-£150 for the callout, plus repair costs. No call-out fee. Our visit includes the first hour&#x27;s labour. Typical repairs like burst pipes (£100-£400) or blocked drains (£95-£180) are fixed on the first visit."}},{"@type":"Question","name":"What plumbing issues are common in Crookes?","acceptedAnswer":{"@type":"Answer","text":"Crookes has some of Sheffield&#x27;s oldest housing stock, with stone-built terraces dating back to the 1800s. Lead pipes, shallow foundations causing pipe movement, and shared drainage systems are common. We see these issues regularly across S10 and carry the right parts and tools to fix them on the first visit."}},{"@type":"Question","name":"How quickly can you reach Crookes for an emergency?","acceptedAnswer":{"@type":"Answer","text":"We aim to reach Crookes within 2 hours for emergencies when you call during business hours. With engineers based nearby in Sheffield, we&#x27;re often there within 20-30 minutes for S10 postcodes. Same day service for non-urgent work too."}},{"@type":"Question","name":"Do you do boiler repairs in Crookes?","acceptedAnswer":{"@type":"Answer","text":"Yes, we handle all boiler repairs in Crookes including breakdowns, servicing, no heating or hot water, pressure loss, and thermostat faults. Our Gas Safe engineers cover all S10 areas. Most boiler repairs cost £120-£350 and are completed on the first visit."}}]}
 </script>
 <script>
 (function(){
@@ -582,8 +585,8 @@ document.querySelectorAll('.faq-q').forEach(function(q){
   });
 });
 window.addEventListener('scroll',function(){
-  var h=document.querySelector('.header');
-  if(h) h.style.boxShadow=window.scrollY>5?'0 2px 16px rgba(0,0,0,0.15)':'none';
+  var h=document.querySelector('.site-header');
+  if(h) h.style.boxShadow=window.scrollY>5?'0 2px 16px rgba(0,0,0,0.15)':'0 2px 10px rgba(0,0,0,0.3)';
 });
 </script>
 </body>
